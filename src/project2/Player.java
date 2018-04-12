@@ -10,6 +10,7 @@ package project2;
  * @author Joe
  */
 public class Player {
+    //Declaring Private Variables
     private String firstName;
     private String lastName;
     private String raceType;
@@ -21,6 +22,7 @@ public class Player {
     private int wis;
     private int cha;
     
+    //Player Constructor
     public Player(String firstName, String lastName, String raceType, String classType){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,6 +30,7 @@ public class Player {
         this.classType = classType;
     }
     
+    //Setter Functions
     public void setFirstName(String firstName){
         this.firstName = firstName;
     }
@@ -64,6 +67,7 @@ public class Player {
         this.cha = cha;
     }
     
+    //Getter Functions
     public String getFirstName(){
         return firstName;
     }
