@@ -5,8 +5,9 @@
  */
 package project2;
 
+import java.util.Random;
+
 /**
- *
  * @author Joe
  */
 public class Player {
@@ -15,19 +16,13 @@ public class Player {
     private String lastName;
     private String raceType;
     private String classType;
-    private int str;
-    private int dex;
-    private int con;
-    private int intel;
-    private int wis;
-    private int cha;
+    private int playerLvl = 1;
+    private int playerExp = 0;
     
     //Player Constructor
-    public Player(String firstName, String lastName, String raceType, String classType){
+    public Player(String firstName, String lastName){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.raceType = raceType;
-        this.classType = classType;
     }
     
     //Setter Functions
@@ -43,64 +38,96 @@ public class Player {
         this.raceType = raceType;
     }
     
-    public void setStr(int str){
-        this.str = str;
+    public void setClassType(String classType){
+        this.classType = classType;
     }
     
-    public void setDex(int dex){
-        this.dex = dex;
+    public void setPlayerLvl(int playerLvl){
+        this.playerLvl = playerLvl;
     }
     
-    public void setCon(int con){
-        this.con = con;
-    }
-    
-    public void setIntel(int intel){
-        this.intel = intel;
-    }
-    
-    public void setWis(int wis){
-        this.wis = wis;
-    }
-    
-    public void setCha(int cha){
-        this.cha = cha;
+    public void setPlayerExp(int playerExp){
+        this.playerExp = playerExp;
     }
     
     //Getter Functions
     public String getFirstName(){
-        return firstName;
+        return this.firstName;
     }
     
     public String getLastName(){
-        return lastName;
+        return this.lastName;
     }
     
     public String getRaceType(){
-        return raceType;
+        return this.raceType;
     }
     
-    public int getStr(){
-        return str;
+    public String getClassType(){
+        return this.classType;
     }
     
-    public int getDex(){
-        return dex;
+    public int getPlayerLvl(){
+        return this.playerLvl;
     }
     
-    public int getCon(){
-        return con;
+    public int getPlayerExp(){
+        return this.playerExp;
+    }
+   
+    public int rollD4(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(4) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
     }
     
-    public int getIntel(){
-        return intel;
+    public int rollD6(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(6) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
     }
     
-    public int getWis(){
-        return wis;
+    public int rollD8(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(8) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
     }
     
-    public int getCha(){
-        return cha;
+    public int rollD10(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(10) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
+    }
+    
+    public int rollD12(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(12) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
+    }
+    
+    public int rollD100(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(100) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
+    }
+    
+    public int rollD20(){
+        //Random number generator
+        Random rand = new Random();
+        int roll = rand.nextInt(20) + 1;
+        System.out.println("You rolled a " + roll + "!");
+        return roll;
     }
 }

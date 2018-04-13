@@ -29,23 +29,19 @@ public class Project2 {
         System.out.println("Enter your characeter's last name: ");
         String lastName = input.nextLine();
         
-        //Asking the user for characters race
-        System.out.println("Enter your characeter's race: ");
-        String raceType = input.nextLine();
-        
-        //asking the user for characters class
-        System.out.println("Enter your characeter's class: ");
-        String classType = input.nextLine();
-        
         //creating the players character object
-        PlayerStats p1 = new PlayerStats(firstName, lastName, raceType, classType);
+        PlayerClass p1 = new PlayerClass(firstName, lastName);
+        
+        //calls function to select a race
+        p1.selectPlayerRace();
+        
+        //calls function to select a class
+        p1.selectClassType();
         
         //calls the function to allocate ability points for the character
         p1.allocateAbilityPoints();
         
-        
-        
-        
+        p1.hud();
     }
     
 }

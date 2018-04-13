@@ -9,7 +9,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
  * @author Joe
  */
 public class PlayerStats extends Player{
@@ -17,22 +16,110 @@ public class PlayerStats extends Player{
     Scanner input = new Scanner(System.in);
     
     //Declaring variables and array to hold the stats of the character
-    private int stats[] = {10,10,10,10,10,10}; // {str[0], dex[1], con[2], intel[3], wis[4], cha[5]}
+    private int stats[] = {10,10,10,10,10,10}; // {str = [0], dex = [1], con = [2], intel = [3], wis = [4], cha = [5]}
+    private int statMods[] = {0,0,0,0,0,0,0}; // {strMod = [0], dexMod = [1], conMod = [2], intelMod = [3], wisMod = [4], chaMod = [5]}
+    private int saves[] = {0,0,0}; // fortitude = [0], reflex = [1], will = [2];
+    private int baseAtkBonus = 0;
+    private int hitPoints = 0;
+    private int maxHitPoints = 0;
+    private int initiative = 0;
+    private int armorClass = 0;
     private int statCount = 32;
     private boolean finish = false;
     private int statChoice = 0;
     private int statIncDec = 0;
     private int statMulti = 0;
     private boolean test = false;
+    private int choice;
     
     //PlayerStats Constructor
-    public PlayerStats(String firstName, String lastName, String raceType, String classType) {
-        super(firstName, lastName, raceType, classType);
+    public PlayerStats(String firstName, String lastName) {
+        super(firstName, lastName);
     }
     
     //setter functions
     public void setStat(int i, int statNumber){
         stats[i] = statNumber;
+    }
+    
+    public void setStrMod(int str){
+        this.statMods[0] = str;
+    }
+    
+    public void setDexMod(int dex){
+        this.statMods[1] = dex;
+    }
+    
+    public void setConMod(int con){
+        this.statMods[2] = con;
+    }
+    
+    public void setIntMod(int intel){
+        this.statMods[3] = intel;
+    }
+    
+    public void setWisMod(int wis){
+        this.statMods[4] = wis;
+    }
+    
+    public void setChaMod(int cha){
+        this.statMods[5] = cha;
+    }
+    
+    public void setFortSave(int fort){
+        this.saves[0] = fort;
+    }
+    
+    public void setReflexSave(int reflex){
+        this.saves[1] = reflex;
+    }
+    
+    public void setWillSave(int will){
+        this.saves[2] = will;
+    }
+    
+    public void setHitPoints(int hitPoints){
+        this.hitPoints = hitPoints;
+    }
+    
+    public void setMaxHitPoints(int maxHitPoints){
+        this.maxHitPoints = maxHitPoints;
+    }
+    
+    public void setInitiative(int initiative){
+        this.initiative = initiative;
+    }
+    
+    public void setArmorClass(int armorClass){
+        this.armorClass = armorClass;
+    }
+    
+    public void setBaseAtkBonus(int baseAtkBonus){
+        this.baseAtkBonus = baseAtkBonus;
+    }
+    
+    //Function that assigns stat Modifiers
+    public void setStatMod(){
+        for(int i = 0; i < 6; i++){
+            if(stats[i] == 10 || stats[i] == 11){
+                statMods[i] = 0;
+            }
+            else if(stats[i] == 12 || stats[i] == 13){
+                statMods[i] = 1;
+            }
+            else if(stats[i] == 14 || stats[i] == 15){
+                statMods[i] = 2;
+            }
+            else if(stats[i] == 16 || stats[i] == 17){
+                statMods[i] = 3;
+            }
+            else if(stats[i] == 18 || stats[i] == 19){
+                statMods[i] = 4;
+            }
+            else{
+                statMods[i] = 5;
+            }
+        }
     }
     
     //getter functions
@@ -44,34 +131,120 @@ public class PlayerStats extends Player{
         return statCount;
     }
     
+    public int getStatMod(int i){
+        return statMods[i];
+    }
+    
+    public int getStrMod(){
+        return statMods[0];
+    }
+    
+    public int getDexMod(){
+        return statMods[1];
+    }
+    
+    public int getConMod(){
+        return statMods[2];
+    }
+    
+    public int getIntMod(){
+        return statMods[3];
+    }
+    
+    public int getWisMod(){
+        return statMods[4];
+    }
+    
+    public int getChaMod(){
+        return statMods[5];
+    }
+    
+    public int getFortSave(){
+        return saves[0];
+    }
+    
+    public int getReflexSave(){
+        return saves[1];
+    }
+    
+    public int getWillSave(){
+        return saves[2];
+    }
+    
+    public int getHitPoints(){
+        return this.hitPoints;
+    }
+    
+    public int getMaxHitPoints(){
+        return this.maxHitPoints;
+    }
+    
+    public int getInitiative(){
+        return this.initiative;
+    }
+    
+    public int getArmorClass(){
+        return this.armorClass;
+    }
+    
+    public int getBaseAtkBonus(){
+        return this.baseAtkBonus;
+    }
+  
     //Function that increases selected stat
     public void increaseStat(int i){
         int temp;
         
         if(stats[i] == 10 || stats[i] == 11 || stats[i] == 12 || stats[i] == 13){
-            temp = getStat(i)+1;
-            setStat(i, temp);
-            statCount--;
+           if(statCount > 0){ 
+                temp = getStat(i)+1;
+                setStat(i, temp);
+                statCount--;
+           }
+           else{
+               statMulti = 0;
+               System.out.printf("%nOut of Ability Points!!");
+           }
         }
         else if (stats[i] == 14 || stats[i] == 15){
-            temp = getStat(i)+1;
-            setStat(i, temp);
-            statCount -= 2;
+            if(statCount > 1){
+                temp = getStat(i)+1;
+                setStat(i, temp);
+                statCount -= 2;
+            }
+            else{
+                statMulti = 0;
+                System.out.printf("%nOut of Ability Points!!");
+           }
         }
         else if (stats[i] == 16 || stats[i] == 17){
-            temp = getStat(i)+1;
-            setStat(i, temp);
-            statCount -= 3;
+            if(statCount > 2){
+                temp = getStat(i)+1;
+                setStat(i, temp);
+                statCount -= 3;
+            }
+            else{
+                statMulti = 0;
+                System.out.printf("%nOut of Ability Points!!");
+           }
         }
         else if (stats[i] == 18 || stats[i] == 19){
-            temp = getStat(i)+1;
-            setStat(i, temp);
-            statCount -= 4;
+            if(statCount > 3){
+                temp = getStat(i)+1;
+                setStat(i, temp);
+                statCount -= 4;
+            }
+            else{
+               statMulti = 0;
+               System.out.printf("%nOut of Ability Points!!");
+           }
         }
         else if (stats[i] == 20){
+            statMulti = 0;
             System.out.println("The Ability is at its MAX!");
         }
         else{
+            statMulti = 0;
             System.out.println("No Ability Points Avaliable!");
         }
     }
@@ -79,35 +252,589 @@ public class PlayerStats extends Player{
     //Function that decreases selected Stat
     public void decreaseStat(int i){
         int temp;
-        
-        if(stats[i] == 11 || stats[i] == 12 || stats[i] == 13){
-            temp = getStat(i)-1;
-            setStat(i, temp);
-            statCount++;
+        if(this.getRaceType() == "Dragonborn"){
+            if(i == 0){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else if(i == 5){
+                if(stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 11!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
         }
-        else if (stats[i] == 14 || stats[i] == 15){
-            temp = getStat(i)-1;
-            setStat(i, temp);
-            statCount += 2;
+        else if(this.getRaceType() == "Dwarf"){
+            if(i == 2){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
         }
-        else if (stats[i] == 16 || stats[i] == 17){
-            temp = getStat(i)-1;
-            setStat(i, temp);
-            statCount += 3;
+        else if(this.getRaceType() == "Elf"){
+            if(i == 1){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else if(i == 4){
+                if(stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 11!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
         }
-        else if (stats[i] == 18 || stats[i] == 19){
-            temp = getStat(i)-1;
-            setStat(i, temp);
-            statCount += 4;
+        else if(this.getRaceType() == "Gnome"){
+            if(i == 3){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
         }
-        else{
-            System.out.println("Can't go lower than the 10!");
+        else if(this.getRaceType() == "Half-Elf"){
+            if(i == 5){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
+        }
+        else if(this.getRaceType() == "Halfling"){
+            if(i == 1){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
+        }
+        else if(this.getRaceType() == "Half-Orc"){
+            if(i == 0){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else if(i == 2){
+                if(stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 11!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
+        }
+        else if(this.getRaceType() == "Human"){
+            if(stats[i] == 12 ||stats[i] == 13){
+                temp = getStat(i)-1;
+                setStat(i, temp);
+                statCount++;
+            }
+            else if (stats[i] == 14 || stats[i] == 15){
+                temp = getStat(i)-1;
+                setStat(i, temp);
+                statCount += 2;
+            }
+            else if (stats[i] == 16 || stats[i] == 17){
+                temp = getStat(i)-1;
+                setStat(i, temp);
+                statCount += 3;
+            }
+            else if (stats[i] == 18 || stats[i] == 19){
+                temp = getStat(i)-1;
+                setStat(i, temp);
+                statCount += 4;
+            }
+            else{
+                statMulti = 0;
+                System.out.println("Can't go lower than the 11!");
+            }
+        }
+        else if(this.getRaceType() == "Tiefling"){
+            if(i == 5){
+                if(stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 12!");
+                }
+            }
+            else if(i == 3){
+                if(stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 11!");
+                }
+            }
+            else{
+                if(stats[i] == 11 || stats[i] == 12 ||stats[i] == 13){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount++;
+                }
+                else if (stats[i] == 14 || stats[i] == 15){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 2;
+                }
+                else if (stats[i] == 16 || stats[i] == 17){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 3;
+                }
+                else if (stats[i] == 18 || stats[i] == 19){
+                    temp = getStat(i)-1;
+                    setStat(i, temp);
+                    statCount += 4;
+                }
+                else{
+                    statMulti = 0;
+                    System.out.println("Can't go lower than the 10!");
+                }
+            }
         }
     }
     
     //Print function that displays Ability stats and points
     public void printStats(){
-        System.out.printf("%n----------Base Stats----------%nAbility Points Available: %d%n1.Strength: %d%n2.Dexterity: %d%n3.Constitution: %d%n4.Intelligence: %d%n5.Wisdom: %d%n6.Charisma: %d%n", getStatCount(), getStat(0), getStat(1), getStat(2), getStat(3), getStat(4), getStat(5));
+        System.out.printf("%n%n----------Base Stats----------%n%nAbility Points Available: %d%n1.Strength: %d%n2.Dexterity: %d%n3.Constitution: %d%n4.Intelligence: %d%n5.Wisdom: %d%n6.Charisma: %d%n", getStatCount(), getStat(0), getStat(1), getStat(2), getStat(3), getStat(4), getStat(5));
+    }
+    
+    //Print function that displays Ability Modifiers
+    public void printStatMods(){
+        System.out.printf("%n------------------------------------------------------------------------%nStrMod: %-2d DexMod: %-2d ConMod: %-2d IntMod: %-2d WisMod: %-2d ChaMod: %-2d%n------------------------------------------------------------------------%n", getStrMod(), getDexMod(), getConMod(), getIntMod(), getWisMod(), getChaMod());
+    }
+    
+    //Print function that will display HitPoints, ArmorClass, and Initiative
+    public void printPlayerStats(){
+        System.out.printf("%n------------------------------------------------------------------------%nMaxHP: %-3d CurrentHP: %-3d AC: %-2d Init: %-2d", getMaxHitPoints(), getHitPoints(), getArmorClass(), getInitiative());
+    }
+    
+    //standard display
+    public void hud(){
+        printStatMods();
+        printPlayerStats();
     }
     
     //Function to help allocate ability points to selected stats
@@ -130,6 +857,7 @@ public class PlayerStats extends Player{
                     else if(statChoice > 6){
                         throw new IllegalArgumentException("Enter a number from 1-6!!!");
                     }
+                    test = true;
                 }
                 catch(IllegalArgumentException e){
                     System.out.println(e.getMessage());
@@ -138,8 +866,7 @@ public class PlayerStats extends Player{
                     System.err.printf("%nException: %s%n", e);
                     input.nextLine();
                     System.out.printf("You must enter integers.Please try again.%n%n");            
-                }
-                test = true;
+                }  
             }
             
             //ReInitualizing test variable
@@ -156,6 +883,7 @@ public class PlayerStats extends Player{
                     else if(statIncDec > 2){
                         throw new IllegalArgumentException("Enter a 1 or 2!!!");
                     }
+                    test = true;
                 }
                 catch(IllegalArgumentException e){
                     System.out.println(e.getMessage());
@@ -165,7 +893,6 @@ public class PlayerStats extends Player{
                     input.nextLine();
                     System.out.printf("You must enter integers.Please try again.%n%n");            
                 }
-                test = true;
             }
             
             //ReInitualizing test variable for next while loop
@@ -177,12 +904,14 @@ public class PlayerStats extends Player{
                     System.out.println("How many times? ");
                     statMulti = input.nextInt();
                     if(statMulti < 0){
+                        statMulti = 0;
                         throw new IllegalArgumentException("Enter Positive Number!");
                     }
                     else if(statMulti > 10){
                         statMulti = 0;
                         throw new IllegalArgumentException("Enter a number from 1-10!!!");
                     }
+                    test = true;
                 }
                 catch(IllegalArgumentException e){
                     System.out.println(e.getMessage());
@@ -192,7 +921,6 @@ public class PlayerStats extends Player{
                     input.nextLine();
                     System.out.printf("You must enter integers.Please try again.%n%n");            
                 }
-                test = true;
             }
             
             //ReInitualizing test variable for the start of the loop
@@ -203,6 +931,9 @@ public class PlayerStats extends Player{
                 case 1 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(0);
                             }
                             break;
@@ -220,6 +951,9 @@ public class PlayerStats extends Player{
                 case 2 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(1);
                             }
                             break;
@@ -237,6 +971,9 @@ public class PlayerStats extends Player{
                 case 3 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(2);
                             }
                             break;
@@ -254,6 +991,9 @@ public class PlayerStats extends Player{
                 case 4 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(3);
                             }
                             break;
@@ -271,6 +1011,9 @@ public class PlayerStats extends Player{
                 case 5 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(4);
                             }
                             break;
@@ -288,6 +1031,9 @@ public class PlayerStats extends Player{
                 case 6 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
+                                if(stats[0] == 20){
+                                    break;
+                                }
                                 increaseStat(5);
                             }
                             break;
@@ -305,15 +1051,1051 @@ public class PlayerStats extends Player{
             
             //prints out the stats
             printStats();
-            
+            input.nextLine();
             //if the user is out of points they will be asked if they want to finish
-            if(statCount <= 0){
-                System.out.println("Do you want to finish?(Y/N): ");
-                String choice = input.nextLine(); 
-                if(choice == "YES" || choice == "yes" || choice == "y" || choice == "Yes" || choice == "YeS" || choice == "yEs" || choice == "Y"){
+            if(statCount == 0){
+                System.out.println("Do you want to finish?(1: yes/2: No): ");
+                choice = input.nextInt(); 
+                if(choice == 1){
                     finish = true;
                 }
             }
-        }while(finish != true);
+        }while(!finish);
+        
+        setStatMod();
+        setInitiative(getDexMod());
+    }
+     
+    public void levelUp(){
+        if(getPlayerExp() >= 300){
+            this.setPlayerLvl(2);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 900){
+            this.setPlayerLvl(3);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+            
+        }
+        else if(getPlayerExp() >= 2700){
+            this.setPlayerLvl(4);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(2);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 6500){
+            this.setPlayerLvl(5);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 14000){
+            this.setPlayerLvl(6);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 23000){
+            this.setPlayerLvl(7);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 34000){
+            this.setPlayerLvl(8);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(3);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 48000){
+            this.setPlayerLvl(9);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 64000){
+            this.setPlayerLvl(10);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 85000){
+            this.setPlayerLvl(11);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 100000){
+            this.setPlayerLvl(12);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(4);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 120000){
+            this.setPlayerLvl(13);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 140000){
+            this.setPlayerLvl(14);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 165000){
+            this.setPlayerLvl(15);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 195000){
+            this.setPlayerLvl(16);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 225000){
+            this.setPlayerLvl(17);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 265000){
+            this.setPlayerLvl(18);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 305000){
+            this.setPlayerLvl(19);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else if(getPlayerExp() >= 335000){
+            this.setPlayerLvl(20);
+            if(getClassType() == "Barbarian"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Bard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Cleric"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(5);
+            }
+            else if(getClassType() == "Druid"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Fighter"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Monk"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Paladin"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Ranger"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Rogue"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Sorcerer"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Warlock"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else if(getClassType() == "Wizard"){
+                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                this.setBaseAtkBonus(6);
+            }
+            else{
+                System.out.printf("%nClass was lost!!!");
+            }
+        }
+        else{
+            System.out.println("You Have reached MAX lvl!!!");
+        }
     }
 }
