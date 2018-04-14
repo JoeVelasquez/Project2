@@ -127,7 +127,15 @@ public class Player {
         //Random number generator
         Random rand = new Random();
         int roll = rand.nextInt(20) + 1;
-        System.out.println("You rolled a " + roll + "!");
+        if(roll == 20){
+            System.out.println("NAT " + roll + "!");
+        }
+        else if(roll == 1){
+            System.out.println("You rolled a " + roll + "! Worst roll ever!");
+        }
+        else{
+            System.out.println("You rolled a " + roll + "!");
+        }
         return roll;
     }
 }

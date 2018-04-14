@@ -828,7 +828,7 @@ public class PlayerStats extends Player{
     
     //Print function that will display HitPoints, ArmorClass, and Initiative
     public void printPlayerStats(){
-        System.out.printf("%n------------------------------------------------------------------------%nMaxHP: %-3d CurrentHP: %-3d AC: %-2d Init: %-2d", getMaxHitPoints(), getHitPoints(), getArmorClass(), getInitiative());
+        System.out.printf("MaxHP: %-3d CurrentHP: %-3d AC: %-2d Init: %-2d%n------------------------------------------------------------------------%n", getMaxHitPoints(), getHitPoints(), getArmorClass(), getInitiative());
     }
     
     //standard display
@@ -951,7 +951,7 @@ public class PlayerStats extends Player{
                 case 2 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
-                                if(stats[0] == 20){
+                                if(stats[1] == 20){
                                     break;
                                 }
                                 increaseStat(1);
@@ -971,7 +971,7 @@ public class PlayerStats extends Player{
                 case 3 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
-                                if(stats[0] == 20){
+                                if(stats[2] == 20){
                                     break;
                                 }
                                 increaseStat(2);
@@ -991,7 +991,7 @@ public class PlayerStats extends Player{
                 case 4 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
-                                if(stats[0] == 20){
+                                if(stats[3] == 20){
                                     break;
                                 }
                                 increaseStat(3);
@@ -1011,7 +1011,7 @@ public class PlayerStats extends Player{
                 case 5 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
-                                if(stats[0] == 20){
+                                if(stats[4] == 20){
                                     break;
                                 }
                                 increaseStat(4);
@@ -1031,7 +1031,7 @@ public class PlayerStats extends Player{
                 case 6 : switch (statIncDec) {
                         case 1:
                             for(int i = 0; i < statMulti; i++){
-                                if(stats[0] == 20){
+                                if(stats[5] == 20){
                                     break;
                                 }
                                 increaseStat(5);
@@ -1052,12 +1052,35 @@ public class PlayerStats extends Player{
             //prints out the stats
             printStats();
             input.nextLine();
+            
+            //ReInitializing test variable
+            test = false;
+           
             //if the user is out of points they will be asked if they want to finish
             if(statCount == 0){
-                System.out.println("Do you want to finish?(1: yes/2: No): ");
-                choice = input.nextInt(); 
-                if(choice == 1){
-                    finish = true;
+                while(!test){
+                    try{
+                        System.out.println("Do you want to finish?(1: yes/2: No): ");
+                        choice = input.nextInt();
+                        if(choice < 0){
+                            throw new IllegalArgumentException("Enter Positive Number!");
+                        }
+                        else if(choice > 2){
+                            throw new IllegalArgumentException("Enter 1 or 2!!!"); 
+                        }
+                        if(choice == 1){
+                            finish = true;
+                        }
+                        test = true;
+                    }
+                    catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage());
+                    }
+                    catch(InputMismatchException e){
+                        System.err.printf("%nException: %s%n", e);
+                        input.nextLine();
+                        System.out.printf("You must enter an integer. Please try again.%n%n");            
+                    }
                 }
             }
         }while(!finish);
@@ -1069,1029 +1092,1124 @@ public class PlayerStats extends Player{
     public void levelUp(){
         if(getPlayerExp() >= 300){
             this.setPlayerLvl(2);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 900){
             this.setPlayerLvl(3);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
             
         }
         else if(getPlayerExp() >= 2700){
             this.setPlayerLvl(4);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(2);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(2);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 6500){
             this.setPlayerLvl(5);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 14000){
             this.setPlayerLvl(6);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 23000){
             this.setPlayerLvl(7);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 34000){
             this.setPlayerLvl(8);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(3);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(3);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 48000){
             this.setPlayerLvl(9);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 64000){
             this.setPlayerLvl(10);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 85000){
             this.setPlayerLvl(11);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 100000){
             this.setPlayerLvl(12);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(4);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(4);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 120000){
             this.setPlayerLvl(13);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 140000){
             this.setPlayerLvl(14);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 165000){
             this.setPlayerLvl(15);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 195000){
             this.setPlayerLvl(16);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 225000){
             this.setPlayerLvl(17);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 265000){
             this.setPlayerLvl(18);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 305000){
             this.setPlayerLvl(19);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else if(getPlayerExp() >= 335000){
             this.setPlayerLvl(20);
-            if(getClassType() == "Barbarian"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Bard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Cleric"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(5);
-            }
-            else if(getClassType() == "Druid"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Fighter"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Monk"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Paladin"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Ranger"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Rogue"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Sorcerer"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Warlock"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else if(getClassType() == "Wizard"){
-                this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
-                this.setBaseAtkBonus(6);
-            }
-            else{
+            if(null == getClassType()){
                 System.out.printf("%nClass was lost!!!");
+            }
+            else switch (getClassType()) {
+                case "Barbarian":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Bard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Cleric":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(5);
+                    break;
+                case "Druid":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Fighter":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Monk":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Paladin":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Ranger":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Rogue":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Sorcerer":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Warlock":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                case "Wizard":
+                    this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
+                    this.setBaseAtkBonus(6);
+                    break;
+                default:
+                    System.out.printf("%nClass was lost!!!");
+                    break;
             }
         }
         else{

@@ -41,6 +41,7 @@ public class Project2 {
         //calls the function to allocate ability points for the character
         p1.allocateAbilityPoints();
         
+        //Display HUD
         p1.hud();
     }
     
