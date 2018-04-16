@@ -201,9 +201,13 @@ public class PlayerStats extends Player{
                 setStat(i, temp);
                 statCount--;
            }
-           else{
+           else if(statCount == 0){
                statMulti = 0;
                System.out.printf("%nOut of Ability Points!!");
+           }
+           else{
+               statMulti = 0;
+               System.out.printf("%nNot enough Ability Points!!");
            }
         }
         else if (stats[i] == 14 || stats[i] == 15){
@@ -212,9 +216,13 @@ public class PlayerStats extends Player{
                 setStat(i, temp);
                 statCount -= 2;
             }
-            else{
+            else if(statCount == 0){
                 statMulti = 0;
                 System.out.printf("%nOut of Ability Points!!");
+           }
+            else{
+                statMulti = 0;
+                System.out.printf("%nNot enough Ability Points!!");
            }
         }
         else if (stats[i] == 16 || stats[i] == 17){
@@ -223,9 +231,13 @@ public class PlayerStats extends Player{
                 setStat(i, temp);
                 statCount -= 3;
             }
-            else{
+            else if(statCount == 0){
                 statMulti = 0;
                 System.out.printf("%nOut of Ability Points!!");
+           }
+            else{
+                statMulti = 0;
+                System.out.printf("%nNot enough Ability Points!!");
            }
         }
         else if (stats[i] == 18 || stats[i] == 19){
@@ -234,9 +246,13 @@ public class PlayerStats extends Player{
                 setStat(i, temp);
                 statCount -= 4;
             }
+            else if(statCount == 0){
+                statMulti = 0;
+                System.out.printf("%nOut of Ability Points!!");
+           }
             else{
                statMulti = 0;
-               System.out.printf("%nOut of Ability Points!!");
+               System.out.printf("%nNot enough Ability Points!!");
            }
         }
         else if (stats[i] == 20){
@@ -245,7 +261,7 @@ public class PlayerStats extends Player{
         }
         else{
             statMulti = 0;
-            System.out.println("No Ability Points Avaliable!");
+            System.out.printf("%nNot enough Ability Points!!");
         }
     }
     
