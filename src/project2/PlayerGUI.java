@@ -53,30 +53,30 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName24 = new javax.swing.JLabel();
         LastName25 = new javax.swing.JLabel();
         CharFirstName1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        wizardButton = new javax.swing.JButton();
+        dragonBornButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        dwarfButton = new javax.swing.JButton();
+        elfButton = new javax.swing.JButton();
+        gnomeButton = new javax.swing.JButton();
+        halfElfButton = new javax.swing.JButton();
+        halfingButton = new javax.swing.JButton();
+        halfOrcButton = new javax.swing.JButton();
+        humanButton = new javax.swing.JButton();
         LastName4 = new javax.swing.JLabel();
         LastName5 = new javax.swing.JLabel();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
-        jButton18 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
-        jButton22 = new javax.swing.JButton();
+        tieflingButton = new javax.swing.JButton();
+        barbarianButton = new javax.swing.JButton();
+        bardButton = new javax.swing.JButton();
+        clericButton = new javax.swing.JButton();
+        druidButton = new javax.swing.JButton();
+        fighterButton = new javax.swing.JButton();
+        monkButton = new javax.swing.JButton();
+        paladinButton = new javax.swing.JButton();
+        rangerButton = new javax.swing.JButton();
+        rogueButton = new javax.swing.JButton();
+        sorcerorButton = new javax.swing.JButton();
+        warlockButton = new javax.swing.JButton();
         LastName26 = new javax.swing.JLabel();
         LastName27 = new javax.swing.JLabel();
         LastName28 = new javax.swing.JLabel();
@@ -126,18 +126,18 @@ public class PlayerGUI extends javax.swing.JFrame{
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jButton23 = new javax.swing.JButton();
-        jButton25 = new javax.swing.JButton();
-        jButton26 = new javax.swing.JButton();
-        jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
-        jButton32 = new javax.swing.JButton();
-        jButton33 = new javax.swing.JButton();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
+        lessChar = new javax.swing.JButton();
+        moreStr = new javax.swing.JButton();
+        moreDex = new javax.swing.JButton();
+        moreConst = new javax.swing.JButton();
+        moreInt = new javax.swing.JButton();
+        moreWis = new javax.swing.JButton();
+        moreChar = new javax.swing.JButton();
+        lessStr = new javax.swing.JButton();
+        lessDex = new javax.swing.JButton();
+        lessConst = new javax.swing.JButton();
+        lessInt = new javax.swing.JButton();
+        lessWis = new javax.swing.JButton();
         LastName7 = new javax.swing.JLabel();
         LastName8 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -205,7 +205,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName3.setForeground(new java.awt.Color(255, 255, 255));
         LastName3.setText("Base Stats");
         LastName3.setToolTipText("");
-        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 220, 120, 30));
+        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
 
         LastName13.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName13.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,25 +293,25 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(CharFirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 120, 20));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton1.setText("Wizard");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        wizardButton.setText("Wizard");
+        wizardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                wizardButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 800, 120, 30));
+        jPanel1.add(wizardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 800, 120, 30));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton2.setText("Dragonborn");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dragonBornButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        dragonBornButton.setText("Dragonborn");
+        dragonBornButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                dragonBornButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, 30));
+        jPanel1.add(dragonBornButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, 30));
 
         jButton3.setBackground(new java.awt.Color(204, 204, 204));
         jButton3.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
@@ -323,75 +323,75 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, 30));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton4.setText("Dwarf");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        dwarfButton.setText("Dwarf");
+        dwarfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                dwarfButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, 30));
+        jPanel1.add(dwarfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, 30));
 
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton5.setText("Elf");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        elfButton.setText("Elf");
+        elfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                elfButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 120, 30));
+        jPanel1.add(elfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 120, 30));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton6.setText("Gnome");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        gnomeButton.setText("Gnome");
+        gnomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                gnomeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 120, 30));
+        jPanel1.add(gnomeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 120, 30));
 
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
-        jButton7.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton7.setText("Half-Elf");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        halfElfButton.setText("Half-Elf");
+        halfElfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                halfElfButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 120, 30));
+        jPanel1.add(halfElfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 120, 30));
 
-        jButton8.setBackground(new java.awt.Color(204, 204, 204));
-        jButton8.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton8.setText("Half-Elf");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        halfingButton.setText("Halfing");
+        halfingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                halfingButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 120, 30));
+        jPanel1.add(halfingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 120, 30));
 
-        jButton9.setBackground(new java.awt.Color(204, 204, 204));
-        jButton9.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton9.setText("Half-Orc");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        halfOrcButton.setText("Half-Orc");
+        halfOrcButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                halfOrcButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 120, 30));
+        jPanel1.add(halfOrcButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 120, 30));
 
-        jButton10.setBackground(new java.awt.Color(204, 204, 204));
-        jButton10.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton10.setText("Human");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        humanButton.setText("Human");
+        humanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                humanButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
+        jPanel1.add(humanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
 
         LastName4.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
         LastName4.setForeground(new java.awt.Color(255, 255, 255));
@@ -405,125 +405,125 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName5.setToolTipText("");
         jPanel1.add(LastName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
 
-        jButton11.setBackground(new java.awt.Color(204, 204, 204));
-        jButton11.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton11.setText("Tiefling");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        tieflingButton.setText("Tiefling");
+        tieflingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                tieflingButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 120, 30));
+        jPanel1.add(tieflingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 120, 30));
 
-        jButton12.setBackground(new java.awt.Color(204, 204, 204));
-        jButton12.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton12.setText("Bardarian");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        barbarianButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        barbarianButton.setText("Bardarian");
+        barbarianButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                barbarianButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 120, 30));
+        jPanel1.add(barbarianButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 120, 30));
 
-        jButton13.setBackground(new java.awt.Color(204, 204, 204));
-        jButton13.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton13.setText("Bard");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        bardButton.setText("Bard");
+        bardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                bardButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 120, 30));
+        jPanel1.add(bardButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 120, 30));
 
-        jButton14.setBackground(new java.awt.Color(204, 204, 204));
-        jButton14.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton14.setText("Cleric");
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        clericButton.setText("Cleric");
+        clericButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
+                clericButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 120, 30));
+        jPanel1.add(clericButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 120, 30));
 
-        jButton15.setBackground(new java.awt.Color(204, 204, 204));
-        jButton15.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton15.setText("Druid");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        druidButton.setText("Druid");
+        druidButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                druidButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 120, 30));
+        jPanel1.add(druidButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 600, 120, 30));
 
-        jButton16.setBackground(new java.awt.Color(204, 204, 204));
-        jButton16.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton16.setText("Fighter");
-        jButton16.addActionListener(new java.awt.event.ActionListener() {
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        fighterButton.setText("Fighter");
+        fighterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton16ActionPerformed(evt);
+                fighterButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, 120, 30));
+        jPanel1.add(fighterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 700, 120, 30));
 
-        jButton17.setBackground(new java.awt.Color(204, 204, 204));
-        jButton17.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton17.setText("Monk");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        monkButton.setText("Monk");
+        monkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
+                monkButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 800, 120, 30));
+        jPanel1.add(monkButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 800, 120, 30));
 
-        jButton18.setBackground(new java.awt.Color(204, 204, 204));
-        jButton18.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton18.setText("Paladin");
-        jButton18.addActionListener(new java.awt.event.ActionListener() {
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        paladinButton.setText("Paladin");
+        paladinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton18ActionPerformed(evt);
+                paladinButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 120, 30));
+        jPanel1.add(paladinButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 300, 120, 30));
 
-        jButton19.setBackground(new java.awt.Color(204, 204, 204));
-        jButton19.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton19.setText("Ranger");
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        rangerButton.setText("Ranger");
+        rangerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
+                rangerButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 120, 30));
+        jPanel1.add(rangerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 120, 30));
 
-        jButton20.setBackground(new java.awt.Color(204, 204, 204));
-        jButton20.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton20.setText("Rogue");
-        jButton20.addActionListener(new java.awt.event.ActionListener() {
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        rogueButton.setText("Rogue");
+        rogueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton20ActionPerformed(evt);
+                rogueButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, 120, 30));
+        jPanel1.add(rogueButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, 120, 30));
 
-        jButton21.setBackground(new java.awt.Color(204, 204, 204));
-        jButton21.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton21.setText("Sorceror");
-        jButton21.addActionListener(new java.awt.event.ActionListener() {
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        sorcerorButton.setText("Sorceror");
+        sorcerorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton21ActionPerformed(evt);
+                sorcerorButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 600, 120, 30));
+        jPanel1.add(sorcerorButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 600, 120, 30));
 
-        jButton22.setBackground(new java.awt.Color(204, 204, 204));
-        jButton22.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
-        jButton22.setText("Warlock");
-        jButton22.addActionListener(new java.awt.event.ActionListener() {
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        warlockButton.setText("Warlock");
+        warlockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton22ActionPerformed(evt);
+                warlockButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 700, 120, 30));
+        jPanel1.add(warlockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 700, 120, 30));
 
         LastName26.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName26.setForeground(new java.awt.Color(255, 255, 255));
@@ -739,7 +739,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName6.setForeground(new java.awt.Color(255, 255, 255));
         LastName6.setText("Class");
         LastName6.setToolTipText("");
-        jPanel1.add(LastName6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 220, 60, 30));
+        jPanel1.add(LastName6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
 
         LastName62.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName62.setForeground(new java.awt.Color(255, 255, 255));
@@ -751,37 +751,37 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName63.setForeground(new java.awt.Color(255, 255, 255));
         LastName63.setText("Strength:");
         LastName63.setToolTipText("");
-        jPanel1.add(LastName63, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 100, 30));
+        jPanel1.add(LastName63, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
 
         LastName64.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName64.setForeground(new java.awt.Color(255, 255, 255));
         LastName64.setText("Dexterity:");
         LastName64.setToolTipText("");
-        jPanel1.add(LastName64, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 100, 30));
+        jPanel1.add(LastName64, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
 
         LastName65.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName65.setForeground(new java.awt.Color(255, 255, 255));
         LastName65.setText("Constitution:");
         LastName65.setToolTipText("");
-        jPanel1.add(LastName65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 100, 30));
+        jPanel1.add(LastName65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
 
         LastName66.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName66.setForeground(new java.awt.Color(255, 255, 255));
         LastName66.setText("Intelligence:");
         LastName66.setToolTipText("");
-        jPanel1.add(LastName66, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 100, 30));
+        jPanel1.add(LastName66, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
 
         LastName67.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName67.setForeground(new java.awt.Color(255, 255, 255));
         LastName67.setText("Wisdom:");
         LastName67.setToolTipText("");
-        jPanel1.add(LastName67, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 100, 30));
+        jPanel1.add(LastName67, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
 
         LastName68.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName68.setForeground(new java.awt.Color(255, 255, 255));
         LastName68.setText("Charisma:");
         LastName68.setToolTipText("");
-        jPanel1.add(LastName68, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 100, 30));
+        jPanel1.add(LastName68, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
 
         jTextField1.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         jTextField1.setText("10");
@@ -807,101 +807,101 @@ public class PlayerGUI extends javax.swing.JFrame{
         jTextField6.setText("10");
         jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
 
-        jButton23.setText("-");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
+        lessChar.setText("-");
+        lessChar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
+                lessCharActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 550, 50, 30));
+        jPanel1.add(lessChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 550, 50, 30));
 
-        jButton25.setText("+");
-        jButton25.addActionListener(new java.awt.event.ActionListener() {
+        moreStr.setText("+");
+        moreStr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton25ActionPerformed(evt);
+                moreStrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 50, 30));
+        jPanel1.add(moreStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 50, 30));
 
-        jButton26.setText("+");
-        jButton26.addActionListener(new java.awt.event.ActionListener() {
+        moreDex.setText("+");
+        moreDex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton26ActionPerformed(evt);
+                moreDexActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 350, 50, 30));
+        jPanel1.add(moreDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 350, 50, 30));
 
-        jButton27.setText("+");
-        jButton27.addActionListener(new java.awt.event.ActionListener() {
+        moreConst.setText("+");
+        moreConst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton27ActionPerformed(evt);
+                moreConstActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, 50, 30));
+        jPanel1.add(moreConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, 50, 30));
 
-        jButton28.setText("+");
-        jButton28.addActionListener(new java.awt.event.ActionListener() {
+        moreInt.setText("+");
+        moreInt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton28ActionPerformed(evt);
+                moreIntActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 50, 30));
+        jPanel1.add(moreInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 50, 30));
 
-        jButton29.setText("+");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        moreWis.setText("+");
+        moreWis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                moreWisActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, 50, 30));
+        jPanel1.add(moreWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, 50, 30));
 
-        jButton30.setText("+");
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
+        moreChar.setText("+");
+        moreChar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
+                moreCharActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 550, 50, 30));
+        jPanel1.add(moreChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 550, 50, 30));
 
-        jButton31.setText("-");
-        jButton31.addActionListener(new java.awt.event.ActionListener() {
+        lessStr.setText("-");
+        lessStr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton31ActionPerformed(evt);
+                lessStrActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, 50, 30));
+        jPanel1.add(lessStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, 50, 30));
 
-        jButton32.setText("-");
-        jButton32.addActionListener(new java.awt.event.ActionListener() {
+        lessDex.setText("-");
+        lessDex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton32ActionPerformed(evt);
+                lessDexActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 350, 50, 30));
+        jPanel1.add(lessDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 350, 50, 30));
 
-        jButton33.setText("-");
-        jButton33.addActionListener(new java.awt.event.ActionListener() {
+        lessConst.setText("-");
+        lessConst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton33ActionPerformed(evt);
+                lessConstActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 400, 50, 30));
+        jPanel1.add(lessConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 400, 50, 30));
 
-        jButton34.setText("-");
-        jButton34.addActionListener(new java.awt.event.ActionListener() {
+        lessInt.setText("-");
+        lessInt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton34ActionPerformed(evt);
+                lessIntActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 50, 30));
+        jPanel1.add(lessInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 50, 30));
 
-        jButton35.setText("-");
-        jButton35.addActionListener(new java.awt.event.ActionListener() {
+        lessWis.setText("-");
+        lessWis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton35ActionPerformed(evt);
+                lessWisActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 50, 30));
+        jPanel1.add(lessWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 50, 30));
 
         LastName7.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName7.setForeground(new java.awt.Color(255, 255, 255));
@@ -941,45 +941,45 @@ public class PlayerGUI extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void humanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_humanButtonActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void halfOrcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfOrcButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_halfOrcButtonActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void halfingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfingButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_halfingButtonActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_halfElfButtonActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void gnomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnomeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_gnomeButtonActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void elfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elfButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_elfButtonActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void dwarfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_dwarfButtonActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_dragonBornButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_wizardButtonActionPerformed
 
     private void CharFirstName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstName1ActionPerformed
         // TODO add your handling code here:
@@ -989,101 +989,101 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_CharFirstNameActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
+    }//GEN-LAST:event_tieflingButtonActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void barbarianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barbarianButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton12ActionPerformed
+    }//GEN-LAST:event_barbarianButtonActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void bardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bardButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_bardButtonActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    private void clericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clericButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14ActionPerformed
+    }//GEN-LAST:event_clericButtonActionPerformed
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void druidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_druidButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_druidButtonActionPerformed
 
-    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+    private void fighterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fighterButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton16ActionPerformed
+    }//GEN-LAST:event_fighterButtonActionPerformed
 
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+    private void monkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monkButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton17ActionPerformed
+    }//GEN-LAST:event_monkButtonActionPerformed
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void paladinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paladinButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_paladinButtonActionPerformed
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void rangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangerButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_rangerButtonActionPerformed
 
-    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+    private void rogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rogueButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton20ActionPerformed
+    }//GEN-LAST:event_rogueButtonActionPerformed
 
-    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+    private void sorcerorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorcerorButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton21ActionPerformed
+    }//GEN-LAST:event_sorcerorButtonActionPerformed
 
-    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+    private void warlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warlockButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton22ActionPerformed
+    }//GEN-LAST:event_warlockButtonActionPerformed
 
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
+    }//GEN-LAST:event_lessCharActionPerformed
 
-    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton25ActionPerformed
+    }//GEN-LAST:event_moreStrActionPerformed
 
-    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton26ActionPerformed
+    }//GEN-LAST:event_moreDexActionPerformed
 
-    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton27ActionPerformed
+    }//GEN-LAST:event_moreConstActionPerformed
 
-    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton28ActionPerformed
+    }//GEN-LAST:event_moreIntActionPerformed
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton29ActionPerformed
+    }//GEN-LAST:event_moreWisActionPerformed
 
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
+    }//GEN-LAST:event_moreCharActionPerformed
 
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton31ActionPerformed
+    }//GEN-LAST:event_lessStrActionPerformed
 
-    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton32ActionPerformed
+    }//GEN-LAST:event_lessDexActionPerformed
 
-    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton33ActionPerformed
+    }//GEN-LAST:event_lessConstActionPerformed
 
-    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton34ActionPerformed
+    }//GEN-LAST:event_lessIntActionPerformed
 
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton35ActionPerformed
+    }//GEN-LAST:event_lessWisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1190,40 +1190,20 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel LastName68;
     private javax.swing.JLabel LastName7;
     private javax.swing.JLabel LastName8;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton20;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton25;
-    private javax.swing.JButton jButton26;
-    private javax.swing.JButton jButton27;
-    private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
+    private javax.swing.JButton barbarianButton;
+    private javax.swing.JButton bardButton;
+    private javax.swing.JButton clericButton;
+    private javax.swing.JButton dragonBornButton;
+    private javax.swing.JButton druidButton;
+    private javax.swing.JButton dwarfButton;
+    private javax.swing.JButton elfButton;
+    private javax.swing.JButton fighterButton;
+    private javax.swing.JButton gnomeButton;
+    private javax.swing.JButton halfElfButton;
+    private javax.swing.JButton halfOrcButton;
+    private javax.swing.JButton halfingButton;
+    private javax.swing.JButton humanButton;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
-    private javax.swing.JButton jButton32;
-    private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
-    private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -1237,6 +1217,26 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JButton lessChar;
+    private javax.swing.JButton lessConst;
+    private javax.swing.JButton lessDex;
+    private javax.swing.JButton lessInt;
+    private javax.swing.JButton lessStr;
+    private javax.swing.JButton lessWis;
+    private javax.swing.JButton monkButton;
+    private javax.swing.JButton moreChar;
+    private javax.swing.JButton moreConst;
+    private javax.swing.JButton moreDex;
+    private javax.swing.JButton moreInt;
+    private javax.swing.JButton moreStr;
+    private javax.swing.JButton moreWis;
+    private javax.swing.JButton paladinButton;
+    private javax.swing.JButton rangerButton;
+    private javax.swing.JButton rogueButton;
+    private javax.swing.JButton sorcerorButton;
+    private javax.swing.JButton tieflingButton;
+    private javax.swing.JButton warlockButton;
+    private javax.swing.JButton wizardButton;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
