@@ -35,24 +35,24 @@ public class PlayerGUI extends javax.swing.JFrame{
         Fungeons = new javax.swing.JLabel();
         Dragons = new javax.swing.JLabel();
         CharacterCreation = new javax.swing.JLabel();
-        FirstName = new javax.swing.JLabel();
-        CharFirstName = new javax.swing.JTextField();
+        enterCharFName = new javax.swing.JLabel();
+        CharLName = new javax.swing.JTextField();
         LastName2 = new javax.swing.JLabel();
-        LastName3 = new javax.swing.JLabel();
-        LastName13 = new javax.swing.JLabel();
-        LastName14 = new javax.swing.JLabel();
-        LastName15 = new javax.swing.JLabel();
-        LastName16 = new javax.swing.JLabel();
-        LastName17 = new javax.swing.JLabel();
-        LastName18 = new javax.swing.JLabel();
-        LastName19 = new javax.swing.JLabel();
-        LastName20 = new javax.swing.JLabel();
-        LastName21 = new javax.swing.JLabel();
-        LastName22 = new javax.swing.JLabel();
-        LastName23 = new javax.swing.JLabel();
-        LastName24 = new javax.swing.JLabel();
-        LastName25 = new javax.swing.JLabel();
-        CharFirstName1 = new javax.swing.JTextField();
+        baseStatsTitle = new javax.swing.JLabel();
+        tieflingInt = new javax.swing.JLabel();
+        dragonBornStr = new javax.swing.JLabel();
+        dragonBornChar = new javax.swing.JLabel();
+        dwarfConst = new javax.swing.JLabel();
+        elfDex = new javax.swing.JLabel();
+        elfWis = new javax.swing.JLabel();
+        gnomeInt = new javax.swing.JLabel();
+        halfElfChar = new javax.swing.JLabel();
+        bardSaves = new javax.swing.JLabel();
+        halfOrcConst = new javax.swing.JLabel();
+        halfOrdConst = new javax.swing.JLabel();
+        humanAllAttr = new javax.swing.JLabel();
+        tieflingChar = new javax.swing.JLabel();
+        CharFName = new javax.swing.JTextField();
         wizardButton = new javax.swing.JButton();
         dragonBornButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -63,8 +63,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfingButton = new javax.swing.JButton();
         halfOrcButton = new javax.swing.JButton();
         humanButton = new javax.swing.JButton();
-        LastName4 = new javax.swing.JLabel();
-        LastName5 = new javax.swing.JLabel();
+        enterCharLName = new javax.swing.JLabel();
+        raceTitle = new javax.swing.JLabel();
         tieflingButton = new javax.swing.JButton();
         barbarianButton = new javax.swing.JButton();
         bardButton = new javax.swing.JButton();
@@ -77,49 +77,49 @@ public class PlayerGUI extends javax.swing.JFrame{
         rogueButton = new javax.swing.JButton();
         sorcerorButton = new javax.swing.JButton();
         warlockButton = new javax.swing.JButton();
-        LastName26 = new javax.swing.JLabel();
-        LastName27 = new javax.swing.JLabel();
-        LastName28 = new javax.swing.JLabel();
-        LastName29 = new javax.swing.JLabel();
-        LastName30 = new javax.swing.JLabel();
-        LastName31 = new javax.swing.JLabel();
-        LastName32 = new javax.swing.JLabel();
-        LastName33 = new javax.swing.JLabel();
-        LastName34 = new javax.swing.JLabel();
-        LastName35 = new javax.swing.JLabel();
-        LastName36 = new javax.swing.JLabel();
-        LastName37 = new javax.swing.JLabel();
-        LastName38 = new javax.swing.JLabel();
-        LastName39 = new javax.swing.JLabel();
-        LastName40 = new javax.swing.JLabel();
-        LastName41 = new javax.swing.JLabel();
-        LastName42 = new javax.swing.JLabel();
-        LastName43 = new javax.swing.JLabel();
-        LastName44 = new javax.swing.JLabel();
-        LastName46 = new javax.swing.JLabel();
-        LastName47 = new javax.swing.JLabel();
-        LastName48 = new javax.swing.JLabel();
-        LastName49 = new javax.swing.JLabel();
-        LastName50 = new javax.swing.JLabel();
-        LastName51 = new javax.swing.JLabel();
-        LastName52 = new javax.swing.JLabel();
-        LastName53 = new javax.swing.JLabel();
-        LastName54 = new javax.swing.JLabel();
-        LastName55 = new javax.swing.JLabel();
-        LastName56 = new javax.swing.JLabel();
-        LastName57 = new javax.swing.JLabel();
-        LastName58 = new javax.swing.JLabel();
-        LastName59 = new javax.swing.JLabel();
-        LastName60 = new javax.swing.JLabel();
-        LastName61 = new javax.swing.JLabel();
-        LastName6 = new javax.swing.JLabel();
-        LastName62 = new javax.swing.JLabel();
-        LastName63 = new javax.swing.JLabel();
-        LastName64 = new javax.swing.JLabel();
-        LastName65 = new javax.swing.JLabel();
-        LastName66 = new javax.swing.JLabel();
-        LastName67 = new javax.swing.JLabel();
-        LastName68 = new javax.swing.JLabel();
+        halfingDex = new javax.swing.JLabel();
+        bardHitDie = new javax.swing.JLabel();
+        bardPrimAbility = new javax.swing.JLabel();
+        barbHitDie = new javax.swing.JLabel();
+        barbPrimAbility = new javax.swing.JLabel();
+        barbSaves = new javax.swing.JLabel();
+        clericSaves = new javax.swing.JLabel();
+        clericHitDie = new javax.swing.JLabel();
+        clericPrimAbility = new javax.swing.JLabel();
+        druidSaves = new javax.swing.JLabel();
+        druidHitDie = new javax.swing.JLabel();
+        druidPrimAbility = new javax.swing.JLabel();
+        fighterSaves = new javax.swing.JLabel();
+        fighterHitDie = new javax.swing.JLabel();
+        fighterPrimAbility = new javax.swing.JLabel();
+        monkSaves = new javax.swing.JLabel();
+        monkHitDie = new javax.swing.JLabel();
+        monkPrimAbility = new javax.swing.JLabel();
+        paladinSaves = new javax.swing.JLabel();
+        paladinPrimAbility = new javax.swing.JLabel();
+        rangerSaves = new javax.swing.JLabel();
+        rangerHitDie = new javax.swing.JLabel();
+        rangerPrimAbility = new javax.swing.JLabel();
+        rogueSaves = new javax.swing.JLabel();
+        rogueHitDie = new javax.swing.JLabel();
+        roguePrimAbility = new javax.swing.JLabel();
+        sorcerorSaves = new javax.swing.JLabel();
+        sorcerorHitDie = new javax.swing.JLabel();
+        sorcerorPrimAbility = new javax.swing.JLabel();
+        warlockSaves = new javax.swing.JLabel();
+        warlockHitDie = new javax.swing.JLabel();
+        warlockPrimAbility = new javax.swing.JLabel();
+        wizardSaves = new javax.swing.JLabel();
+        wizardHitDie = new javax.swing.JLabel();
+        wizardPrimAbility = new javax.swing.JLabel();
+        classTitle = new javax.swing.JLabel();
+        paladinHitDie = new javax.swing.JLabel();
+        strength = new javax.swing.JLabel();
+        dexterity = new javax.swing.JLabel();
+        constitution = new javax.swing.JLabel();
+        intelligence = new javax.swing.JLabel();
+        wisdom = new javax.swing.JLabel();
+        charisma = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -181,19 +181,19 @@ public class PlayerGUI extends javax.swing.JFrame{
         CharacterCreation.setToolTipText("");
         jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 200, 30));
 
-        FirstName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        FirstName.setForeground(new java.awt.Color(255, 255, 255));
-        FirstName.setText("Enter Character's First name:");
-        FirstName.setToolTipText("");
-        jPanel1.add(FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, 20));
+        enterCharFName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharFName.setForeground(new java.awt.Color(255, 255, 255));
+        enterCharFName.setText("Enter Character's First name:");
+        enterCharFName.setToolTipText("");
+        jPanel1.add(enterCharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, 20));
 
-        CharFirstName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharFirstName.addActionListener(new java.awt.event.ActionListener() {
+        CharLName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        CharLName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharFirstNameActionPerformed(evt);
+                CharLNameActionPerformed(evt);
             }
         });
-        jPanel1.add(CharFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 120, 20));
+        jPanel1.add(CharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 120, 20));
 
         LastName2.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName2.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,97 +201,97 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName2.setToolTipText("");
         jPanel1.add(LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
 
-        LastName3.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName3.setForeground(new java.awt.Color(255, 255, 255));
-        LastName3.setText("Base Stats");
-        LastName3.setToolTipText("");
-        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
+        baseStatsTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        baseStatsTitle.setForeground(new java.awt.Color(255, 255, 255));
+        baseStatsTitle.setText("Base Stats");
+        baseStatsTitle.setToolTipText("");
+        jPanel1.add(baseStatsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
 
-        LastName13.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName13.setForeground(new java.awt.Color(255, 255, 255));
-        LastName13.setText("+1 Intelligence");
-        LastName13.setToolTipText("");
-        jPanel1.add(LastName13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 100, 30));
+        tieflingInt.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        tieflingInt.setForeground(new java.awt.Color(255, 255, 255));
+        tieflingInt.setText("+1 Intelligence");
+        tieflingInt.setToolTipText("");
+        jPanel1.add(tieflingInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 100, 30));
 
-        LastName14.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName14.setForeground(new java.awt.Color(255, 255, 255));
-        LastName14.setText("+2 Strength");
-        LastName14.setToolTipText("");
-        jPanel1.add(LastName14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+        dragonBornStr.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dragonBornStr.setForeground(new java.awt.Color(255, 255, 255));
+        dragonBornStr.setText("+2 Strength");
+        dragonBornStr.setToolTipText("");
+        jPanel1.add(dragonBornStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
 
-        LastName15.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName15.setForeground(new java.awt.Color(255, 255, 255));
-        LastName15.setText("+1 Charisma");
-        LastName15.setToolTipText("");
-        jPanel1.add(LastName15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
+        dragonBornChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dragonBornChar.setForeground(new java.awt.Color(255, 255, 255));
+        dragonBornChar.setText("+1 Charisma");
+        dragonBornChar.setToolTipText("");
+        jPanel1.add(dragonBornChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
 
-        LastName16.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName16.setForeground(new java.awt.Color(255, 255, 255));
-        LastName16.setText("+2 Constitution");
-        LastName16.setToolTipText("");
-        jPanel1.add(LastName16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 30));
+        dwarfConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dwarfConst.setForeground(new java.awt.Color(255, 255, 255));
+        dwarfConst.setText("+2 Constitution");
+        dwarfConst.setToolTipText("");
+        jPanel1.add(dwarfConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 30));
 
-        LastName17.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName17.setForeground(new java.awt.Color(255, 255, 255));
-        LastName17.setText("+2 Dexterity");
-        LastName17.setToolTipText("");
-        jPanel1.add(LastName17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 100, 30));
+        elfDex.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        elfDex.setForeground(new java.awt.Color(255, 255, 255));
+        elfDex.setText("+2 Dexterity");
+        elfDex.setToolTipText("");
+        jPanel1.add(elfDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 100, 30));
 
-        LastName18.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName18.setForeground(new java.awt.Color(255, 255, 255));
-        LastName18.setText("+1 Wisdom");
-        LastName18.setToolTipText("");
-        jPanel1.add(LastName18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 100, 30));
+        elfWis.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        elfWis.setForeground(new java.awt.Color(255, 255, 255));
+        elfWis.setText("+1 Wisdom");
+        elfWis.setToolTipText("");
+        jPanel1.add(elfWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 100, 30));
 
-        LastName19.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName19.setForeground(new java.awt.Color(255, 255, 255));
-        LastName19.setText("+2 Intelligence");
-        LastName19.setToolTipText("");
-        jPanel1.add(LastName19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 100, 30));
+        gnomeInt.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        gnomeInt.setForeground(new java.awt.Color(255, 255, 255));
+        gnomeInt.setText("+2 Intelligence");
+        gnomeInt.setToolTipText("");
+        jPanel1.add(gnomeInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 100, 30));
 
-        LastName20.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName20.setForeground(new java.awt.Color(255, 255, 255));
-        LastName20.setText("+2 Charisma");
-        LastName20.setToolTipText("");
-        jPanel1.add(LastName20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 100, 30));
+        halfElfChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfElfChar.setForeground(new java.awt.Color(255, 255, 255));
+        halfElfChar.setText("+2 Charisma");
+        halfElfChar.setToolTipText("");
+        jPanel1.add(halfElfChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 100, 30));
 
-        LastName21.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName21.setForeground(new java.awt.Color(255, 255, 255));
-        LastName21.setText("Saves: Dexterity & Charisma");
-        LastName21.setToolTipText("");
-        jPanel1.add(LastName21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 200, 30));
+        bardSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardSaves.setForeground(new java.awt.Color(255, 255, 255));
+        bardSaves.setText("Saves: Dexterity & Charisma");
+        bardSaves.setToolTipText("");
+        jPanel1.add(bardSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 200, 30));
 
-        LastName22.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName22.setForeground(new java.awt.Color(255, 255, 255));
-        LastName22.setText("+2 Strength");
-        LastName22.setToolTipText("");
-        jPanel1.add(LastName22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, 30));
+        halfOrcConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfOrcConst.setForeground(new java.awt.Color(255, 255, 255));
+        halfOrcConst.setText("+2 Strength");
+        halfOrcConst.setToolTipText("");
+        jPanel1.add(halfOrcConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, 30));
 
-        LastName23.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName23.setForeground(new java.awt.Color(255, 255, 255));
-        LastName23.setText("+1 Constitution");
-        LastName23.setToolTipText("");
-        jPanel1.add(LastName23, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 100, 30));
+        halfOrdConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfOrdConst.setForeground(new java.awt.Color(255, 255, 255));
+        halfOrdConst.setText("+1 Constitution");
+        halfOrdConst.setToolTipText("");
+        jPanel1.add(halfOrdConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 100, 30));
 
-        LastName24.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName24.setForeground(new java.awt.Color(255, 255, 255));
-        LastName24.setText("+1 to All Attributes");
-        LastName24.setToolTipText("");
-        jPanel1.add(LastName24, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 130, 30));
+        humanAllAttr.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        humanAllAttr.setForeground(new java.awt.Color(255, 255, 255));
+        humanAllAttr.setText("+1 to All Attributes");
+        humanAllAttr.setToolTipText("");
+        jPanel1.add(humanAllAttr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 130, 30));
 
-        LastName25.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName25.setForeground(new java.awt.Color(255, 255, 255));
-        LastName25.setText("+2 Charisma");
-        LastName25.setToolTipText("");
-        jPanel1.add(LastName25, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 90, 30));
+        tieflingChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        tieflingChar.setForeground(new java.awt.Color(255, 255, 255));
+        tieflingChar.setText("+2 Charisma");
+        tieflingChar.setToolTipText("");
+        jPanel1.add(tieflingChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 90, 30));
 
-        CharFirstName1.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharFirstName1.addActionListener(new java.awt.event.ActionListener() {
+        CharFName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        CharFName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharFirstName1ActionPerformed(evt);
+                CharFNameActionPerformed(evt);
             }
         });
-        jPanel1.add(CharFirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 120, 20));
+        jPanel1.add(CharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 120, 20));
 
         wizardButton.setBackground(new java.awt.Color(204, 204, 204));
         wizardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
@@ -393,17 +393,17 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(humanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
 
-        LastName4.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        LastName4.setForeground(new java.awt.Color(255, 255, 255));
-        LastName4.setText("Enter Character's last name:");
-        LastName4.setToolTipText("");
-        jPanel1.add(LastName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 30));
+        enterCharLName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharLName.setForeground(new java.awt.Color(255, 255, 255));
+        enterCharLName.setText("Enter Character's last name:");
+        enterCharLName.setToolTipText("");
+        jPanel1.add(enterCharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 30));
 
-        LastName5.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName5.setForeground(new java.awt.Color(255, 255, 255));
-        LastName5.setText("Race");
-        LastName5.setToolTipText("");
-        jPanel1.add(LastName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
+        raceTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        raceTitle.setForeground(new java.awt.Color(255, 255, 255));
+        raceTitle.setText("Race");
+        raceTitle.setToolTipText("");
+        jPanel1.add(raceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
 
         tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
         tieflingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
@@ -525,263 +525,263 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(warlockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 700, 120, 30));
 
-        LastName26.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName26.setForeground(new java.awt.Color(255, 255, 255));
-        LastName26.setText("+2 Dexterity");
-        LastName26.setToolTipText("");
-        jPanel1.add(LastName26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, 30));
+        halfingDex.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfingDex.setForeground(new java.awt.Color(255, 255, 255));
+        halfingDex.setText("+2 Dexterity");
+        halfingDex.setToolTipText("");
+        jPanel1.add(halfingDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, 30));
 
-        LastName27.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName27.setForeground(new java.awt.Color(255, 255, 255));
-        LastName27.setText("Hit Die: d8");
-        LastName27.setToolTipText("");
-        jPanel1.add(LastName27, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 80, 30));
+        bardHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        bardHitDie.setText("Hit Die: d8");
+        bardHitDie.setToolTipText("");
+        jPanel1.add(bardHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 80, 30));
 
-        LastName28.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName28.setForeground(new java.awt.Color(255, 255, 255));
-        LastName28.setText("Primary Abilility: Charisma");
-        LastName28.setToolTipText("");
-        jPanel1.add(LastName28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 180, 30));
+        bardPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        bardPrimAbility.setText("Primary Abilility: Charisma");
+        bardPrimAbility.setToolTipText("");
+        jPanel1.add(bardPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 180, 30));
 
-        LastName29.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName29.setForeground(new java.awt.Color(255, 255, 255));
-        LastName29.setText("Hit Die: d12");
-        LastName29.setToolTipText("");
-        jPanel1.add(LastName29, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 90, 30));
+        barbHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        barbHitDie.setText("Hit Die: d12");
+        barbHitDie.setToolTipText("");
+        jPanel1.add(barbHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 90, 30));
 
-        LastName30.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName30.setForeground(new java.awt.Color(255, 255, 255));
-        LastName30.setText("Primary Abilility: Strength");
-        LastName30.setToolTipText("");
-        jPanel1.add(LastName30, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 180, 30));
+        barbPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        barbPrimAbility.setText("Primary Abilility: Strength");
+        barbPrimAbility.setToolTipText("");
+        jPanel1.add(barbPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 180, 30));
 
-        LastName31.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName31.setForeground(new java.awt.Color(255, 255, 255));
-        LastName31.setText("Saves: Strength & Constitution");
-        LastName31.setToolTipText("");
-        jPanel1.add(LastName31, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 210, 30));
+        barbSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbSaves.setForeground(new java.awt.Color(255, 255, 255));
+        barbSaves.setText("Saves: Strength & Constitution");
+        barbSaves.setToolTipText("");
+        jPanel1.add(barbSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 210, 30));
 
-        LastName32.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName32.setForeground(new java.awt.Color(255, 255, 255));
-        LastName32.setText("Saves: Wisdom & Charisma");
-        LastName32.setToolTipText("");
-        jPanel1.add(LastName32, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 190, 30));
+        clericSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericSaves.setForeground(new java.awt.Color(255, 255, 255));
+        clericSaves.setText("Saves: Wisdom & Charisma");
+        clericSaves.setToolTipText("");
+        jPanel1.add(clericSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 190, 30));
 
-        LastName33.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName33.setForeground(new java.awt.Color(255, 255, 255));
-        LastName33.setText("Hit Die: d8");
-        LastName33.setToolTipText("");
-        jPanel1.add(LastName33, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 80, 30));
+        clericHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        clericHitDie.setText("Hit Die: d8");
+        clericHitDie.setToolTipText("");
+        jPanel1.add(clericHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 80, 30));
 
-        LastName34.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName34.setForeground(new java.awt.Color(255, 255, 255));
-        LastName34.setText("Primary Abilility: Wisdom");
-        LastName34.setToolTipText("");
-        jPanel1.add(LastName34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 30));
+        clericPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        clericPrimAbility.setText("Primary Abilility: Wisdom");
+        clericPrimAbility.setToolTipText("");
+        jPanel1.add(clericPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 30));
 
-        LastName35.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName35.setForeground(new java.awt.Color(255, 255, 255));
-        LastName35.setText("Saves: Intelligence & Wisdom");
-        LastName35.setToolTipText("");
-        jPanel1.add(LastName35, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, 200, 30));
+        druidSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidSaves.setForeground(new java.awt.Color(255, 255, 255));
+        druidSaves.setText("Saves: Intelligence & Wisdom");
+        druidSaves.setToolTipText("");
+        jPanel1.add(druidSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, 200, 30));
 
-        LastName36.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName36.setForeground(new java.awt.Color(255, 255, 255));
-        LastName36.setText("Hit Die: d8");
-        LastName36.setToolTipText("");
-        jPanel1.add(LastName36, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 630, 100, 30));
+        druidHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        druidHitDie.setText("Hit Die: d8");
+        druidHitDie.setToolTipText("");
+        jPanel1.add(druidHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 630, 100, 30));
 
-        LastName37.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName37.setForeground(new java.awt.Color(255, 255, 255));
-        LastName37.setText("Primary Abilility: Wisdom");
-        LastName37.setToolTipText("");
-        jPanel1.add(LastName37, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 170, 30));
+        druidPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        druidPrimAbility.setText("Primary Abilility: Wisdom");
+        druidPrimAbility.setToolTipText("");
+        jPanel1.add(druidPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 170, 30));
 
-        LastName38.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName38.setForeground(new java.awt.Color(255, 255, 255));
-        LastName38.setText("Saves: Strength & Constitution");
-        LastName38.setToolTipText("");
-        jPanel1.add(LastName38, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 770, 210, 30));
+        fighterSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterSaves.setForeground(new java.awt.Color(255, 255, 255));
+        fighterSaves.setText("Saves: Strength & Constitution");
+        fighterSaves.setToolTipText("");
+        jPanel1.add(fighterSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 770, 210, 30));
 
-        LastName39.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName39.setForeground(new java.awt.Color(255, 255, 255));
-        LastName39.setText("Hit Die: d10");
-        LastName39.setToolTipText("");
-        jPanel1.add(LastName39, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 730, 100, 30));
+        fighterHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        fighterHitDie.setText("Hit Die: d10");
+        fighterHitDie.setToolTipText("");
+        jPanel1.add(fighterHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 730, 100, 30));
 
-        LastName40.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName40.setForeground(new java.awt.Color(255, 255, 255));
-        LastName40.setText("Primary Abilility: Strength or Dexterity");
-        LastName40.setToolTipText("");
-        jPanel1.add(LastName40, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 750, 250, 30));
+        fighterPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        fighterPrimAbility.setText("Primary Abilility: Strength or Dexterity");
+        fighterPrimAbility.setToolTipText("");
+        jPanel1.add(fighterPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 750, 250, 30));
 
-        LastName41.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName41.setForeground(new java.awt.Color(255, 255, 255));
-        LastName41.setText("Saves: Strength & Dexterity");
-        LastName41.setToolTipText("");
-        jPanel1.add(LastName41, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 870, 190, 30));
+        monkSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkSaves.setForeground(new java.awt.Color(255, 255, 255));
+        monkSaves.setText("Saves: Strength & Dexterity");
+        monkSaves.setToolTipText("");
+        jPanel1.add(monkSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 870, 190, 30));
 
-        LastName42.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName42.setForeground(new java.awt.Color(255, 255, 255));
-        LastName42.setText("Hit Die: d8");
-        LastName42.setToolTipText("");
-        jPanel1.add(LastName42, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 830, 100, 30));
+        monkHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        monkHitDie.setText("Hit Die: d8");
+        monkHitDie.setToolTipText("");
+        jPanel1.add(monkHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 830, 100, 30));
 
-        LastName43.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName43.setForeground(new java.awt.Color(255, 255, 255));
-        LastName43.setText("Primary Abilility: Dexterity & Wisdom");
-        LastName43.setToolTipText("");
-        jPanel1.add(LastName43, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 850, 190, 30));
+        monkPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        monkPrimAbility.setText("Primary Abilility: Dexterity & Wisdom");
+        monkPrimAbility.setToolTipText("");
+        jPanel1.add(monkPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 850, 250, 30));
 
-        LastName44.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName44.setForeground(new java.awt.Color(255, 255, 255));
-        LastName44.setText("Saves: Wisdom & Charisma");
-        LastName44.setToolTipText("");
-        jPanel1.add(LastName44, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 190, 30));
+        paladinSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinSaves.setForeground(new java.awt.Color(255, 255, 255));
+        paladinSaves.setText("Saves: Wisdom & Charisma");
+        paladinSaves.setToolTipText("");
+        jPanel1.add(paladinSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 190, 30));
 
-        LastName46.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName46.setForeground(new java.awt.Color(255, 255, 255));
-        LastName46.setText("Primary Abilility: Strength & Charisma");
-        LastName46.setToolTipText("");
-        jPanel1.add(LastName46, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 250, 30));
+        paladinPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        paladinPrimAbility.setText("Primary Abilility: Strength & Charisma");
+        paladinPrimAbility.setToolTipText("");
+        jPanel1.add(paladinPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 250, 30));
 
-        LastName47.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName47.setForeground(new java.awt.Color(255, 255, 255));
-        LastName47.setText("Saves: Strength & Dexterity");
-        LastName47.setToolTipText("");
-        jPanel1.add(LastName47, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 190, 30));
+        rangerSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerSaves.setForeground(new java.awt.Color(255, 255, 255));
+        rangerSaves.setText("Saves: Strength & Dexterity");
+        rangerSaves.setToolTipText("");
+        jPanel1.add(rangerSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 190, 30));
 
-        LastName48.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName48.setForeground(new java.awt.Color(255, 255, 255));
-        LastName48.setText("Hit Die: d10");
-        LastName48.setToolTipText("");
-        jPanel1.add(LastName48, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 90, 30));
+        rangerHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        rangerHitDie.setText("Hit Die: d10");
+        rangerHitDie.setToolTipText("");
+        jPanel1.add(rangerHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 90, 30));
 
-        LastName49.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName49.setForeground(new java.awt.Color(255, 255, 255));
-        LastName49.setText("Primary Abilility: Dexterity & Wisdom");
-        LastName49.setToolTipText("");
-        jPanel1.add(LastName49, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 250, 30));
+        rangerPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        rangerPrimAbility.setText("Primary Abilility: Dexterity & Wisdom");
+        rangerPrimAbility.setToolTipText("");
+        jPanel1.add(rangerPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 250, 30));
 
-        LastName50.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName50.setForeground(new java.awt.Color(255, 255, 255));
-        LastName50.setText("Saves: Dexterity & Intelligence");
-        LastName50.setToolTipText("");
-        jPanel1.add(LastName50, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 210, 30));
+        rogueSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rogueSaves.setForeground(new java.awt.Color(255, 255, 255));
+        rogueSaves.setText("Saves: Dexterity & Intelligence");
+        rogueSaves.setToolTipText("");
+        jPanel1.add(rogueSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 210, 30));
 
-        LastName51.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName51.setForeground(new java.awt.Color(255, 255, 255));
-        LastName51.setText("Hit Die: d8");
-        LastName51.setToolTipText("");
-        jPanel1.add(LastName51, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 80, 30));
+        rogueHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rogueHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        rogueHitDie.setText("Hit Die: d8");
+        rogueHitDie.setToolTipText("");
+        jPanel1.add(rogueHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 80, 30));
 
-        LastName52.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName52.setForeground(new java.awt.Color(255, 255, 255));
-        LastName52.setText("Primary Abilility: Dexterity ");
-        LastName52.setToolTipText("");
-        jPanel1.add(LastName52, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 180, 30));
+        roguePrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        roguePrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        roguePrimAbility.setText("Primary Abilility: Dexterity ");
+        roguePrimAbility.setToolTipText("");
+        jPanel1.add(roguePrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 180, 30));
 
-        LastName53.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName53.setForeground(new java.awt.Color(255, 255, 255));
-        LastName53.setText("Saves: Constitution & Charisma");
-        LastName53.setToolTipText("");
-        jPanel1.add(LastName53, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 670, 210, 30));
+        sorcerorSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorSaves.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorSaves.setText("Saves: Constitution & Charisma");
+        sorcerorSaves.setToolTipText("");
+        jPanel1.add(sorcerorSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 670, 210, 30));
 
-        LastName54.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName54.setForeground(new java.awt.Color(255, 255, 255));
-        LastName54.setText("Hit Die: d6");
-        LastName54.setToolTipText("");
-        jPanel1.add(LastName54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 630, 80, 30));
+        sorcerorHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorHitDie.setText("Hit Die: d6");
+        sorcerorHitDie.setToolTipText("");
+        jPanel1.add(sorcerorHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 630, 80, 30));
 
-        LastName55.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName55.setForeground(new java.awt.Color(255, 255, 255));
-        LastName55.setText("Primary Abilility: Charisma");
-        LastName55.setToolTipText("");
-        jPanel1.add(LastName55, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 650, 180, 30));
+        sorcerorPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorPrimAbility.setText("Primary Abilility: Charisma");
+        sorcerorPrimAbility.setToolTipText("");
+        jPanel1.add(sorcerorPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 650, 180, 30));
 
-        LastName56.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName56.setForeground(new java.awt.Color(255, 255, 255));
-        LastName56.setText("Saves: Wisdom & Charisma");
-        LastName56.setToolTipText("");
-        jPanel1.add(LastName56, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 770, 190, 30));
+        warlockSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockSaves.setForeground(new java.awt.Color(255, 255, 255));
+        warlockSaves.setText("Saves: Wisdom & Charisma");
+        warlockSaves.setToolTipText("");
+        jPanel1.add(warlockSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 770, 190, 30));
 
-        LastName57.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName57.setForeground(new java.awt.Color(255, 255, 255));
-        LastName57.setText("Hit Die: d8");
-        LastName57.setToolTipText("");
-        jPanel1.add(LastName57, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 730, 80, 30));
+        warlockHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        warlockHitDie.setText("Hit Die: d8");
+        warlockHitDie.setToolTipText("");
+        jPanel1.add(warlockHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 730, 80, 30));
 
-        LastName58.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName58.setForeground(new java.awt.Color(255, 255, 255));
-        LastName58.setText("Primary Abilility: Charisma");
-        LastName58.setToolTipText("");
-        jPanel1.add(LastName58, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 750, 180, 30));
+        warlockPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        warlockPrimAbility.setText("Primary Abilility: Charisma");
+        warlockPrimAbility.setToolTipText("");
+        jPanel1.add(warlockPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 750, 180, 30));
 
-        LastName59.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName59.setForeground(new java.awt.Color(255, 255, 255));
-        LastName59.setText("Saves: Intelligence & Wisdom");
-        LastName59.setToolTipText("");
-        jPanel1.add(LastName59, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 870, 200, 30));
+        wizardSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardSaves.setForeground(new java.awt.Color(255, 255, 255));
+        wizardSaves.setText("Saves: Intelligence & Wisdom");
+        wizardSaves.setToolTipText("");
+        jPanel1.add(wizardSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 870, 200, 30));
 
-        LastName60.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName60.setForeground(new java.awt.Color(255, 255, 255));
-        LastName60.setText("Hit Die: d6");
-        LastName60.setToolTipText("");
-        jPanel1.add(LastName60, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 830, 80, 30));
+        wizardHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        wizardHitDie.setText("Hit Die: d6");
+        wizardHitDie.setToolTipText("");
+        jPanel1.add(wizardHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 830, 80, 30));
 
-        LastName61.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName61.setForeground(new java.awt.Color(255, 255, 255));
-        LastName61.setText("Primary Abilility: Intelligence");
-        LastName61.setToolTipText("");
-        jPanel1.add(LastName61, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 850, 190, 30));
+        wizardPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        wizardPrimAbility.setText("Primary Abilility: Intelligence");
+        wizardPrimAbility.setToolTipText("");
+        jPanel1.add(wizardPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 850, 190, 30));
 
-        LastName6.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName6.setForeground(new java.awt.Color(255, 255, 255));
-        LastName6.setText("Class");
-        LastName6.setToolTipText("");
-        jPanel1.add(LastName6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
+        classTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        classTitle.setForeground(new java.awt.Color(255, 255, 255));
+        classTitle.setText("Class");
+        classTitle.setToolTipText("");
+        jPanel1.add(classTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
 
-        LastName62.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName62.setForeground(new java.awt.Color(255, 255, 255));
-        LastName62.setText("Hit Die: d10");
-        LastName62.setToolTipText("");
-        jPanel1.add(LastName62, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 90, 30));
+        paladinHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        paladinHitDie.setText("Hit Die: d10");
+        paladinHitDie.setToolTipText("");
+        jPanel1.add(paladinHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 90, 30));
 
-        LastName63.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName63.setForeground(new java.awt.Color(255, 255, 255));
-        LastName63.setText("Strength:");
-        LastName63.setToolTipText("");
-        jPanel1.add(LastName63, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
+        strength.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        strength.setForeground(new java.awt.Color(255, 255, 255));
+        strength.setText("Strength:");
+        strength.setToolTipText("");
+        jPanel1.add(strength, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
 
-        LastName64.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName64.setForeground(new java.awt.Color(255, 255, 255));
-        LastName64.setText("Dexterity:");
-        LastName64.setToolTipText("");
-        jPanel1.add(LastName64, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
+        dexterity.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dexterity.setForeground(new java.awt.Color(255, 255, 255));
+        dexterity.setText("Dexterity:");
+        dexterity.setToolTipText("");
+        jPanel1.add(dexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
 
-        LastName65.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName65.setForeground(new java.awt.Color(255, 255, 255));
-        LastName65.setText("Constitution:");
-        LastName65.setToolTipText("");
-        jPanel1.add(LastName65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
+        constitution.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        constitution.setForeground(new java.awt.Color(255, 255, 255));
+        constitution.setText("Constitution:");
+        constitution.setToolTipText("");
+        jPanel1.add(constitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
 
-        LastName66.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName66.setForeground(new java.awt.Color(255, 255, 255));
-        LastName66.setText("Intelligence:");
-        LastName66.setToolTipText("");
-        jPanel1.add(LastName66, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
+        intelligence.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        intelligence.setForeground(new java.awt.Color(255, 255, 255));
+        intelligence.setText("Intelligence:");
+        intelligence.setToolTipText("");
+        jPanel1.add(intelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
 
-        LastName67.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName67.setForeground(new java.awt.Color(255, 255, 255));
-        LastName67.setText("Wisdom:");
-        LastName67.setToolTipText("");
-        jPanel1.add(LastName67, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
+        wisdom.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wisdom.setForeground(new java.awt.Color(255, 255, 255));
+        wisdom.setText("Wisdom:");
+        wisdom.setToolTipText("");
+        jPanel1.add(wisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
 
-        LastName68.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName68.setForeground(new java.awt.Color(255, 255, 255));
-        LastName68.setText("Charisma:");
-        LastName68.setToolTipText("");
-        jPanel1.add(LastName68, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
+        charisma.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        charisma.setForeground(new java.awt.Color(255, 255, 255));
+        charisma.setText("Charisma:");
+        charisma.setToolTipText("");
+        jPanel1.add(charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
 
         jTextField1.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         jTextField1.setText("10");
@@ -961,13 +961,13 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_wizardButtonActionPerformed
 
-    private void CharFirstName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstName1ActionPerformed
+    private void CharFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CharFirstName1ActionPerformed
+    }//GEN-LAST:event_CharFNameActionPerformed
 
-    private void CharFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstNameActionPerformed
+    private void CharLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharLNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CharFirstNameActionPerformed
+    }//GEN-LAST:event_CharLNameActionPerformed
 
     private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
         // TODO add your handling code here:
@@ -1122,87 +1122,61 @@ public class PlayerGUI extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel And;
-    private javax.swing.JTextField CharFirstName;
-    private javax.swing.JTextField CharFirstName1;
+    private javax.swing.JTextField CharFName;
+    private javax.swing.JTextField CharLName;
     private javax.swing.JLabel CharacterCreation;
     private javax.swing.JLabel Dragons;
-    private javax.swing.JLabel FirstName;
     private javax.swing.JLabel Fungeons;
-    private javax.swing.JLabel LastName13;
-    private javax.swing.JLabel LastName14;
-    private javax.swing.JLabel LastName15;
-    private javax.swing.JLabel LastName16;
-    private javax.swing.JLabel LastName17;
-    private javax.swing.JLabel LastName18;
-    private javax.swing.JLabel LastName19;
     private javax.swing.JLabel LastName2;
-    private javax.swing.JLabel LastName20;
-    private javax.swing.JLabel LastName21;
-    private javax.swing.JLabel LastName22;
-    private javax.swing.JLabel LastName23;
-    private javax.swing.JLabel LastName24;
-    private javax.swing.JLabel LastName25;
-    private javax.swing.JLabel LastName26;
-    private javax.swing.JLabel LastName27;
-    private javax.swing.JLabel LastName28;
-    private javax.swing.JLabel LastName29;
-    private javax.swing.JLabel LastName3;
-    private javax.swing.JLabel LastName30;
-    private javax.swing.JLabel LastName31;
-    private javax.swing.JLabel LastName32;
-    private javax.swing.JLabel LastName33;
-    private javax.swing.JLabel LastName34;
-    private javax.swing.JLabel LastName35;
-    private javax.swing.JLabel LastName36;
-    private javax.swing.JLabel LastName37;
-    private javax.swing.JLabel LastName38;
-    private javax.swing.JLabel LastName39;
-    private javax.swing.JLabel LastName4;
-    private javax.swing.JLabel LastName40;
-    private javax.swing.JLabel LastName41;
-    private javax.swing.JLabel LastName42;
-    private javax.swing.JLabel LastName43;
-    private javax.swing.JLabel LastName44;
-    private javax.swing.JLabel LastName46;
-    private javax.swing.JLabel LastName47;
-    private javax.swing.JLabel LastName48;
-    private javax.swing.JLabel LastName49;
-    private javax.swing.JLabel LastName5;
-    private javax.swing.JLabel LastName50;
-    private javax.swing.JLabel LastName51;
-    private javax.swing.JLabel LastName52;
-    private javax.swing.JLabel LastName53;
-    private javax.swing.JLabel LastName54;
-    private javax.swing.JLabel LastName55;
-    private javax.swing.JLabel LastName56;
-    private javax.swing.JLabel LastName57;
-    private javax.swing.JLabel LastName58;
-    private javax.swing.JLabel LastName59;
-    private javax.swing.JLabel LastName6;
-    private javax.swing.JLabel LastName60;
-    private javax.swing.JLabel LastName61;
-    private javax.swing.JLabel LastName62;
-    private javax.swing.JLabel LastName63;
-    private javax.swing.JLabel LastName64;
-    private javax.swing.JLabel LastName65;
-    private javax.swing.JLabel LastName66;
-    private javax.swing.JLabel LastName67;
-    private javax.swing.JLabel LastName68;
     private javax.swing.JLabel LastName7;
     private javax.swing.JLabel LastName8;
+    private javax.swing.JLabel barbHitDie;
+    private javax.swing.JLabel barbPrimAbility;
+    private javax.swing.JLabel barbSaves;
     private javax.swing.JButton barbarianButton;
     private javax.swing.JButton bardButton;
+    private javax.swing.JLabel bardHitDie;
+    private javax.swing.JLabel bardPrimAbility;
+    private javax.swing.JLabel bardSaves;
+    private javax.swing.JLabel baseStatsTitle;
+    private javax.swing.JLabel charisma;
+    private javax.swing.JLabel classTitle;
     private javax.swing.JButton clericButton;
+    private javax.swing.JLabel clericHitDie;
+    private javax.swing.JLabel clericPrimAbility;
+    private javax.swing.JLabel clericSaves;
+    private javax.swing.JLabel constitution;
+    private javax.swing.JLabel dexterity;
     private javax.swing.JButton dragonBornButton;
+    private javax.swing.JLabel dragonBornChar;
+    private javax.swing.JLabel dragonBornStr;
     private javax.swing.JButton druidButton;
+    private javax.swing.JLabel druidHitDie;
+    private javax.swing.JLabel druidPrimAbility;
+    private javax.swing.JLabel druidSaves;
     private javax.swing.JButton dwarfButton;
+    private javax.swing.JLabel dwarfConst;
     private javax.swing.JButton elfButton;
+    private javax.swing.JLabel elfDex;
+    private javax.swing.JLabel elfWis;
+    private javax.swing.JLabel enterCharFName;
+    private javax.swing.JLabel enterCharLName;
     private javax.swing.JButton fighterButton;
+    private javax.swing.JLabel fighterHitDie;
+    private javax.swing.JLabel fighterPrimAbility;
+    private javax.swing.JLabel fighterSaves;
     private javax.swing.JButton gnomeButton;
+    private javax.swing.JLabel gnomeInt;
     private javax.swing.JButton halfElfButton;
+    private javax.swing.JLabel halfElfChar;
     private javax.swing.JButton halfOrcButton;
+    private javax.swing.JLabel halfOrcConst;
+    private javax.swing.JLabel halfOrdConst;
     private javax.swing.JButton halfingButton;
+    private javax.swing.JLabel halfingDex;
+    private javax.swing.JLabel humanAllAttr;
     private javax.swing.JButton humanButton;
+    private javax.swing.JLabel intelligence;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -1224,6 +1198,9 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JButton lessStr;
     private javax.swing.JButton lessWis;
     private javax.swing.JButton monkButton;
+    private javax.swing.JLabel monkHitDie;
+    private javax.swing.JLabel monkPrimAbility;
+    private javax.swing.JLabel monkSaves;
     private javax.swing.JButton moreChar;
     private javax.swing.JButton moreConst;
     private javax.swing.JButton moreDex;
@@ -1231,12 +1208,35 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JButton moreStr;
     private javax.swing.JButton moreWis;
     private javax.swing.JButton paladinButton;
+    private javax.swing.JLabel paladinHitDie;
+    private javax.swing.JLabel paladinPrimAbility;
+    private javax.swing.JLabel paladinSaves;
+    private javax.swing.JLabel raceTitle;
     private javax.swing.JButton rangerButton;
+    private javax.swing.JLabel rangerHitDie;
+    private javax.swing.JLabel rangerPrimAbility;
+    private javax.swing.JLabel rangerSaves;
     private javax.swing.JButton rogueButton;
+    private javax.swing.JLabel rogueHitDie;
+    private javax.swing.JLabel roguePrimAbility;
+    private javax.swing.JLabel rogueSaves;
     private javax.swing.JButton sorcerorButton;
+    private javax.swing.JLabel sorcerorHitDie;
+    private javax.swing.JLabel sorcerorPrimAbility;
+    private javax.swing.JLabel sorcerorSaves;
+    private javax.swing.JLabel strength;
     private javax.swing.JButton tieflingButton;
+    private javax.swing.JLabel tieflingChar;
+    private javax.swing.JLabel tieflingInt;
     private javax.swing.JButton warlockButton;
+    private javax.swing.JLabel warlockHitDie;
+    private javax.swing.JLabel warlockPrimAbility;
+    private javax.swing.JLabel warlockSaves;
+    private javax.swing.JLabel wisdom;
     private javax.swing.JButton wizardButton;
+    private javax.swing.JLabel wizardHitDie;
+    private javax.swing.JLabel wizardPrimAbility;
+    private javax.swing.JLabel wizardSaves;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
