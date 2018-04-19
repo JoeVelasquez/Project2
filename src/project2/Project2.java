@@ -21,7 +21,14 @@ public class Project2 {
         //Scanner for user input
         Scanner input = new Scanner(System.in);
         
-        //Askin the user for first name
+        // Lines 24-29 Are the only code I added in the main, feel free to comment it out
+        // and the program will run just how you had it before - Robert
+        PlayerGUI gui = new PlayerGUI();
+                
+        gui.setVisible(true);
+        gui.setDefaultCloseOperation(gui.EXIT_ON_CLOSE);
+        
+//Askin the user for first name
         System.out.println("Enter your character's first name: ");
         String firstName = input.nextLine();
         
