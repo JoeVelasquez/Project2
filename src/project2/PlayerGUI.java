@@ -953,29 +953,9 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_halfingButtonActionPerformed
 
-    private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_halfElfButtonActionPerformed
-
-    private void gnomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnomeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gnomeButtonActionPerformed
-
-    private void elfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_elfButtonActionPerformed
-
-    private void dwarfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dwarfButtonActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dragonBornButtonActionPerformed
 
     private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
         // TODO add your handling code here:
@@ -1084,6 +1064,26 @@ public class PlayerGUI extends javax.swing.JFrame{
     private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_lessWisActionPerformed
+
+    private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_halfElfButtonActionPerformed
+
+    private void gnomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnomeButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gnomeButtonActionPerformed
+
+    private void elfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elfButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elfButtonActionPerformed
+
+    private void dwarfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dwarfButtonActionPerformed
+
+    private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dragonBornButtonActionPerformed
 
     /**
      * @param args the command line arguments
