@@ -120,12 +120,12 @@ public class PlayerGUI extends javax.swing.JFrame{
         intelligence = new javax.swing.JLabel();
         wisdom = new javax.swing.JLabel();
         charisma = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        charismaStat = new javax.swing.JTextField();
+        strengthStat = new javax.swing.JTextField();
+        DexterityStat = new javax.swing.JTextField();
+        constitutionStat = new javax.swing.JTextField();
+        intelligenceStat = new javax.swing.JTextField();
+        wisdomStat = new javax.swing.JTextField();
         lessChar = new javax.swing.JButton();
         moreStr = new javax.swing.JButton();
         moreDex = new javax.swing.JButton();
@@ -783,29 +783,29 @@ public class PlayerGUI extends javax.swing.JFrame{
         charisma.setToolTipText("");
         jPanel1.add(charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
 
-        jTextField1.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField1.setText("10");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 550, 30, 30));
+        charismaStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        charismaStat.setText("10");
+        jPanel1.add(charismaStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 550, 30, 30));
 
-        jTextField2.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField2.setText("10");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 300, 30, 30));
+        strengthStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        strengthStat.setText("10");
+        jPanel1.add(strengthStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 300, 30, 30));
 
-        jTextField3.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField3.setText("10");
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 350, 30, 30));
+        DexterityStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        DexterityStat.setText("10");
+        jPanel1.add(DexterityStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 350, 30, 30));
 
-        jTextField4.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField4.setText("10");
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 30, 30));
+        constitutionStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        constitutionStat.setText("10");
+        jPanel1.add(constitutionStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 30, 30));
 
-        jTextField5.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField5.setText("10");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 450, 30, 30));
+        intelligenceStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        intelligenceStat.setText("10");
+        jPanel1.add(intelligenceStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 450, 30, 30));
 
-        jTextField6.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField6.setText("10");
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
+        wisdomStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        wisdomStat.setText("10");
+        jPanel1.add(wisdomStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
 
         lessChar.setText("-");
         lessChar.addActionListener(new java.awt.event.ActionListener() {
@@ -1125,6 +1125,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JTextField CharFName;
     private javax.swing.JTextField CharLName;
     private javax.swing.JLabel CharacterCreation;
+    private javax.swing.JTextField DexterityStat;
     private javax.swing.JLabel Dragons;
     private javax.swing.JLabel Fungeons;
     private javax.swing.JLabel LastName2;
@@ -1140,12 +1141,14 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel bardSaves;
     private javax.swing.JLabel baseStatsTitle;
     private javax.swing.JLabel charisma;
+    private javax.swing.JTextField charismaStat;
     private javax.swing.JLabel classTitle;
     private javax.swing.JButton clericButton;
     private javax.swing.JLabel clericHitDie;
     private javax.swing.JLabel clericPrimAbility;
     private javax.swing.JLabel clericSaves;
     private javax.swing.JLabel constitution;
+    private javax.swing.JTextField constitutionStat;
     private javax.swing.JLabel dexterity;
     private javax.swing.JButton dragonBornButton;
     private javax.swing.JLabel dragonBornChar;
@@ -1177,6 +1180,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel humanAllAttr;
     private javax.swing.JButton humanButton;
     private javax.swing.JLabel intelligence;
+    private javax.swing.JTextField intelligenceStat;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -1185,12 +1189,6 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton lessChar;
     private javax.swing.JButton lessConst;
     private javax.swing.JButton lessDex;
@@ -1225,6 +1223,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel sorcerorPrimAbility;
     private javax.swing.JLabel sorcerorSaves;
     private javax.swing.JLabel strength;
+    private javax.swing.JTextField strengthStat;
     private javax.swing.JButton tieflingButton;
     private javax.swing.JLabel tieflingChar;
     private javax.swing.JLabel tieflingInt;
@@ -1233,6 +1232,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel warlockPrimAbility;
     private javax.swing.JLabel warlockSaves;
     private javax.swing.JLabel wisdom;
+    private javax.swing.JTextField wisdomStat;
     private javax.swing.JButton wizardButton;
     private javax.swing.JLabel wizardHitDie;
     private javax.swing.JLabel wizardPrimAbility;
