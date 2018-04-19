@@ -253,7 +253,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName20.setForeground(new java.awt.Color(255, 255, 255));
         LastName20.setText("+2 Charisma");
         LastName20.setToolTipText("");
-        jPanel1.add(LastName20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, 100, 30));
+        jPanel1.add(LastName20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 100, 30));
 
         LastName21.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName21.setForeground(new java.awt.Color(255, 255, 255));
@@ -361,7 +361,7 @@ public class PlayerGUI extends javax.swing.JFrame{
                 halfElfButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(halfElfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 630, 120, 30));
+        jPanel1.add(halfElfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 120, 30));
 
         halfingButton.setBackground(new java.awt.Color(204, 204, 204));
         halfingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
