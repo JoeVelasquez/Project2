@@ -35,8 +35,8 @@ public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
                 if(classChoice < 0){
                     throw new IllegalArgumentException("Enter Positive Number!");
                 }
-                else if(classChoice > 11){
-                    throw new IllegalArgumentException("Enter a number from 1-11!!!");
+                else if(classChoice > 12){
+                    throw new IllegalArgumentException("Enter a number from 1-12!!!");
                 }
                 
                 //exit the loop when selection is completed
