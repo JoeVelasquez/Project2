@@ -50,6 +50,5 @@ public class Project2 {
         
         //Display HUD
         p1.hud();
-    }
-    
+    }   
 }

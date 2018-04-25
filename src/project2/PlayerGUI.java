@@ -4,9 +4,6 @@
  * and open the template in the editor.
  */
 package project2;
-
-import java.util.Scanner;
-
 /**
  *
  * @author rbhal
@@ -35,8 +32,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         Fungeons = new javax.swing.JLabel();
         Dragons = new javax.swing.JLabel();
         CharacterCreation = new javax.swing.JLabel();
-        enterCharFName = new javax.swing.JLabel();
-        CharLName = new javax.swing.JTextField();
+        enterCharLName = new javax.swing.JLabel();
         LastName2 = new javax.swing.JLabel();
         baseStatsTitle = new javax.swing.JLabel();
         tieflingInt = new javax.swing.JLabel();
@@ -52,7 +48,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfOrdConst = new javax.swing.JLabel();
         humanAllAttr = new javax.swing.JLabel();
         tieflingChar = new javax.swing.JLabel();
-        CharFName = new javax.swing.JTextField();
+        CharLastName = new javax.swing.JTextField();
         wizardButton = new javax.swing.JButton();
         dragonBornButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -63,7 +59,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfingButton = new javax.swing.JButton();
         halfOrcButton = new javax.swing.JButton();
         humanButton = new javax.swing.JButton();
-        enterCharLName = new javax.swing.JLabel();
         raceTitle = new javax.swing.JLabel();
         tieflingButton = new javax.swing.JButton();
         barbarianButton = new javax.swing.JButton();
@@ -146,6 +141,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
+        enterCharFName = new javax.swing.JLabel();
+        CharFirstName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,46 +151,38 @@ public class PlayerGUI extends javax.swing.JFrame{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         And.setFont(new java.awt.Font("Old English Text MT", 2, 70)); // NOI18N
-        And.setForeground(new java.awt.Color(255, 255, 255));
+        And.setForeground(new java.awt.Color(255, 204, 0));
         And.setText("&");
         And.setToolTipText("");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, And, org.jdesktop.beansbinding.ObjectProperty.create(), And, org.jdesktop.beansbinding.BeanProperty.create("labelFor"));
         bindingGroup.addBinding(binding);
 
-        jPanel1.add(And, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 60, 60));
+        jPanel1.add(And, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 60));
 
         Fungeons.setFont(new java.awt.Font("Old English Text MT", 1, 48)); // NOI18N
-        Fungeons.setForeground(new java.awt.Color(255, 255, 255));
+        Fungeons.setForeground(new java.awt.Color(255, 0, 51));
         Fungeons.setText("Fungeons");
         Fungeons.setToolTipText("");
         jPanel1.add(Fungeons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 60));
 
         Dragons.setFont(new java.awt.Font("Old English Text MT", 1, 48)); // NOI18N
-        Dragons.setForeground(new java.awt.Color(255, 255, 255));
+        Dragons.setForeground(new java.awt.Color(255, 0, 51));
         Dragons.setText("Dragons");
         Dragons.setToolTipText("");
         jPanel1.add(Dragons, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 260, 60));
 
         CharacterCreation.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        CharacterCreation.setForeground(new java.awt.Color(255, 255, 255));
+        CharacterCreation.setForeground(new java.awt.Color(255, 204, 0));
         CharacterCreation.setText("Character Creation");
         CharacterCreation.setToolTipText("");
         jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 200, 30));
 
-        enterCharFName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        enterCharFName.setForeground(new java.awt.Color(255, 255, 255));
-        enterCharFName.setText("Enter Character's First name:");
-        enterCharFName.setToolTipText("");
-        jPanel1.add(enterCharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, 20));
-
-        CharLName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharLName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharLNameActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 120, 20));
+        enterCharLName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharLName.setForeground(new java.awt.Color(255, 204, 0));
+        enterCharLName.setText("Enter Character's last name:");
+        enterCharLName.setToolTipText("");
+        jPanel1.add(enterCharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 250, 20));
 
         LastName2.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName2.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,7 +191,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         jPanel1.add(LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
 
         baseStatsTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        baseStatsTitle.setForeground(new java.awt.Color(255, 255, 255));
+        baseStatsTitle.setForeground(new java.awt.Color(255, 204, 0));
         baseStatsTitle.setText("Base Stats");
         baseStatsTitle.setToolTipText("");
         jPanel1.add(baseStatsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
@@ -285,13 +274,13 @@ public class PlayerGUI extends javax.swing.JFrame{
         tieflingChar.setToolTipText("");
         jPanel1.add(tieflingChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 90, 30));
 
-        CharFName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharFName.addActionListener(new java.awt.event.ActionListener() {
+        CharLastName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        CharLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharFNameActionPerformed(evt);
+                CharLastNameActionPerformed(evt);
             }
         });
-        jPanel1.add(CharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 120, 20));
+        jPanel1.add(CharLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 150, 20));
 
         wizardButton.setBackground(new java.awt.Color(204, 204, 204));
         wizardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
@@ -393,14 +382,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(humanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
 
-        enterCharLName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        enterCharLName.setForeground(new java.awt.Color(255, 255, 255));
-        enterCharLName.setText("Enter Character's last name:");
-        enterCharLName.setToolTipText("");
-        jPanel1.add(enterCharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 30));
-
         raceTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        raceTitle.setForeground(new java.awt.Color(255, 255, 255));
+        raceTitle.setForeground(new java.awt.Color(255, 204, 0));
         raceTitle.setText("Race");
         raceTitle.setToolTipText("");
         jPanel1.add(raceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
@@ -736,7 +719,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         jPanel1.add(wizardPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 850, 190, 30));
 
         classTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        classTitle.setForeground(new java.awt.Color(255, 255, 255));
+        classTitle.setForeground(new java.awt.Color(255, 204, 0));
         classTitle.setText("Class");
         classTitle.setToolTipText("");
         jPanel1.add(classTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
@@ -914,16 +897,38 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName8.setText("Choose a Class:");
         LastName8.setToolTipText("");
         jPanel1.add(LastName8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 120, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
+
+        jSeparator2.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 260, 230, 20));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
+
+        jSeparator4.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 540, 20));
 
+        jSeparator5.setBackground(new java.awt.Color(255, 204, 0));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, 640));
 
+        jSeparator6.setBackground(new java.awt.Color(255, 204, 0));
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 260, 10, 640));
+
+        enterCharFName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharFName.setForeground(new java.awt.Color(255, 204, 0));
+        enterCharFName.setText("Enter Character's First name:");
+        enterCharFName.setToolTipText("");
+        jPanel1.add(enterCharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 250, 20));
+
+        CharFirstName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
+        CharFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CharFirstNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CharFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 150, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -941,6 +946,106 @@ public class PlayerGUI extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void CharFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CharFirstNameActionPerformed
+
+    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessWisActionPerformed
+
+    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessIntActionPerformed
+
+    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessConstActionPerformed
+
+    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessDexActionPerformed
+
+    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessStrActionPerformed
+
+    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreCharActionPerformed
+
+    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreWisActionPerformed
+
+    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreIntActionPerformed
+
+    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreConstActionPerformed
+
+    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreDexActionPerformed
+
+    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreStrActionPerformed
+
+    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessCharActionPerformed
+
+    private void warlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warlockButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_warlockButtonActionPerformed
+
+    private void sorcerorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorcerorButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sorcerorButtonActionPerformed
+
+    private void rogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rogueButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rogueButtonActionPerformed
+
+    private void rangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangerButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rangerButtonActionPerformed
+
+    private void paladinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paladinButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paladinButtonActionPerformed
+
+    private void monkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monkButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monkButtonActionPerformed
+
+    private void fighterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fighterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fighterButtonActionPerformed
+
+    private void druidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_druidButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_druidButtonActionPerformed
+
+    private void clericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clericButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clericButtonActionPerformed
+
+    private void bardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bardButtonActionPerformed
+
+    private void barbarianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barbarianButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_barbarianButtonActionPerformed
+
+    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tieflingButtonActionPerformed
+
     private void humanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_humanButtonActionPerformed
@@ -952,118 +1057,6 @@ public class PlayerGUI extends javax.swing.JFrame{
     private void halfingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfingButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_halfingButtonActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_wizardButtonActionPerformed
-
-    private void CharFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CharFNameActionPerformed
-
-    private void CharLNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharLNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CharLNameActionPerformed
-
-    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tieflingButtonActionPerformed
-
-    private void barbarianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barbarianButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_barbarianButtonActionPerformed
-
-    private void bardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bardButtonActionPerformed
-
-    private void clericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clericButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clericButtonActionPerformed
-
-    private void druidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_druidButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_druidButtonActionPerformed
-
-    private void fighterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fighterButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fighterButtonActionPerformed
-
-    private void monkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monkButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monkButtonActionPerformed
-
-    private void paladinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paladinButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paladinButtonActionPerformed
-
-    private void rangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rangerButtonActionPerformed
-
-    private void rogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rogueButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rogueButtonActionPerformed
-
-    private void sorcerorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorcerorButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sorcerorButtonActionPerformed
-
-    private void warlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warlockButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_warlockButtonActionPerformed
-
-    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessCharActionPerformed
-
-    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreStrActionPerformed
-
-    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreDexActionPerformed
-
-    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreConstActionPerformed
-
-    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreIntActionPerformed
-
-    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreWisActionPerformed
-
-    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreCharActionPerformed
-
-    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessStrActionPerformed
-
-    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessDexActionPerformed
-
-    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessConstActionPerformed
-
-    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessIntActionPerformed
-
-    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessWisActionPerformed
 
     private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
         // TODO add your handling code here:
@@ -1081,9 +1074,21 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_dwarfButtonActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dragonBornButtonActionPerformed
+
+    private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wizardButtonActionPerformed
+
+    private void CharLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CharLastNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1122,8 +1127,8 @@ public class PlayerGUI extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel And;
-    private javax.swing.JTextField CharFName;
-    private javax.swing.JTextField CharLName;
+    private javax.swing.JTextField CharFirstName;
+    private javax.swing.JTextField CharLastName;
     private javax.swing.JLabel CharacterCreation;
     private javax.swing.JTextField DexterityStat;
     private javax.swing.JLabel Dragons;
