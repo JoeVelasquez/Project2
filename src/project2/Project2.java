@@ -21,29 +21,27 @@ public class Project2 {
         //Scanner for user input
         Scanner input = new Scanner(System.in);
         
-        // Lines 24-29 Are the only code I added in the main, feel free to comment it out
-        // and the program will run just how you had it before - Robert
         PlayerGUI gui = new PlayerGUI();
                 
         gui.setVisible(true);
         gui.setDefaultCloseOperation(gui.EXIT_ON_CLOSE);
         
 //Askin the user for first name
-        System.out.println("Enter your character's first name: ");
-        String firstName = input.nextLine();
+        //System.out.println("Enter your character's first name: ");
+        //String firstName = input.nextLine();
         
         //Asking the user for last name
-        System.out.println("Enter your characeter's last name: ");
-        String lastName = input.nextLine();
+        //System.out.println("Enter your characeter's last name: ");
+        //String lastName = input.nextLine();
         
         //creating the players character object
-        PlayerClass p1 = new PlayerClass(firstName, lastName);
+        //PlayerClass p1 = new PlayerClass(firstName, lastName);
         
         //calls function to select a race
-        p1.selectPlayerRace();
+        //p1.selectPlayerRace();
         
         //calls function to select a class
-        p1.selectClassType();
+        //p1.selectClassType();
         
         //calls the function to allocate ability points for the character
         p1.allocateAbilityPoints();
