@@ -5,8 +5,17 @@
         <group>
             <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/Player.java</file>
             <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/Project2.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/PlayerStats.java</file>
             <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/PlayerRace.java</file>
+=======
+            <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/Magic.java</file>
+            <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/PlayerStats.java</file>
+            <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/Melee.java</file>
+            <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/Range.java</file>
+            <file>file:/C:/Users/Joe/Desktop/OOP/Project2/src/project2/PlayerClass.java</file>
+>>>>>>> 2ba12a2fb8d146b0c977d0b9b86cdb88302097de
         </group>
+        <group name="rhall8_Assignment1"/>
     </open-files>
 </project-private>

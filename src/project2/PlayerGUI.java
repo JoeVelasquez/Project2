@@ -6,13 +6,39 @@
 package project2;
 
 import java.util.Scanner;
-
+import javafx.scene.paint.Color;
+import com.sun.glass.events.KeyEvent;
+import static java.lang.Boolean.TRUE;
 /**
  *
  * @author rbhal
  */
 public class PlayerGUI extends javax.swing.JFrame{
 
+    Scanner input = new Scanner(System.in);
+    private boolean dragonBorn = false;
+    private boolean dwarf = false;
+    private boolean elf = false;
+    private boolean gnome = false;
+    private boolean halfElf = false;
+    private boolean halfing = false;
+    private boolean halfOrc = false;
+    private boolean human = false;
+    private boolean tiefling = false;
+    
+    private boolean barbarian = false;
+    private boolean bard = false;
+    private boolean cleric = false;
+    private boolean druid = false;
+    private boolean fighter = false;
+    private boolean monk = false;
+    private boolean paladin = false;
+    private boolean ranger = false;
+    private boolean rogue = false;
+    private boolean sorceror = false;
+    private boolean warlock = false;
+    private boolean wizard = false;
+    
     /**
      * Creates new form PlayerGUI
      */
@@ -35,24 +61,23 @@ public class PlayerGUI extends javax.swing.JFrame{
         Fungeons = new javax.swing.JLabel();
         Dragons = new javax.swing.JLabel();
         CharacterCreation = new javax.swing.JLabel();
-        FirstName = new javax.swing.JLabel();
-        CharFirstName = new javax.swing.JTextField();
-        LastName2 = new javax.swing.JLabel();
-        LastName3 = new javax.swing.JLabel();
-        LastName13 = new javax.swing.JLabel();
-        LastName14 = new javax.swing.JLabel();
-        LastName15 = new javax.swing.JLabel();
-        LastName16 = new javax.swing.JLabel();
-        LastName17 = new javax.swing.JLabel();
-        LastName18 = new javax.swing.JLabel();
-        LastName19 = new javax.swing.JLabel();
-        LastName20 = new javax.swing.JLabel();
-        LastName21 = new javax.swing.JLabel();
-        LastName22 = new javax.swing.JLabel();
-        LastName23 = new javax.swing.JLabel();
-        LastName24 = new javax.swing.JLabel();
-        LastName25 = new javax.swing.JLabel();
-        CharFirstName1 = new javax.swing.JTextField();
+        enterCharLName = new javax.swing.JLabel();
+        totalBaseStats = new javax.swing.JLabel();
+        baseStatsTitle = new javax.swing.JLabel();
+        tieflingInt = new javax.swing.JLabel();
+        dragonBornStr = new javax.swing.JLabel();
+        dragonBornChar = new javax.swing.JLabel();
+        dwarfConst = new javax.swing.JLabel();
+        elfDex = new javax.swing.JLabel();
+        elfWis = new javax.swing.JLabel();
+        gnomeInt = new javax.swing.JLabel();
+        halfElfChar = new javax.swing.JLabel();
+        bardSaves = new javax.swing.JLabel();
+        halfOrcConst = new javax.swing.JLabel();
+        halfOrdConst = new javax.swing.JLabel();
+        humanAllAttr = new javax.swing.JLabel();
+        tieflingChar = new javax.swing.JLabel();
+        CharLastName = new javax.swing.JTextField();
         wizardButton = new javax.swing.JButton();
         dragonBornButton = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -63,8 +88,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfingButton = new javax.swing.JButton();
         halfOrcButton = new javax.swing.JButton();
         humanButton = new javax.swing.JButton();
-        LastName4 = new javax.swing.JLabel();
-        LastName5 = new javax.swing.JLabel();
+        raceTitle = new javax.swing.JLabel();
         tieflingButton = new javax.swing.JButton();
         barbarianButton = new javax.swing.JButton();
         bardButton = new javax.swing.JButton();
@@ -77,55 +101,55 @@ public class PlayerGUI extends javax.swing.JFrame{
         rogueButton = new javax.swing.JButton();
         sorcerorButton = new javax.swing.JButton();
         warlockButton = new javax.swing.JButton();
-        LastName26 = new javax.swing.JLabel();
-        LastName27 = new javax.swing.JLabel();
-        LastName28 = new javax.swing.JLabel();
-        LastName29 = new javax.swing.JLabel();
-        LastName30 = new javax.swing.JLabel();
-        LastName31 = new javax.swing.JLabel();
-        LastName32 = new javax.swing.JLabel();
-        LastName33 = new javax.swing.JLabel();
-        LastName34 = new javax.swing.JLabel();
-        LastName35 = new javax.swing.JLabel();
-        LastName36 = new javax.swing.JLabel();
-        LastName37 = new javax.swing.JLabel();
-        LastName38 = new javax.swing.JLabel();
-        LastName39 = new javax.swing.JLabel();
-        LastName40 = new javax.swing.JLabel();
-        LastName41 = new javax.swing.JLabel();
-        LastName42 = new javax.swing.JLabel();
-        LastName43 = new javax.swing.JLabel();
-        LastName44 = new javax.swing.JLabel();
-        LastName46 = new javax.swing.JLabel();
-        LastName47 = new javax.swing.JLabel();
-        LastName48 = new javax.swing.JLabel();
-        LastName49 = new javax.swing.JLabel();
-        LastName50 = new javax.swing.JLabel();
-        LastName51 = new javax.swing.JLabel();
-        LastName52 = new javax.swing.JLabel();
-        LastName53 = new javax.swing.JLabel();
-        LastName54 = new javax.swing.JLabel();
-        LastName55 = new javax.swing.JLabel();
-        LastName56 = new javax.swing.JLabel();
-        LastName57 = new javax.swing.JLabel();
-        LastName58 = new javax.swing.JLabel();
-        LastName59 = new javax.swing.JLabel();
-        LastName60 = new javax.swing.JLabel();
-        LastName61 = new javax.swing.JLabel();
-        LastName6 = new javax.swing.JLabel();
-        LastName62 = new javax.swing.JLabel();
-        LastName63 = new javax.swing.JLabel();
-        LastName64 = new javax.swing.JLabel();
-        LastName65 = new javax.swing.JLabel();
-        LastName66 = new javax.swing.JLabel();
-        LastName67 = new javax.swing.JLabel();
-        LastName68 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        halfingDex = new javax.swing.JLabel();
+        bardHitDie = new javax.swing.JLabel();
+        bardPrimAbility = new javax.swing.JLabel();
+        barbHitDie = new javax.swing.JLabel();
+        barbPrimAbility = new javax.swing.JLabel();
+        barbSaves = new javax.swing.JLabel();
+        clericSaves = new javax.swing.JLabel();
+        clericHitDie = new javax.swing.JLabel();
+        clericPrimAbility = new javax.swing.JLabel();
+        druidSaves = new javax.swing.JLabel();
+        druidHitDie = new javax.swing.JLabel();
+        druidPrimAbility = new javax.swing.JLabel();
+        fighterSaves = new javax.swing.JLabel();
+        fighterHitDie = new javax.swing.JLabel();
+        fighterPrimAbility = new javax.swing.JLabel();
+        monkSaves = new javax.swing.JLabel();
+        monkHitDie = new javax.swing.JLabel();
+        monkPrimAbility = new javax.swing.JLabel();
+        paladinSaves = new javax.swing.JLabel();
+        paladinPrimAbility = new javax.swing.JLabel();
+        rangerSaves = new javax.swing.JLabel();
+        rangerHitDie = new javax.swing.JLabel();
+        rangerPrimAbility = new javax.swing.JLabel();
+        rogueSaves = new javax.swing.JLabel();
+        rogueHitDie = new javax.swing.JLabel();
+        roguePrimAbility = new javax.swing.JLabel();
+        sorcerorSaves = new javax.swing.JLabel();
+        sorcerorHitDie = new javax.swing.JLabel();
+        sorcerorPrimAbility = new javax.swing.JLabel();
+        warlockSaves = new javax.swing.JLabel();
+        warlockHitDie = new javax.swing.JLabel();
+        warlockPrimAbility = new javax.swing.JLabel();
+        wizardSaves = new javax.swing.JLabel();
+        wizardHitDie = new javax.swing.JLabel();
+        wizardPrimAbility = new javax.swing.JLabel();
+        classTitle = new javax.swing.JLabel();
+        paladinHitDie = new javax.swing.JLabel();
+        strength = new javax.swing.JLabel();
+        dexterity = new javax.swing.JLabel();
+        constitution = new javax.swing.JLabel();
+        intelligence = new javax.swing.JLabel();
+        wisdom = new javax.swing.JLabel();
+        charisma = new javax.swing.JLabel();
+        charismaStat = new javax.swing.JTextField();
+        strengthStat = new javax.swing.JTextField();
+        DexterityStat = new javax.swing.JTextField();
+        constitutionStat = new javax.swing.JTextField();
+        intelligenceStat = new javax.swing.JTextField();
+        wisdomStat = new javax.swing.JTextField();
         lessChar = new javax.swing.JButton();
         moreStr = new javax.swing.JButton();
         moreDex = new javax.swing.JButton();
@@ -146,6 +170,10 @@ public class PlayerGUI extends javax.swing.JFrame{
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
+        enterCharFName = new javax.swing.JLabel();
+        CharFirstName = new javax.swing.JTextField();
+        confirmButton = new javax.swing.JButton();
+        LastName3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,148 +182,145 @@ public class PlayerGUI extends javax.swing.JFrame{
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         And.setFont(new java.awt.Font("Old English Text MT", 2, 70)); // NOI18N
-        And.setForeground(new java.awt.Color(255, 255, 255));
+        And.setForeground(new java.awt.Color(255, 204, 0));
         And.setText("&");
         And.setToolTipText("");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, And, org.jdesktop.beansbinding.ObjectProperty.create(), And, org.jdesktop.beansbinding.BeanProperty.create("labelFor"));
         bindingGroup.addBinding(binding);
 
-        jPanel1.add(And, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 60, 60));
+        jPanel1.add(And, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 70, 60));
 
         Fungeons.setFont(new java.awt.Font("Old English Text MT", 1, 48)); // NOI18N
-        Fungeons.setForeground(new java.awt.Color(255, 255, 255));
+        Fungeons.setForeground(new java.awt.Color(255, 0, 51));
         Fungeons.setText("Fungeons");
         Fungeons.setToolTipText("");
-        jPanel1.add(Fungeons, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 260, 60));
+        jPanel1.add(Fungeons, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 260, 60));
 
         Dragons.setFont(new java.awt.Font("Old English Text MT", 1, 48)); // NOI18N
-        Dragons.setForeground(new java.awt.Color(255, 255, 255));
+        Dragons.setForeground(new java.awt.Color(255, 0, 51));
         Dragons.setText("Dragons");
         Dragons.setToolTipText("");
-        jPanel1.add(Dragons, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 260, 60));
+        jPanel1.add(Dragons, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 260, 60));
 
         CharacterCreation.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        CharacterCreation.setForeground(new java.awt.Color(255, 255, 255));
+        CharacterCreation.setForeground(new java.awt.Color(255, 204, 0));
         CharacterCreation.setText("Character Creation");
         CharacterCreation.setToolTipText("");
-        jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 200, 30));
+        jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 200, 30));
 
-        FirstName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        FirstName.setForeground(new java.awt.Color(255, 255, 255));
-        FirstName.setText("Enter Character's First name:");
-        FirstName.setToolTipText("");
-        jPanel1.add(FirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 280, 20));
+        enterCharLName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharLName.setForeground(new java.awt.Color(255, 204, 0));
+        enterCharLName.setText("Enter Character's last name:");
+        enterCharLName.setToolTipText("");
+        jPanel1.add(enterCharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 250, 20));
 
-        CharFirstName.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharFirstName.addActionListener(new java.awt.event.ActionListener() {
+        totalBaseStats.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        totalBaseStats.setForeground(new java.awt.Color(255, 255, 255));
+        totalBaseStats.setText("32");
+        totalBaseStats.setToolTipText("");
+        jPanel1.add(totalBaseStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 270, 30, 30));
+
+        baseStatsTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        baseStatsTitle.setForeground(new java.awt.Color(255, 204, 0));
+        baseStatsTitle.setText("Base Stats");
+        baseStatsTitle.setToolTipText("");
+        jPanel1.add(baseStatsTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
+
+        tieflingInt.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        tieflingInt.setForeground(new java.awt.Color(255, 255, 255));
+        tieflingInt.setText("+1 Intelligence");
+        tieflingInt.setToolTipText("");
+        jPanel1.add(tieflingInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 100, 30));
+
+        dragonBornStr.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dragonBornStr.setForeground(new java.awt.Color(255, 255, 255));
+        dragonBornStr.setText("+2 Strength");
+        dragonBornStr.setToolTipText("");
+        jPanel1.add(dragonBornStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+
+        dragonBornChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dragonBornChar.setForeground(new java.awt.Color(255, 255, 255));
+        dragonBornChar.setText("+1 Charisma");
+        dragonBornChar.setToolTipText("");
+        jPanel1.add(dragonBornChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
+
+        dwarfConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dwarfConst.setForeground(new java.awt.Color(255, 255, 255));
+        dwarfConst.setText("+2 Constitution");
+        dwarfConst.setToolTipText("");
+        jPanel1.add(dwarfConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 30));
+
+        elfDex.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        elfDex.setForeground(new java.awt.Color(255, 255, 255));
+        elfDex.setText("+2 Dexterity");
+        elfDex.setToolTipText("");
+        jPanel1.add(elfDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 100, 30));
+
+        elfWis.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        elfWis.setForeground(new java.awt.Color(255, 255, 255));
+        elfWis.setText("+1 Wisdom");
+        elfWis.setToolTipText("");
+        jPanel1.add(elfWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 100, 30));
+
+        gnomeInt.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        gnomeInt.setForeground(new java.awt.Color(255, 255, 255));
+        gnomeInt.setText("+2 Intelligence");
+        gnomeInt.setToolTipText("");
+        jPanel1.add(gnomeInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 100, 30));
+
+        halfElfChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfElfChar.setForeground(new java.awt.Color(255, 255, 255));
+        halfElfChar.setText("+2 Charisma");
+        halfElfChar.setToolTipText("");
+        jPanel1.add(halfElfChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 100, 30));
+
+        bardSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardSaves.setForeground(new java.awt.Color(255, 255, 255));
+        bardSaves.setText("Saves: Dexterity & Charisma");
+        bardSaves.setToolTipText("");
+        jPanel1.add(bardSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 200, 30));
+
+        halfOrcConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfOrcConst.setForeground(new java.awt.Color(255, 255, 255));
+        halfOrcConst.setText("+2 Strength");
+        halfOrcConst.setToolTipText("");
+        jPanel1.add(halfOrcConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, 30));
+
+        halfOrdConst.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfOrdConst.setForeground(new java.awt.Color(255, 255, 255));
+        halfOrdConst.setText("+1 Constitution");
+        halfOrdConst.setToolTipText("");
+        jPanel1.add(halfOrdConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 100, 30));
+
+        humanAllAttr.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        humanAllAttr.setForeground(new java.awt.Color(255, 255, 255));
+        humanAllAttr.setText("+1 to All Attributes");
+        humanAllAttr.setToolTipText("");
+        jPanel1.add(humanAllAttr, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 130, 30));
+
+        tieflingChar.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        tieflingChar.setForeground(new java.awt.Color(255, 255, 255));
+        tieflingChar.setText("+2 Charisma");
+        tieflingChar.setToolTipText("");
+        jPanel1.add(tieflingChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 90, 30));
+
+        CharLastName.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        CharLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharFirstNameActionPerformed(evt);
+                CharLastNameActionPerformed(evt);
             }
         });
-        jPanel1.add(CharFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 120, 20));
-
-        LastName2.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName2.setForeground(new java.awt.Color(255, 255, 255));
-        LastName2.setText("Choose base Stats:");
-        LastName2.setToolTipText("");
-        jPanel1.add(LastName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
-
-        LastName3.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName3.setForeground(new java.awt.Color(255, 255, 255));
-        LastName3.setText("Base Stats");
-        LastName3.setToolTipText("");
-        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 220, 120, 30));
-
-        LastName13.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName13.setForeground(new java.awt.Color(255, 255, 255));
-        LastName13.setText("+1 Intelligence");
-        LastName13.setToolTipText("");
-        jPanel1.add(LastName13, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 590, 100, 30));
-
-        LastName14.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName14.setForeground(new java.awt.Color(255, 255, 255));
-        LastName14.setText("+2 Strength");
-        LastName14.setToolTipText("");
-        jPanel1.add(LastName14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
-
-        LastName15.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName15.setForeground(new java.awt.Color(255, 255, 255));
-        LastName15.setText("+1 Charisma");
-        LastName15.setToolTipText("");
-        jPanel1.add(LastName15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 90, 30));
-
-        LastName16.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName16.setForeground(new java.awt.Color(255, 255, 255));
-        LastName16.setText("+2 Constitution");
-        LastName16.setToolTipText("");
-        jPanel1.add(LastName16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 100, 30));
-
-        LastName17.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName17.setForeground(new java.awt.Color(255, 255, 255));
-        LastName17.setText("+2 Dexterity");
-        LastName17.setToolTipText("");
-        jPanel1.add(LastName17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 490, 100, 30));
-
-        LastName18.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName18.setForeground(new java.awt.Color(255, 255, 255));
-        LastName18.setText("+1 Wisdom");
-        LastName18.setToolTipText("");
-        jPanel1.add(LastName18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 510, 100, 30));
-
-        LastName19.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName19.setForeground(new java.awt.Color(255, 255, 255));
-        LastName19.setText("+2 Intelligence");
-        LastName19.setToolTipText("");
-        jPanel1.add(LastName19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 100, 30));
-
-        LastName20.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName20.setForeground(new java.awt.Color(255, 255, 255));
-        LastName20.setText("+2 Charisma");
-        LastName20.setToolTipText("");
-        jPanel1.add(LastName20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 650, 100, 30));
-
-        LastName21.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName21.setForeground(new java.awt.Color(255, 255, 255));
-        LastName21.setText("Saves: Dexterity & Charisma");
-        LastName21.setToolTipText("");
-        jPanel1.add(LastName21, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 470, 200, 30));
-
-        LastName22.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName22.setForeground(new java.awt.Color(255, 255, 255));
-        LastName22.setText("+2 Strength");
-        LastName22.setToolTipText("");
-        jPanel1.add(LastName22, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 100, 30));
-
-        LastName23.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName23.setForeground(new java.awt.Color(255, 255, 255));
-        LastName23.setText("+1 Constitution");
-        LastName23.setToolTipText("");
-        jPanel1.add(LastName23, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 100, 30));
-
-        LastName24.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName24.setForeground(new java.awt.Color(255, 255, 255));
-        LastName24.setText("+1 to All Attributes");
-        LastName24.setToolTipText("");
-        jPanel1.add(LastName24, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 130, 30));
-
-        LastName25.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName25.setForeground(new java.awt.Color(255, 255, 255));
-        LastName25.setText("+2 Charisma");
-        LastName25.setToolTipText("");
-        jPanel1.add(LastName25, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 570, 90, 30));
-
-        CharFirstName1.setFont(new java.awt.Font("Old English Text MT", 0, 12)); // NOI18N
-        CharFirstName1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CharFirstName1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(CharFirstName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 120, 20));
+        jPanel1.add(CharLastName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, 150, 20));
 
         wizardButton.setBackground(new java.awt.Color(204, 204, 204));
         wizardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         wizardButton.setText("Wizard");
+        wizardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                wizardButtonMouseClicked(evt);
+            }
+        });
         wizardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wizardButtonActionPerformed(evt);
@@ -306,6 +331,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
         dragonBornButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         dragonBornButton.setText("Dragonborn");
+        dragonBornButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dragonBornButtonMouseClicked(evt);
+            }
+        });
         dragonBornButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dragonBornButtonActionPerformed(evt);
@@ -326,6 +356,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
         dwarfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         dwarfButton.setText("Dwarf");
+        dwarfButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dwarfButtonMouseClicked(evt);
+            }
+        });
         dwarfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dwarfButtonActionPerformed(evt);
@@ -336,6 +371,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         elfButton.setBackground(new java.awt.Color(204, 204, 204));
         elfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         elfButton.setText("Elf");
+        elfButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                elfButtonMouseClicked(evt);
+            }
+        });
         elfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elfButtonActionPerformed(evt);
@@ -346,6 +386,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
         gnomeButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         gnomeButton.setText("Gnome");
+        gnomeButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gnomeButtonMouseClicked(evt);
+            }
+        });
         gnomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 gnomeButtonActionPerformed(evt);
@@ -356,6 +401,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
         halfElfButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         halfElfButton.setText("Half-Elf");
+        halfElfButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                halfElfButtonMouseClicked(evt);
+            }
+        });
         halfElfButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 halfElfButtonActionPerformed(evt);
@@ -366,6 +416,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfingButton.setBackground(new java.awt.Color(204, 204, 204));
         halfingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         halfingButton.setText("Halfing");
+        halfingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                halfingButtonMouseClicked(evt);
+            }
+        });
         halfingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 halfingButtonActionPerformed(evt);
@@ -376,6 +431,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
         halfOrcButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         halfOrcButton.setText("Half-Orc");
+        halfOrcButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                halfOrcButtonMouseClicked(evt);
+            }
+        });
         halfOrcButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 halfOrcButtonActionPerformed(evt);
@@ -386,6 +446,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         humanButton.setBackground(new java.awt.Color(204, 204, 204));
         humanButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         humanButton.setText("Human");
+        humanButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                humanButtonMouseClicked(evt);
+            }
+        });
         humanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 humanButtonActionPerformed(evt);
@@ -393,21 +458,20 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(humanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
 
-        LastName4.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
-        LastName4.setForeground(new java.awt.Color(255, 255, 255));
-        LastName4.setText("Enter Character's last name:");
-        LastName4.setToolTipText("");
-        jPanel1.add(LastName4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 270, 30));
-
-        LastName5.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName5.setForeground(new java.awt.Color(255, 255, 255));
-        LastName5.setText("Race");
-        LastName5.setToolTipText("");
-        jPanel1.add(LastName5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
+        raceTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        raceTitle.setForeground(new java.awt.Color(255, 204, 0));
+        raceTitle.setText("Race");
+        raceTitle.setToolTipText("");
+        jPanel1.add(raceTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 60, 30));
 
         tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
         tieflingButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         tieflingButton.setText("Tiefling");
+        tieflingButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tieflingButtonMouseClicked(evt);
+            }
+        });
         tieflingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tieflingButtonActionPerformed(evt);
@@ -418,6 +482,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
         barbarianButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         barbarianButton.setText("Bardarian");
+        barbarianButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                barbarianButtonMouseClicked(evt);
+            }
+        });
         barbarianButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 barbarianButtonActionPerformed(evt);
@@ -428,6 +497,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         bardButton.setBackground(new java.awt.Color(204, 204, 204));
         bardButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         bardButton.setText("Bard");
+        bardButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bardButtonMouseClicked(evt);
+            }
+        });
         bardButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bardButtonActionPerformed(evt);
@@ -438,6 +512,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         clericButton.setBackground(new java.awt.Color(204, 204, 204));
         clericButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         clericButton.setText("Cleric");
+        clericButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clericButtonMouseClicked(evt);
+            }
+        });
         clericButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clericButtonActionPerformed(evt);
@@ -448,6 +527,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         druidButton.setBackground(new java.awt.Color(204, 204, 204));
         druidButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         druidButton.setText("Druid");
+        druidButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                druidButtonMouseClicked(evt);
+            }
+        });
         druidButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 druidButtonActionPerformed(evt);
@@ -458,6 +542,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         fighterButton.setBackground(new java.awt.Color(204, 204, 204));
         fighterButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         fighterButton.setText("Fighter");
+        fighterButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                fighterButtonMouseClicked(evt);
+            }
+        });
         fighterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fighterButtonActionPerformed(evt);
@@ -468,6 +557,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         monkButton.setBackground(new java.awt.Color(204, 204, 204));
         monkButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         monkButton.setText("Monk");
+        monkButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                monkButtonMouseClicked(evt);
+            }
+        });
         monkButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 monkButtonActionPerformed(evt);
@@ -478,6 +572,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         paladinButton.setBackground(new java.awt.Color(204, 204, 204));
         paladinButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         paladinButton.setText("Paladin");
+        paladinButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                paladinButtonMouseClicked(evt);
+            }
+        });
         paladinButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 paladinButtonActionPerformed(evt);
@@ -488,6 +587,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         rangerButton.setBackground(new java.awt.Color(204, 204, 204));
         rangerButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         rangerButton.setText("Ranger");
+        rangerButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rangerButtonMouseClicked(evt);
+            }
+        });
         rangerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rangerButtonActionPerformed(evt);
@@ -498,6 +602,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         rogueButton.setBackground(new java.awt.Color(204, 204, 204));
         rogueButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         rogueButton.setText("Rogue");
+        rogueButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rogueButtonMouseClicked(evt);
+            }
+        });
         rogueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rogueButtonActionPerformed(evt);
@@ -508,6 +617,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
         sorcerorButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         sorcerorButton.setText("Sorceror");
+        sorcerorButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sorcerorButtonMouseClicked(evt);
+            }
+        });
         sorcerorButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sorcerorButtonActionPerformed(evt);
@@ -518,6 +632,11 @@ public class PlayerGUI extends javax.swing.JFrame{
         warlockButton.setBackground(new java.awt.Color(204, 204, 204));
         warlockButton.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
         warlockButton.setText("Warlock");
+        warlockButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                warlockButtonMouseClicked(evt);
+            }
+        });
         warlockButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 warlockButtonActionPerformed(evt);
@@ -525,288 +644,295 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(warlockButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 700, 120, 30));
 
-        LastName26.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName26.setForeground(new java.awt.Color(255, 255, 255));
-        LastName26.setText("+2 Dexterity");
-        LastName26.setToolTipText("");
-        jPanel1.add(LastName26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, 30));
+        halfingDex.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        halfingDex.setForeground(new java.awt.Color(255, 255, 255));
+        halfingDex.setText("+2 Dexterity");
+        halfingDex.setToolTipText("");
+        jPanel1.add(halfingDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 100, 30));
 
-        LastName27.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName27.setForeground(new java.awt.Color(255, 255, 255));
-        LastName27.setText("Hit Die: d8");
-        LastName27.setToolTipText("");
-        jPanel1.add(LastName27, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 80, 30));
+        bardHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        bardHitDie.setText("Hit Die: d8");
+        bardHitDie.setToolTipText("");
+        jPanel1.add(bardHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 430, 80, 30));
 
-        LastName28.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName28.setForeground(new java.awt.Color(255, 255, 255));
-        LastName28.setText("Primary Abilility: Charisma");
-        LastName28.setToolTipText("");
-        jPanel1.add(LastName28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 180, 30));
+        bardPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        bardPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        bardPrimAbility.setText("Primary Abilility: Charisma");
+        bardPrimAbility.setToolTipText("");
+        jPanel1.add(bardPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 180, 30));
 
-        LastName29.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName29.setForeground(new java.awt.Color(255, 255, 255));
-        LastName29.setText("Hit Die: d12");
-        LastName29.setToolTipText("");
-        jPanel1.add(LastName29, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 90, 30));
+        barbHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        barbHitDie.setText("Hit Die: d12");
+        barbHitDie.setToolTipText("");
+        jPanel1.add(barbHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 90, 30));
 
-        LastName30.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName30.setForeground(new java.awt.Color(255, 255, 255));
-        LastName30.setText("Primary Abilility: Strength");
-        LastName30.setToolTipText("");
-        jPanel1.add(LastName30, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 180, 30));
+        barbPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        barbPrimAbility.setText("Primary Abilility: Strength");
+        barbPrimAbility.setToolTipText("");
+        jPanel1.add(barbPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 180, 30));
 
-        LastName31.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName31.setForeground(new java.awt.Color(255, 255, 255));
-        LastName31.setText("Saves: Strength & Constitution");
-        LastName31.setToolTipText("");
-        jPanel1.add(LastName31, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 210, 30));
+        barbSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        barbSaves.setForeground(new java.awt.Color(255, 255, 255));
+        barbSaves.setText("Saves: Strength & Constitution");
+        barbSaves.setToolTipText("");
+        jPanel1.add(barbSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 210, 30));
 
-        LastName32.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName32.setForeground(new java.awt.Color(255, 255, 255));
-        LastName32.setText("Saves: Wisdom & Charisma");
-        LastName32.setToolTipText("");
-        jPanel1.add(LastName32, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 190, 30));
+        clericSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericSaves.setForeground(new java.awt.Color(255, 255, 255));
+        clericSaves.setText("Saves: Wisdom & Charisma");
+        clericSaves.setToolTipText("");
+        jPanel1.add(clericSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 570, 190, 30));
 
-        LastName33.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName33.setForeground(new java.awt.Color(255, 255, 255));
-        LastName33.setText("Hit Die: d8");
-        LastName33.setToolTipText("");
-        jPanel1.add(LastName33, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 80, 30));
+        clericHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        clericHitDie.setText("Hit Die: d8");
+        clericHitDie.setToolTipText("");
+        jPanel1.add(clericHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 80, 30));
 
-        LastName34.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName34.setForeground(new java.awt.Color(255, 255, 255));
-        LastName34.setText("Primary Abilility: Wisdom");
-        LastName34.setToolTipText("");
-        jPanel1.add(LastName34, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 30));
+        clericPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        clericPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        clericPrimAbility.setText("Primary Abilility: Wisdom");
+        clericPrimAbility.setToolTipText("");
+        jPanel1.add(clericPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 30));
 
-        LastName35.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName35.setForeground(new java.awt.Color(255, 255, 255));
-        LastName35.setText("Saves: Intelligence & Wisdom");
-        LastName35.setToolTipText("");
-        jPanel1.add(LastName35, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, 200, 30));
+        druidSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidSaves.setForeground(new java.awt.Color(255, 255, 255));
+        druidSaves.setText("Saves: Intelligence & Wisdom");
+        druidSaves.setToolTipText("");
+        jPanel1.add(druidSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 670, 200, 30));
 
-        LastName36.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName36.setForeground(new java.awt.Color(255, 255, 255));
-        LastName36.setText("Hit Die: d8");
-        LastName36.setToolTipText("");
-        jPanel1.add(LastName36, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 630, 100, 30));
+        druidHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        druidHitDie.setText("Hit Die: d8");
+        druidHitDie.setToolTipText("");
+        jPanel1.add(druidHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 630, 100, 30));
 
-        LastName37.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName37.setForeground(new java.awt.Color(255, 255, 255));
-        LastName37.setText("Primary Abilility: Wisdom");
-        LastName37.setToolTipText("");
-        jPanel1.add(LastName37, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 170, 30));
+        druidPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        druidPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        druidPrimAbility.setText("Primary Abilility: Wisdom");
+        druidPrimAbility.setToolTipText("");
+        jPanel1.add(druidPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, 170, 30));
 
-        LastName38.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName38.setForeground(new java.awt.Color(255, 255, 255));
-        LastName38.setText("Saves: Strength & Constitution");
-        LastName38.setToolTipText("");
-        jPanel1.add(LastName38, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 770, 210, 30));
+        fighterSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterSaves.setForeground(new java.awt.Color(255, 255, 255));
+        fighterSaves.setText("Saves: Strength & Constitution");
+        fighterSaves.setToolTipText("");
+        jPanel1.add(fighterSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 770, 210, 30));
 
-        LastName39.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName39.setForeground(new java.awt.Color(255, 255, 255));
-        LastName39.setText("Hit Die: d10");
-        LastName39.setToolTipText("");
-        jPanel1.add(LastName39, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 730, 100, 30));
+        fighterHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        fighterHitDie.setText("Hit Die: d10");
+        fighterHitDie.setToolTipText("");
+        jPanel1.add(fighterHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 730, 100, 30));
 
-        LastName40.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName40.setForeground(new java.awt.Color(255, 255, 255));
-        LastName40.setText("Primary Abilility: Strength or Dexterity");
-        LastName40.setToolTipText("");
-        jPanel1.add(LastName40, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 750, 250, 30));
+        fighterPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        fighterPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        fighterPrimAbility.setText("Primary Abilility: Strength or Dexterity");
+        fighterPrimAbility.setToolTipText("");
+        jPanel1.add(fighterPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 750, 250, 30));
 
-        LastName41.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName41.setForeground(new java.awt.Color(255, 255, 255));
-        LastName41.setText("Saves: Strength & Dexterity");
-        LastName41.setToolTipText("");
-        jPanel1.add(LastName41, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 870, 190, 30));
+        monkSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkSaves.setForeground(new java.awt.Color(255, 255, 255));
+        monkSaves.setText("Saves: Strength & Dexterity");
+        monkSaves.setToolTipText("");
+        jPanel1.add(monkSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 870, 190, 30));
 
-        LastName42.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName42.setForeground(new java.awt.Color(255, 255, 255));
-        LastName42.setText("Hit Die: d8");
-        LastName42.setToolTipText("");
-        jPanel1.add(LastName42, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 830, 100, 30));
+        monkHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        monkHitDie.setText("Hit Die: d8");
+        monkHitDie.setToolTipText("");
+        jPanel1.add(monkHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 830, 100, 30));
 
-        LastName43.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName43.setForeground(new java.awt.Color(255, 255, 255));
-        LastName43.setText("Primary Abilility: Dexterity & Wisdom");
-        LastName43.setToolTipText("");
-        jPanel1.add(LastName43, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 850, 190, 30));
+        monkPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        monkPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        monkPrimAbility.setText("Primary Abilility: Dexterity & Wisdom");
+        monkPrimAbility.setToolTipText("");
+        jPanel1.add(monkPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 850, 250, 30));
 
-        LastName44.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName44.setForeground(new java.awt.Color(255, 255, 255));
-        LastName44.setText("Saves: Wisdom & Charisma");
-        LastName44.setToolTipText("");
-        jPanel1.add(LastName44, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 190, 30));
+        paladinSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinSaves.setForeground(new java.awt.Color(255, 255, 255));
+        paladinSaves.setText("Saves: Wisdom & Charisma");
+        paladinSaves.setToolTipText("");
+        jPanel1.add(paladinSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 370, 190, 30));
 
-        LastName46.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName46.setForeground(new java.awt.Color(255, 255, 255));
-        LastName46.setText("Primary Abilility: Strength & Charisma");
-        LastName46.setToolTipText("");
-        jPanel1.add(LastName46, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 250, 30));
+        paladinPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        paladinPrimAbility.setText("Primary Abilility: Strength & Charisma");
+        paladinPrimAbility.setToolTipText("");
+        jPanel1.add(paladinPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, 250, 30));
 
-        LastName47.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName47.setForeground(new java.awt.Color(255, 255, 255));
-        LastName47.setText("Saves: Strength & Dexterity");
-        LastName47.setToolTipText("");
-        jPanel1.add(LastName47, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 190, 30));
+        rangerSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerSaves.setForeground(new java.awt.Color(255, 255, 255));
+        rangerSaves.setText("Saves: Strength & Dexterity");
+        rangerSaves.setToolTipText("");
+        jPanel1.add(rangerSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 470, 190, 30));
 
-        LastName48.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName48.setForeground(new java.awt.Color(255, 255, 255));
-        LastName48.setText("Hit Die: d10");
-        LastName48.setToolTipText("");
-        jPanel1.add(LastName48, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 90, 30));
+        rangerHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        rangerHitDie.setText("Hit Die: d10");
+        rangerHitDie.setToolTipText("");
+        jPanel1.add(rangerHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 90, 30));
 
-        LastName49.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName49.setForeground(new java.awt.Color(255, 255, 255));
-        LastName49.setText("Primary Abilility: Dexterity & Wisdom");
-        LastName49.setToolTipText("");
-        jPanel1.add(LastName49, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 250, 30));
+        rangerPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rangerPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        rangerPrimAbility.setText("Primary Abilility: Dexterity & Wisdom");
+        rangerPrimAbility.setToolTipText("");
+        jPanel1.add(rangerPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 450, 250, 30));
 
-        LastName50.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName50.setForeground(new java.awt.Color(255, 255, 255));
-        LastName50.setText("Saves: Dexterity & Intelligence");
-        LastName50.setToolTipText("");
-        jPanel1.add(LastName50, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 210, 30));
+        rogueSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rogueSaves.setForeground(new java.awt.Color(255, 255, 255));
+        rogueSaves.setText("Saves: Dexterity & Intelligence");
+        rogueSaves.setToolTipText("");
+        jPanel1.add(rogueSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 570, 210, 30));
 
-        LastName51.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName51.setForeground(new java.awt.Color(255, 255, 255));
-        LastName51.setText("Hit Die: d8");
-        LastName51.setToolTipText("");
-        jPanel1.add(LastName51, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 80, 30));
+        rogueHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        rogueHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        rogueHitDie.setText("Hit Die: d8");
+        rogueHitDie.setToolTipText("");
+        jPanel1.add(rogueHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 530, 80, 30));
 
-        LastName52.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName52.setForeground(new java.awt.Color(255, 255, 255));
-        LastName52.setText("Primary Abilility: Dexterity ");
-        LastName52.setToolTipText("");
-        jPanel1.add(LastName52, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 180, 30));
+        roguePrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        roguePrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        roguePrimAbility.setText("Primary Abilility: Dexterity ");
+        roguePrimAbility.setToolTipText("");
+        jPanel1.add(roguePrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 550, 180, 30));
 
-        LastName53.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName53.setForeground(new java.awt.Color(255, 255, 255));
-        LastName53.setText("Saves: Constitution & Charisma");
-        LastName53.setToolTipText("");
-        jPanel1.add(LastName53, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 670, 210, 30));
+        sorcerorSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorSaves.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorSaves.setText("Saves: Constitution & Charisma");
+        sorcerorSaves.setToolTipText("");
+        jPanel1.add(sorcerorSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 670, 210, 30));
 
-        LastName54.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName54.setForeground(new java.awt.Color(255, 255, 255));
-        LastName54.setText("Hit Die: d6");
-        LastName54.setToolTipText("");
-        jPanel1.add(LastName54, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 630, 80, 30));
+        sorcerorHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorHitDie.setText("Hit Die: d6");
+        sorcerorHitDie.setToolTipText("");
+        jPanel1.add(sorcerorHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 630, 80, 30));
 
-        LastName55.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName55.setForeground(new java.awt.Color(255, 255, 255));
-        LastName55.setText("Primary Abilility: Charisma");
-        LastName55.setToolTipText("");
-        jPanel1.add(LastName55, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 650, 180, 30));
+        sorcerorPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        sorcerorPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        sorcerorPrimAbility.setText("Primary Abilility: Charisma");
+        sorcerorPrimAbility.setToolTipText("");
+        jPanel1.add(sorcerorPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 650, 180, 30));
 
-        LastName56.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName56.setForeground(new java.awt.Color(255, 255, 255));
-        LastName56.setText("Saves: Wisdom & Charisma");
-        LastName56.setToolTipText("");
-        jPanel1.add(LastName56, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 770, 190, 30));
+        warlockSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockSaves.setForeground(new java.awt.Color(255, 255, 255));
+        warlockSaves.setText("Saves: Wisdom & Charisma");
+        warlockSaves.setToolTipText("");
+        jPanel1.add(warlockSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 770, 190, 30));
 
-        LastName57.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName57.setForeground(new java.awt.Color(255, 255, 255));
-        LastName57.setText("Hit Die: d8");
-        LastName57.setToolTipText("");
-        jPanel1.add(LastName57, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 730, 80, 30));
+        warlockHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        warlockHitDie.setText("Hit Die: d8");
+        warlockHitDie.setToolTipText("");
+        jPanel1.add(warlockHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 730, 80, 30));
 
-        LastName58.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName58.setForeground(new java.awt.Color(255, 255, 255));
-        LastName58.setText("Primary Abilility: Charisma");
-        LastName58.setToolTipText("");
-        jPanel1.add(LastName58, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 750, 180, 30));
+        warlockPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        warlockPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        warlockPrimAbility.setText("Primary Abilility: Charisma");
+        warlockPrimAbility.setToolTipText("");
+        jPanel1.add(warlockPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 750, 180, 30));
 
-        LastName59.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName59.setForeground(new java.awt.Color(255, 255, 255));
-        LastName59.setText("Saves: Intelligence & Wisdom");
-        LastName59.setToolTipText("");
-        jPanel1.add(LastName59, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 870, 200, 30));
+        wizardSaves.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardSaves.setForeground(new java.awt.Color(255, 255, 255));
+        wizardSaves.setText("Saves: Intelligence & Wisdom");
+        wizardSaves.setToolTipText("");
+        jPanel1.add(wizardSaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 870, 200, 30));
 
-        LastName60.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName60.setForeground(new java.awt.Color(255, 255, 255));
-        LastName60.setText("Hit Die: d6");
-        LastName60.setToolTipText("");
-        jPanel1.add(LastName60, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 830, 80, 30));
+        wizardHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        wizardHitDie.setText("Hit Die: d6");
+        wizardHitDie.setToolTipText("");
+        jPanel1.add(wizardHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 830, 80, 30));
 
-        LastName61.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName61.setForeground(new java.awt.Color(255, 255, 255));
-        LastName61.setText("Primary Abilility: Intelligence");
-        LastName61.setToolTipText("");
-        jPanel1.add(LastName61, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 850, 190, 30));
+        wizardPrimAbility.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wizardPrimAbility.setForeground(new java.awt.Color(255, 255, 255));
+        wizardPrimAbility.setText("Primary Abilility: Intelligence");
+        wizardPrimAbility.setToolTipText("");
+        jPanel1.add(wizardPrimAbility, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 850, 190, 30));
 
-        LastName6.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
-        LastName6.setForeground(new java.awt.Color(255, 255, 255));
-        LastName6.setText("Class");
-        LastName6.setToolTipText("");
-        jPanel1.add(LastName6, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
+        classTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        classTitle.setForeground(new java.awt.Color(255, 204, 0));
+        classTitle.setText("Class");
+        classTitle.setToolTipText("");
+        jPanel1.add(classTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 60, 30));
 
-        LastName62.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName62.setForeground(new java.awt.Color(255, 255, 255));
-        LastName62.setText("Hit Die: d10");
-        LastName62.setToolTipText("");
-        jPanel1.add(LastName62, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 90, 30));
+        paladinHitDie.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        paladinHitDie.setForeground(new java.awt.Color(255, 255, 255));
+        paladinHitDie.setText("Hit Die: d10");
+        paladinHitDie.setToolTipText("");
+        jPanel1.add(paladinHitDie, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 330, 90, 30));
 
-        LastName63.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName63.setForeground(new java.awt.Color(255, 255, 255));
-        LastName63.setText("Strength:");
-        LastName63.setToolTipText("");
-        jPanel1.add(LastName63, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
+        strength.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        strength.setForeground(new java.awt.Color(255, 255, 255));
+        strength.setText("Strength:");
+        strength.setToolTipText("");
+        jPanel1.add(strength, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
 
-        LastName64.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName64.setForeground(new java.awt.Color(255, 255, 255));
-        LastName64.setText("Dexterity:");
-        LastName64.setToolTipText("");
-        jPanel1.add(LastName64, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
+        dexterity.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        dexterity.setForeground(new java.awt.Color(255, 255, 255));
+        dexterity.setText("Dexterity:");
+        dexterity.setToolTipText("");
+        jPanel1.add(dexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
 
-        LastName65.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName65.setForeground(new java.awt.Color(255, 255, 255));
-        LastName65.setText("Constitution:");
-        LastName65.setToolTipText("");
-        jPanel1.add(LastName65, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
+        constitution.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        constitution.setForeground(new java.awt.Color(255, 255, 255));
+        constitution.setText("Constitution:");
+        constitution.setToolTipText("");
+        jPanel1.add(constitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
 
-        LastName66.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName66.setForeground(new java.awt.Color(255, 255, 255));
-        LastName66.setText("Intelligence:");
-        LastName66.setToolTipText("");
-        jPanel1.add(LastName66, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
+        intelligence.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        intelligence.setForeground(new java.awt.Color(255, 255, 255));
+        intelligence.setText("Intelligence:");
+        intelligence.setToolTipText("");
+        jPanel1.add(intelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
 
-        LastName67.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName67.setForeground(new java.awt.Color(255, 255, 255));
-        LastName67.setText("Wisdom:");
-        LastName67.setToolTipText("");
-        jPanel1.add(LastName67, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
+        wisdom.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        wisdom.setForeground(new java.awt.Color(255, 255, 255));
+        wisdom.setText("Wisdom:");
+        wisdom.setToolTipText("");
+        jPanel1.add(wisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
 
-        LastName68.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName68.setForeground(new java.awt.Color(255, 255, 255));
-        LastName68.setText("Charisma:");
-        LastName68.setToolTipText("");
-        jPanel1.add(LastName68, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
+        charisma.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        charisma.setForeground(new java.awt.Color(255, 255, 255));
+        charisma.setText("Charisma:");
+        charisma.setToolTipText("");
+        jPanel1.add(charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
 
-        jTextField1.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField1.setText("10");
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 550, 30, 30));
+        charismaStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        charismaStat.setText("10");
+        jPanel1.add(charismaStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 550, 30, 30));
 
-        jTextField2.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField2.setText("10");
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 300, 30, 30));
+        strengthStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        strengthStat.setText("10");
+        strengthStat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                strengthStatActionPerformed(evt);
+            }
+        });
+        jPanel1.add(strengthStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 300, 30, 30));
 
-        jTextField3.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField3.setText("10");
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 350, 30, 30));
+        DexterityStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        DexterityStat.setText("10");
+        jPanel1.add(DexterityStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 350, 30, 30));
 
-        jTextField4.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField4.setText("10");
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 30, 30));
+        constitutionStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        constitutionStat.setText("10");
+        jPanel1.add(constitutionStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 30, 30));
 
-        jTextField5.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField5.setText("10");
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 450, 30, 30));
+        intelligenceStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        intelligenceStat.setText("10");
+        jPanel1.add(intelligenceStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 450, 30, 30));
 
-        jTextField6.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        jTextField6.setText("10");
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
+        wisdomStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        wisdomStat.setText("10");
+        jPanel1.add(wisdomStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
 
+        lessChar.setBackground(new java.awt.Color(204, 204, 204));
+        lessChar.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessChar.setText("-");
         lessChar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -815,6 +941,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(lessChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 550, 50, 30));
 
+        moreStr.setBackground(new java.awt.Color(204, 204, 204));
+        moreStr.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreStr.setText("+");
         moreStr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -823,6 +951,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 50, 30));
 
+        moreDex.setBackground(new java.awt.Color(204, 204, 204));
+        moreDex.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreDex.setText("+");
         moreDex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -831,6 +961,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 350, 50, 30));
 
+        moreConst.setBackground(new java.awt.Color(204, 204, 204));
+        moreConst.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreConst.setText("+");
         moreConst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -839,6 +971,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, 50, 30));
 
+        moreInt.setBackground(new java.awt.Color(204, 204, 204));
+        moreInt.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreInt.setText("+");
         moreInt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -847,6 +981,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 50, 30));
 
+        moreWis.setBackground(new java.awt.Color(204, 204, 204));
+        moreWis.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreWis.setText("+");
         moreWis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -855,6 +991,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, 50, 30));
 
+        moreChar.setBackground(new java.awt.Color(204, 204, 204));
+        moreChar.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreChar.setText("+");
         moreChar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -863,6 +1001,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(moreChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 550, 50, 30));
 
+        lessStr.setBackground(new java.awt.Color(204, 204, 204));
+        lessStr.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessStr.setText("-");
         lessStr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -871,6 +1011,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(lessStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, 50, 30));
 
+        lessDex.setBackground(new java.awt.Color(204, 204, 204));
+        lessDex.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessDex.setText("-");
         lessDex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -879,6 +1021,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(lessDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 350, 50, 30));
 
+        lessConst.setBackground(new java.awt.Color(204, 204, 204));
+        lessConst.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessConst.setText("-");
         lessConst.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -887,6 +1031,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(lessConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 400, 50, 30));
 
+        lessInt.setBackground(new java.awt.Color(204, 204, 204));
+        lessInt.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessInt.setText("-");
         lessInt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -895,6 +1041,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         });
         jPanel1.add(lessInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 50, 30));
 
+        lessWis.setBackground(new java.awt.Color(204, 204, 204));
+        lessWis.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessWis.setText("-");
         lessWis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -914,22 +1062,72 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName8.setText("Choose a Class:");
         LastName8.setToolTipText("");
         jPanel1.add(LastName8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 120, 30));
+
+        jSeparator1.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
+
+        jSeparator2.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 260, 230, 20));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
+
+        jSeparator4.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 540, 20));
 
+        jSeparator5.setBackground(new java.awt.Color(255, 204, 0));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, -1, 640));
 
+        jSeparator6.setBackground(new java.awt.Color(255, 204, 0));
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jPanel1.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 260, 10, 640));
+
+        enterCharFName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        enterCharFName.setForeground(new java.awt.Color(255, 204, 0));
+        enterCharFName.setText("Enter Character's First name:");
+        enterCharFName.setToolTipText("");
+        jPanel1.add(enterCharFName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 250, 20));
+
+        CharFirstName.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        CharFirstName.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                CharFirstNameInputMethodTextChanged(evt);
+            }
+        });
+        CharFirstName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CharFirstNameActionPerformed(evt);
+            }
+        });
+        jPanel1.add(CharFirstName, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 150, 20));
+
+        confirmButton.setBackground(new java.awt.Color(255, 204, 0));
+        confirmButton.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        confirmButton.setText("CONFIRM");
+        confirmButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                confirmButtonMouseClicked(evt);
+            }
+        });
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 840, 190, 50));
+
+        LastName3.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        LastName3.setForeground(new java.awt.Color(255, 255, 255));
+        LastName3.setText("Choose base Stats:");
+        LastName3.setToolTipText("");
+        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1285, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -940,6 +1138,58 @@ public class PlayerGUI extends javax.swing.JFrame{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CharFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CharFirstNameActionPerformed
+
+    private void warlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warlockButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_warlockButtonActionPerformed
+
+    private void sorcerorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorcerorButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sorcerorButtonActionPerformed
+
+    private void rogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rogueButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rogueButtonActionPerformed
+
+    private void rangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangerButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rangerButtonActionPerformed
+
+    private void paladinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paladinButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paladinButtonActionPerformed
+
+    private void monkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monkButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monkButtonActionPerformed
+
+    private void fighterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fighterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fighterButtonActionPerformed
+
+    private void druidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_druidButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_druidButtonActionPerformed
+
+    private void clericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clericButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_clericButtonActionPerformed
+
+    private void bardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bardButtonActionPerformed
+
+    private void barbarianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barbarianButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_barbarianButtonActionPerformed
+
+    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tieflingButtonActionPerformed
 
     private void humanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanButtonActionPerformed
         // TODO add your handling code here:
@@ -952,118 +1202,6 @@ public class PlayerGUI extends javax.swing.JFrame{
     private void halfingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfingButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_halfingButtonActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_wizardButtonActionPerformed
-
-    private void CharFirstName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstName1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CharFirstName1ActionPerformed
-
-    private void CharFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CharFirstNameActionPerformed
-
-    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tieflingButtonActionPerformed
-
-    private void barbarianButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barbarianButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_barbarianButtonActionPerformed
-
-    private void bardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bardButtonActionPerformed
-
-    private void clericButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clericButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_clericButtonActionPerformed
-
-    private void druidButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_druidButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_druidButtonActionPerformed
-
-    private void fighterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fighterButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fighterButtonActionPerformed
-
-    private void monkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monkButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monkButtonActionPerformed
-
-    private void paladinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paladinButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paladinButtonActionPerformed
-
-    private void rangerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangerButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rangerButtonActionPerformed
-
-    private void rogueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rogueButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rogueButtonActionPerformed
-
-    private void sorcerorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorcerorButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sorcerorButtonActionPerformed
-
-    private void warlockButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_warlockButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_warlockButtonActionPerformed
-
-    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessCharActionPerformed
-
-    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreStrActionPerformed
-
-    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreDexActionPerformed
-
-    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreConstActionPerformed
-
-    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreIntActionPerformed
-
-    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreWisActionPerformed
-
-    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_moreCharActionPerformed
-
-    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessStrActionPerformed
-
-    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessDexActionPerformed
-
-    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessConstActionPerformed
-
-    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessIntActionPerformed
-
-    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lessWisActionPerformed
 
     private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
         // TODO add your handling code here:
@@ -1081,9 +1219,734 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_dwarfButtonActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_dragonBornButtonActionPerformed
+
+    private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_wizardButtonActionPerformed
+
+    private void CharLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CharLastNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CharLastNameActionPerformed
+
+    private void CharFirstNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_CharFirstNameInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CharFirstNameInputMethodTextChanged
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        // TODO add your handling code here: 
+      
+        
+    }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void dragonBornButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragonBornButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(255,204,0));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = true;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_dragonBornButtonMouseClicked
+
+    private void dwarfButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dwarfButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(255,204,0));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = true;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_dwarfButtonMouseClicked
+
+    private void elfButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elfButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(255,204,0));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = true;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_elfButtonMouseClicked
+
+    private void gnomeButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gnomeButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(255,204,0));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = true;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_gnomeButtonMouseClicked
+
+    private void halfElfButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_halfElfButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(255,204,0));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = true;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_halfElfButtonMouseClicked
+
+    private void halfingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_halfingButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(255,204,0));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = true;
+        halfOrc = false;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_halfingButtonMouseClicked
+
+    private void halfOrcButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_halfOrcButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(255,204,0));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = true;
+        human = false;
+        tiefling = false;
+    }//GEN-LAST:event_halfOrcButtonMouseClicked
+
+    private void humanButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_humanButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(255,204,0));
+        tieflingButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = true;
+        tiefling = false;
+    }//GEN-LAST:event_humanButtonMouseClicked
+
+    private void tieflingButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tieflingButtonMouseClicked
+        // TODO add your handling code here:
+        dragonBornButton.setBackground(new java.awt.Color(204, 204, 204));
+        dwarfButton.setBackground(new java.awt.Color(204, 204, 204));
+        elfButton.setBackground(new java.awt.Color(204, 204, 204));
+        gnomeButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfingButton.setBackground(new java.awt.Color(204, 204, 204));
+        halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
+        humanButton.setBackground(new java.awt.Color(204, 204, 204));
+        tieflingButton.setBackground(new java.awt.Color(255,204,0));
+        
+        dragonBorn = false;
+        dwarf = false;
+        elf = false;
+        gnome = false;
+        halfElf = false;
+        halfing = false;
+        halfOrc = false;
+        human = false;
+        tiefling = true;
+    }//GEN-LAST:event_tieflingButtonMouseClicked
+
+    private void barbarianButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_barbarianButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(255,204,0));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = true;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_barbarianButtonMouseClicked
+
+    private void bardButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bardButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(255,204,0));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = true;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_bardButtonMouseClicked
+
+    private void clericButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clericButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(255,204,0));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = true;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_clericButtonMouseClicked
+
+    private void druidButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_druidButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(255,204,0));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = true;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_druidButtonMouseClicked
+
+    private void fighterButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fighterButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(255,204,0));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = true;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_fighterButtonMouseClicked
+
+    private void monkButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_monkButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(255,204,0));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = true;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_monkButtonMouseClicked
+
+    private void paladinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paladinButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(255,204,0));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = true;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_paladinButtonMouseClicked
+
+    private void rangerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rangerButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(255,204,0));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = true;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_rangerButtonMouseClicked
+
+    private void rogueButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rogueButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(255,204,0));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = true;
+        sorceror = false;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_rogueButtonMouseClicked
+
+    private void sorcerorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sorcerorButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(255,204,0));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = true;
+        warlock = false;
+        wizard = false;
+    }//GEN-LAST:event_sorcerorButtonMouseClicked
+
+    private void warlockButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_warlockButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(255,204,0));
+        wizardButton.setBackground(new java.awt.Color(204, 204, 204));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = true;
+        wizard = false;
+    }//GEN-LAST:event_warlockButtonMouseClicked
+
+    private void wizardButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_wizardButtonMouseClicked
+        // TODO add your handling code here:
+        barbarianButton.setBackground(new java.awt.Color(204, 204, 204));
+        bardButton.setBackground(new java.awt.Color(204, 204, 204));
+        clericButton.setBackground(new java.awt.Color(204, 204, 204));
+        druidButton.setBackground(new java.awt.Color(204, 204, 204));
+        fighterButton.setBackground(new java.awt.Color(204, 204, 204));
+        monkButton.setBackground(new java.awt.Color(204, 204, 204));
+        paladinButton.setBackground(new java.awt.Color(204, 204, 204));
+        rangerButton.setBackground(new java.awt.Color(204, 204, 204));
+        rogueButton.setBackground(new java.awt.Color(204, 204, 204));
+        sorcerorButton.setBackground(new java.awt.Color(204, 204, 204));
+        warlockButton.setBackground(new java.awt.Color(204, 204, 204));
+        wizardButton.setBackground(new java.awt.Color(255,204,0));
+        
+        barbarian = false;
+        bard = false;
+        cleric = false;
+        druid = false;
+        fighter = false;
+        monk = false;
+        paladin = false;
+        ranger = false;
+        rogue = false;
+        sorceror = false;
+        warlock = false;
+        wizard = true;
+    }//GEN-LAST:event_wizardButtonMouseClicked
+
+    private void confirmButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_confirmButtonMouseClicked
+        // TODO add your handling code here:
+        
+        String firstName = CharFirstName.getText();
+        String lastName = CharLastName.getText();
+        
+        PlayerClass p1 = new PlayerClass(firstName, lastName);
+        
+        if(dragonBorn == true)
+        {
+            p1.selectPlayerRace(1);
+        }
+        else if(dwarf == true)
+        {
+            p1.selectPlayerRace(2);
+        }
+        else if(elf == true)
+        {
+            p1.selectPlayerRace(3);
+        }
+        else if(gnome == true)
+        {
+            p1.selectPlayerRace(4);
+        }
+        else if(halfElf == true)
+        {
+            p1.selectPlayerRace(5);
+        }
+        else if(halfing == true)
+        {
+            p1.selectPlayerRace(6);
+        }
+        else if(halfOrc == true)
+        {
+            p1.selectPlayerRace(7);
+        }
+        else if(human == true)
+        {
+            p1.selectPlayerRace(8);
+        }
+        else
+        {
+            p1.selectPlayerRace(9);
+        }
+        
+        
+        if(barbarian == true)
+        {
+            p1.selectClassType(1);
+        }
+        else if(bard == true)
+        {
+            p1.selectClassType(2);
+        }
+        else if(cleric == true)
+        {
+            p1.selectClassType(3);
+        }
+        else if(druid == true)
+        {
+            p1.selectClassType(4);
+        }
+        else if(fighter == true)
+        {
+            p1.selectClassType(5);
+        }
+        else if(monk == true)
+        {
+            p1.selectClassType(6);
+        }
+        else if(paladin == true)
+        {
+            p1.selectClassType(7);
+        }
+        else if(ranger == true)
+        {
+            p1.selectClassType(8);
+        }
+        else if(rogue == true)
+        {
+            p1.selectClassType(9);
+        }
+        else if(sorceror == true)
+        {
+            p1.selectClassType(10);
+        }
+        else if(warlock == true)
+        {
+            p1.selectClassType(11);
+        }
+        else
+        {
+            p1.selectClassType(12);
+        }
+    }//GEN-LAST:event_confirmButtonMouseClicked
+
+    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessWisActionPerformed
+
+    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessIntActionPerformed
+
+    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessConstActionPerformed
+
+    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessDexActionPerformed
+
+    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessStrActionPerformed
+
+    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreCharActionPerformed
+
+    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreWisActionPerformed
+
+    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreIntActionPerformed
+
+    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreConstActionPerformed
+
+    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreDexActionPerformed
+
+    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_moreStrActionPerformed
+
+    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lessCharActionPerformed
+
+    private void strengthStatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strengthStatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_strengthStatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1116,93 +1979,75 @@ public class PlayerGUI extends javax.swing.JFrame{
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PlayerGUI().setVisible(true);
+                
             }
         });
+                
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel And;
-    private javax.swing.JTextField CharFirstName;
-    private javax.swing.JTextField CharFirstName1;
+    public javax.swing.JTextField CharFirstName;
+    public javax.swing.JTextField CharLastName;
     private javax.swing.JLabel CharacterCreation;
+    private javax.swing.JTextField DexterityStat;
     private javax.swing.JLabel Dragons;
-    private javax.swing.JLabel FirstName;
     private javax.swing.JLabel Fungeons;
-    private javax.swing.JLabel LastName13;
-    private javax.swing.JLabel LastName14;
-    private javax.swing.JLabel LastName15;
-    private javax.swing.JLabel LastName16;
-    private javax.swing.JLabel LastName17;
-    private javax.swing.JLabel LastName18;
-    private javax.swing.JLabel LastName19;
-    private javax.swing.JLabel LastName2;
-    private javax.swing.JLabel LastName20;
-    private javax.swing.JLabel LastName21;
-    private javax.swing.JLabel LastName22;
-    private javax.swing.JLabel LastName23;
-    private javax.swing.JLabel LastName24;
-    private javax.swing.JLabel LastName25;
-    private javax.swing.JLabel LastName26;
-    private javax.swing.JLabel LastName27;
-    private javax.swing.JLabel LastName28;
-    private javax.swing.JLabel LastName29;
     private javax.swing.JLabel LastName3;
-    private javax.swing.JLabel LastName30;
-    private javax.swing.JLabel LastName31;
-    private javax.swing.JLabel LastName32;
-    private javax.swing.JLabel LastName33;
-    private javax.swing.JLabel LastName34;
-    private javax.swing.JLabel LastName35;
-    private javax.swing.JLabel LastName36;
-    private javax.swing.JLabel LastName37;
-    private javax.swing.JLabel LastName38;
-    private javax.swing.JLabel LastName39;
-    private javax.swing.JLabel LastName4;
-    private javax.swing.JLabel LastName40;
-    private javax.swing.JLabel LastName41;
-    private javax.swing.JLabel LastName42;
-    private javax.swing.JLabel LastName43;
-    private javax.swing.JLabel LastName44;
-    private javax.swing.JLabel LastName46;
-    private javax.swing.JLabel LastName47;
-    private javax.swing.JLabel LastName48;
-    private javax.swing.JLabel LastName49;
-    private javax.swing.JLabel LastName5;
-    private javax.swing.JLabel LastName50;
-    private javax.swing.JLabel LastName51;
-    private javax.swing.JLabel LastName52;
-    private javax.swing.JLabel LastName53;
-    private javax.swing.JLabel LastName54;
-    private javax.swing.JLabel LastName55;
-    private javax.swing.JLabel LastName56;
-    private javax.swing.JLabel LastName57;
-    private javax.swing.JLabel LastName58;
-    private javax.swing.JLabel LastName59;
-    private javax.swing.JLabel LastName6;
-    private javax.swing.JLabel LastName60;
-    private javax.swing.JLabel LastName61;
-    private javax.swing.JLabel LastName62;
-    private javax.swing.JLabel LastName63;
-    private javax.swing.JLabel LastName64;
-    private javax.swing.JLabel LastName65;
-    private javax.swing.JLabel LastName66;
-    private javax.swing.JLabel LastName67;
-    private javax.swing.JLabel LastName68;
     private javax.swing.JLabel LastName7;
     private javax.swing.JLabel LastName8;
+    private javax.swing.JLabel barbHitDie;
+    private javax.swing.JLabel barbPrimAbility;
+    private javax.swing.JLabel barbSaves;
     private javax.swing.JButton barbarianButton;
     private javax.swing.JButton bardButton;
+    private javax.swing.JLabel bardHitDie;
+    private javax.swing.JLabel bardPrimAbility;
+    private javax.swing.JLabel bardSaves;
+    private javax.swing.JLabel baseStatsTitle;
+    private javax.swing.JLabel charisma;
+    private javax.swing.JTextField charismaStat;
+    private javax.swing.JLabel classTitle;
     private javax.swing.JButton clericButton;
+    private javax.swing.JLabel clericHitDie;
+    private javax.swing.JLabel clericPrimAbility;
+    private javax.swing.JLabel clericSaves;
+    private javax.swing.JButton confirmButton;
+    private javax.swing.JLabel constitution;
+    private javax.swing.JTextField constitutionStat;
+    private javax.swing.JLabel dexterity;
     private javax.swing.JButton dragonBornButton;
+    private javax.swing.JLabel dragonBornChar;
+    private javax.swing.JLabel dragonBornStr;
     private javax.swing.JButton druidButton;
+    private javax.swing.JLabel druidHitDie;
+    private javax.swing.JLabel druidPrimAbility;
+    private javax.swing.JLabel druidSaves;
     private javax.swing.JButton dwarfButton;
+    private javax.swing.JLabel dwarfConst;
     private javax.swing.JButton elfButton;
+    private javax.swing.JLabel elfDex;
+    private javax.swing.JLabel elfWis;
+    private javax.swing.JLabel enterCharFName;
+    private javax.swing.JLabel enterCharLName;
     private javax.swing.JButton fighterButton;
+    private javax.swing.JLabel fighterHitDie;
+    private javax.swing.JLabel fighterPrimAbility;
+    private javax.swing.JLabel fighterSaves;
     private javax.swing.JButton gnomeButton;
+    private javax.swing.JLabel gnomeInt;
     private javax.swing.JButton halfElfButton;
+    private javax.swing.JLabel halfElfChar;
     private javax.swing.JButton halfOrcButton;
+    private javax.swing.JLabel halfOrcConst;
+    private javax.swing.JLabel halfOrdConst;
     private javax.swing.JButton halfingButton;
+    private javax.swing.JLabel halfingDex;
+    private javax.swing.JLabel humanAllAttr;
     private javax.swing.JButton humanButton;
+    private javax.swing.JLabel intelligence;
+    private javax.swing.JTextField intelligenceStat;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
@@ -1211,12 +2056,6 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton lessChar;
     private javax.swing.JButton lessConst;
     private javax.swing.JButton lessDex;
@@ -1224,6 +2063,9 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JButton lessStr;
     private javax.swing.JButton lessWis;
     private javax.swing.JButton monkButton;
+    private javax.swing.JLabel monkHitDie;
+    private javax.swing.JLabel monkPrimAbility;
+    private javax.swing.JLabel monkSaves;
     private javax.swing.JButton moreChar;
     private javax.swing.JButton moreConst;
     private javax.swing.JButton moreDex;
@@ -1231,12 +2073,38 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JButton moreStr;
     private javax.swing.JButton moreWis;
     private javax.swing.JButton paladinButton;
+    private javax.swing.JLabel paladinHitDie;
+    private javax.swing.JLabel paladinPrimAbility;
+    private javax.swing.JLabel paladinSaves;
+    private javax.swing.JLabel raceTitle;
     private javax.swing.JButton rangerButton;
+    private javax.swing.JLabel rangerHitDie;
+    private javax.swing.JLabel rangerPrimAbility;
+    private javax.swing.JLabel rangerSaves;
     private javax.swing.JButton rogueButton;
+    private javax.swing.JLabel rogueHitDie;
+    private javax.swing.JLabel roguePrimAbility;
+    private javax.swing.JLabel rogueSaves;
     private javax.swing.JButton sorcerorButton;
+    private javax.swing.JLabel sorcerorHitDie;
+    private javax.swing.JLabel sorcerorPrimAbility;
+    private javax.swing.JLabel sorcerorSaves;
+    private javax.swing.JLabel strength;
+    private javax.swing.JTextField strengthStat;
     private javax.swing.JButton tieflingButton;
+    private javax.swing.JLabel tieflingChar;
+    private javax.swing.JLabel tieflingInt;
+    private javax.swing.JLabel totalBaseStats;
     private javax.swing.JButton warlockButton;
+    private javax.swing.JLabel warlockHitDie;
+    private javax.swing.JLabel warlockPrimAbility;
+    private javax.swing.JLabel warlockSaves;
+    private javax.swing.JLabel wisdom;
+    private javax.swing.JTextField wisdomStat;
     private javax.swing.JButton wizardButton;
+    private javax.swing.JLabel wizardHitDie;
+    private javax.swing.JLabel wizardPrimAbility;
+    private javax.swing.JLabel wizardSaves;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,9 +28,9 @@ public class PlayerRace extends PlayerStats {
     }
     
     //function for selecting Player race
-    public void selectPlayerRace(){
+    public void selectPlayerRace(int raceChoice){
         
-        //while loop to validate user input
+/*        //while loop to validate user input
         while(!test){
             
             //asks the user to select a race
@@ -59,7 +59,7 @@ public class PlayerRace extends PlayerStats {
             //exit the loop when selection is completed
             test = true;
         }
-        
+*/      
         //Switch statement to set race and stats
         switch(raceChoice){
             case 1 : this.setRaceType("Dragonborn");
