@@ -39,6 +39,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private boolean warlock = false;
     private boolean wizard = false;
     
+    private int totalStats = 32;
     /**
      * Creates new form PlayerGUI
      */
@@ -62,7 +63,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         Dragons = new javax.swing.JLabel();
         CharacterCreation = new javax.swing.JLabel();
         enterCharLName = new javax.swing.JLabel();
-        totalBaseStats = new javax.swing.JLabel();
         baseStatsTitle = new javax.swing.JLabel();
         tieflingInt = new javax.swing.JLabel();
         dragonBornStr = new javax.swing.JLabel();
@@ -145,8 +145,8 @@ public class PlayerGUI extends javax.swing.JFrame{
         wisdom = new javax.swing.JLabel();
         charisma = new javax.swing.JLabel();
         charismaStat = new javax.swing.JTextField();
-        strengthStat = new javax.swing.JTextField();
-        DexterityStat = new javax.swing.JTextField();
+        totalBaseStat = new javax.swing.JTextField();
+        dexterityStat = new javax.swing.JTextField();
         constitutionStat = new javax.swing.JTextField();
         intelligenceStat = new javax.swing.JTextField();
         wisdomStat = new javax.swing.JTextField();
@@ -174,6 +174,9 @@ public class PlayerGUI extends javax.swing.JFrame{
         CharFirstName = new javax.swing.JTextField();
         confirmButton = new javax.swing.JButton();
         LastName3 = new javax.swing.JLabel();
+        strengthStat = new javax.swing.JTextField();
+        LastName9 = new javax.swing.JLabel();
+        LastName10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,12 +217,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         enterCharLName.setText("Enter Character's last name:");
         enterCharLName.setToolTipText("");
         jPanel1.add(enterCharLName, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 250, 20));
-
-        totalBaseStats.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        totalBaseStats.setForeground(new java.awt.Color(255, 255, 255));
-        totalBaseStats.setText("32");
-        totalBaseStats.setToolTipText("");
-        jPanel1.add(totalBaseStats, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 270, 30, 30));
 
         baseStatsTitle.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
         baseStatsTitle.setForeground(new java.awt.Color(255, 204, 0));
@@ -336,11 +333,6 @@ public class PlayerGUI extends javax.swing.JFrame{
                 dragonBornButtonMouseClicked(evt);
             }
         });
-        dragonBornButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dragonBornButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(dragonBornButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 120, 30));
 
         jButton3.setBackground(new java.awt.Color(204, 204, 204));
@@ -361,11 +353,6 @@ public class PlayerGUI extends javax.swing.JFrame{
                 dwarfButtonMouseClicked(evt);
             }
         });
-        dwarfButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dwarfButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(dwarfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, 30));
 
         elfButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -374,11 +361,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         elfButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 elfButtonMouseClicked(evt);
-            }
-        });
-        elfButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                elfButtonActionPerformed(evt);
             }
         });
         jPanel1.add(elfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, 120, 30));
@@ -391,11 +373,6 @@ public class PlayerGUI extends javax.swing.JFrame{
                 gnomeButtonMouseClicked(evt);
             }
         });
-        gnomeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                gnomeButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(gnomeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 540, 120, 30));
 
         halfElfButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -404,11 +381,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfElfButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 halfElfButtonMouseClicked(evt);
-            }
-        });
-        halfElfButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                halfElfButtonActionPerformed(evt);
             }
         });
         jPanel1.add(halfElfButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 120, 30));
@@ -421,11 +393,6 @@ public class PlayerGUI extends javax.swing.JFrame{
                 halfingButtonMouseClicked(evt);
             }
         });
-        halfingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                halfingButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(halfingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 120, 30));
 
         halfOrcButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -436,11 +403,6 @@ public class PlayerGUI extends javax.swing.JFrame{
                 halfOrcButtonMouseClicked(evt);
             }
         });
-        halfOrcButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                halfOrcButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(halfOrcButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 120, 30));
 
         humanButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -449,11 +411,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         humanButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 humanButtonMouseClicked(evt);
-            }
-        });
-        humanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                humanButtonActionPerformed(evt);
             }
         });
         jPanel1.add(humanButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 120, 30));
@@ -470,11 +427,6 @@ public class PlayerGUI extends javax.swing.JFrame{
         tieflingButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tieflingButtonMouseClicked(evt);
-            }
-        });
-        tieflingButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tieflingButtonActionPerformed(evt);
             }
         });
         jPanel1.add(tieflingButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 540, 120, 30));
@@ -870,192 +822,190 @@ public class PlayerGUI extends javax.swing.JFrame{
         strength.setForeground(new java.awt.Color(255, 255, 255));
         strength.setText("Strength:");
         strength.setToolTipText("");
-        jPanel1.add(strength, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 300, 80, 30));
+        jPanel1.add(strength, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 310, 80, 30));
 
         dexterity.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         dexterity.setForeground(new java.awt.Color(255, 255, 255));
         dexterity.setText("Dexterity:");
         dexterity.setToolTipText("");
-        jPanel1.add(dexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 350, 80, 30));
+        jPanel1.add(dexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 360, 80, 30));
 
         constitution.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         constitution.setForeground(new java.awt.Color(255, 255, 255));
         constitution.setText("Constitution:");
         constitution.setToolTipText("");
-        jPanel1.add(constitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 400, 80, 30));
+        jPanel1.add(constitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 410, 80, 30));
 
         intelligence.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         intelligence.setForeground(new java.awt.Color(255, 255, 255));
         intelligence.setText("Intelligence:");
         intelligence.setToolTipText("");
-        jPanel1.add(intelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 450, 80, 30));
+        jPanel1.add(intelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, 80, 30));
 
         wisdom.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         wisdom.setForeground(new java.awt.Color(255, 255, 255));
         wisdom.setText("Wisdom:");
         wisdom.setToolTipText("");
-        jPanel1.add(wisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 500, 80, 30));
+        jPanel1.add(wisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 510, 80, 30));
 
         charisma.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         charisma.setForeground(new java.awt.Color(255, 255, 255));
         charisma.setText("Charisma:");
         charisma.setToolTipText("");
-        jPanel1.add(charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 550, 80, 30));
+        jPanel1.add(charisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 560, 80, 30));
 
         charismaStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         charismaStat.setText("10");
-        jPanel1.add(charismaStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 550, 30, 30));
+        jPanel1.add(charismaStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 560, 30, 30));
 
-        strengthStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        strengthStat.setText("10");
-        strengthStat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                strengthStatActionPerformed(evt);
-            }
-        });
-        jPanel1.add(strengthStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 300, 30, 30));
+        totalBaseStat.setBackground(new java.awt.Color(54, 6, 43));
+        totalBaseStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        totalBaseStat.setForeground(new java.awt.Color(255, 255, 255));
+        totalBaseStat.setText("32");
+        totalBaseStat.setBorder(null);
+        jPanel1.add(totalBaseStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 280, 30, 30));
 
-        DexterityStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
-        DexterityStat.setText("10");
-        jPanel1.add(DexterityStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 350, 30, 30));
+        dexterityStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        dexterityStat.setText("10");
+        jPanel1.add(dexterityStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 360, 30, 30));
 
         constitutionStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         constitutionStat.setText("10");
-        jPanel1.add(constitutionStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 400, 30, 30));
+        jPanel1.add(constitutionStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 410, 30, 30));
 
         intelligenceStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         intelligenceStat.setText("10");
-        jPanel1.add(intelligenceStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 450, 30, 30));
+        jPanel1.add(intelligenceStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 460, 30, 30));
 
         wisdomStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
         wisdomStat.setText("10");
-        jPanel1.add(wisdomStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 500, 30, 30));
+        jPanel1.add(wisdomStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 510, 30, 30));
 
         lessChar.setBackground(new java.awt.Color(204, 204, 204));
         lessChar.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessChar.setText("-");
-        lessChar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessCharActionPerformed(evt);
+        lessChar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessCharMouseClicked(evt);
             }
         });
-        jPanel1.add(lessChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 550, 50, 30));
+        jPanel1.add(lessChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 560, 50, 30));
 
         moreStr.setBackground(new java.awt.Color(204, 204, 204));
         moreStr.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreStr.setText("+");
-        moreStr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreStrActionPerformed(evt);
+        moreStr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreStrMouseClicked(evt);
             }
         });
-        jPanel1.add(moreStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, 50, 30));
+        jPanel1.add(moreStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 310, 50, 30));
 
         moreDex.setBackground(new java.awt.Color(204, 204, 204));
         moreDex.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreDex.setText("+");
-        moreDex.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreDexActionPerformed(evt);
+        moreDex.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreDexMouseClicked(evt);
             }
         });
-        jPanel1.add(moreDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 350, 50, 30));
+        jPanel1.add(moreDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 360, 50, 30));
 
         moreConst.setBackground(new java.awt.Color(204, 204, 204));
         moreConst.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreConst.setText("+");
-        moreConst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreConstActionPerformed(evt);
+        moreConst.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreConstMouseClicked(evt);
             }
         });
-        jPanel1.add(moreConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 400, 50, 30));
+        jPanel1.add(moreConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 410, 50, 30));
 
         moreInt.setBackground(new java.awt.Color(204, 204, 204));
         moreInt.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreInt.setText("+");
-        moreInt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreIntActionPerformed(evt);
+        moreInt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreIntMouseClicked(evt);
             }
         });
-        jPanel1.add(moreInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 450, 50, 30));
+        jPanel1.add(moreInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 460, 50, 30));
 
         moreWis.setBackground(new java.awt.Color(204, 204, 204));
         moreWis.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreWis.setText("+");
-        moreWis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreWisActionPerformed(evt);
+        moreWis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreWisMouseClicked(evt);
             }
         });
-        jPanel1.add(moreWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 500, 50, 30));
+        jPanel1.add(moreWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 510, 50, 30));
 
         moreChar.setBackground(new java.awt.Color(204, 204, 204));
         moreChar.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         moreChar.setText("+");
-        moreChar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreCharActionPerformed(evt);
+        moreChar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                moreCharMouseClicked(evt);
             }
         });
-        jPanel1.add(moreChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 550, 50, 30));
+        jPanel1.add(moreChar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 560, 50, 30));
 
         lessStr.setBackground(new java.awt.Color(204, 204, 204));
         lessStr.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessStr.setText("-");
-        lessStr.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessStrActionPerformed(evt);
+        lessStr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessStrMouseClicked(evt);
             }
         });
-        jPanel1.add(lessStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 300, 50, 30));
+        jPanel1.add(lessStr, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 310, 50, 30));
 
         lessDex.setBackground(new java.awt.Color(204, 204, 204));
         lessDex.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessDex.setText("-");
-        lessDex.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessDexActionPerformed(evt);
+        lessDex.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessDexMouseClicked(evt);
             }
         });
-        jPanel1.add(lessDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 350, 50, 30));
+        jPanel1.add(lessDex, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 360, 50, 30));
 
         lessConst.setBackground(new java.awt.Color(204, 204, 204));
         lessConst.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessConst.setText("-");
-        lessConst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessConstActionPerformed(evt);
+        lessConst.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessConstMouseClicked(evt);
             }
         });
-        jPanel1.add(lessConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 400, 50, 30));
+        jPanel1.add(lessConst, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 410, 50, 30));
 
         lessInt.setBackground(new java.awt.Color(204, 204, 204));
         lessInt.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessInt.setText("-");
-        lessInt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessIntActionPerformed(evt);
+        lessInt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessIntMouseClicked(evt);
             }
         });
-        jPanel1.add(lessInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 450, 50, 30));
+        jPanel1.add(lessInt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 460, 50, 30));
 
         lessWis.setBackground(new java.awt.Color(204, 204, 204));
         lessWis.setFont(new java.awt.Font("Old English Text MT", 1, 13)); // NOI18N
         lessWis.setText("-");
-        lessWis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lessWisActionPerformed(evt);
+        lessWis.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lessWisMouseClicked(evt);
             }
         });
-        jPanel1.add(lessWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 500, 50, 30));
+        jPanel1.add(lessWis, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 510, 50, 30));
 
         LastName7.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
-        LastName7.setForeground(new java.awt.Color(255, 255, 255));
-        LastName7.setText("Choose a Race:");
+        LastName7.setForeground(new java.awt.Color(255, 204, 0));
+        LastName7.setText("after the confirm button has been pressed");
         LastName7.setToolTipText("");
-        jPanel1.add(LastName7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 270, 30));
+        jPanel1.add(LastName7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 270, 30));
 
         LastName8.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName8.setForeground(new java.awt.Color(255, 255, 255));
@@ -1110,28 +1060,41 @@ public class PlayerGUI extends javax.swing.JFrame{
                 confirmButtonMouseClicked(evt);
             }
         });
-        confirmButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                confirmButtonActionPerformed(evt);
-            }
-        });
         jPanel1.add(confirmButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 840, 190, 50));
 
         LastName3.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
         LastName3.setForeground(new java.awt.Color(255, 255, 255));
         LastName3.setText("Choose base Stats:");
         LastName3.setToolTipText("");
-        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 270, 230, 30));
+        jPanel1.add(LastName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 280, 130, 30));
+
+        strengthStat.setFont(new java.awt.Font("Old English Text MT", 1, 12)); // NOI18N
+        strengthStat.setText("10");
+        jPanel1.add(strengthStat, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 310, 30, 30));
+
+        LastName9.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        LastName9.setForeground(new java.awt.Color(255, 255, 255));
+        LastName9.setText("Choose a Race:");
+        LastName9.setToolTipText("");
+        jPanel1.add(LastName9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 270, 30));
+
+        LastName10.setFont(new java.awt.Font("Old English Text MT", 1, 14)); // NOI18N
+        LastName10.setForeground(new java.awt.Color(255, 204, 0));
+        LastName10.setText("Racial attribute bonuses will be applied after");
+        LastName10.setToolTipText("");
+        jPanel1.add(LastName10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 270, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 954, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         bindingGroup.bind();
@@ -1187,45 +1150,9 @@ public class PlayerGUI extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_barbarianButtonActionPerformed
 
-    private void tieflingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tieflingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tieflingButtonActionPerformed
-
-    private void humanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_humanButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_humanButtonActionPerformed
-
-    private void halfOrcButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfOrcButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_halfOrcButtonActionPerformed
-
-    private void halfingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfingButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_halfingButtonActionPerformed
-
-    private void halfElfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_halfElfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_halfElfButtonActionPerformed
-
-    private void gnomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gnomeButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_gnomeButtonActionPerformed
-
-    private void elfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_elfButtonActionPerformed
-
-    private void dwarfButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwarfButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dwarfButtonActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void dragonBornButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dragonBornButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dragonBornButtonActionPerformed
 
     private void wizardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wizardButtonActionPerformed
         // TODO add your handling code here:
@@ -1238,12 +1165,6 @@ public class PlayerGUI extends javax.swing.JFrame{
     private void CharFirstNameInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_CharFirstNameInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_CharFirstNameInputMethodTextChanged
-
-    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        // TODO add your handling code here: 
-      
-        
-    }//GEN-LAST:event_confirmButtonActionPerformed
 
     private void dragonBornButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragonBornButtonMouseClicked
         // TODO add your handling code here:
@@ -1266,6 +1187,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         halfOrc = false;
         human = false;
         tiefling = false;
+        
     }//GEN-LAST:event_dragonBornButtonMouseClicked
 
     private void dwarfButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dwarfButtonMouseClicked
@@ -1894,59 +1816,215 @@ public class PlayerGUI extends javax.swing.JFrame{
         {
             p1.selectClassType(12);
         }
+        
+        String strString = strengthStat.getText();
+        String dexString = dexterityStat.getText();
+        String conString = constitutionStat.getText();
+        String intString = intelligenceStat.getText();
+        String wisString = wisdomStat.getText();
+        String chaString = charismaStat.getText();
+        
+        int strInt = Integer.parseInt(strString);
+        int dexInt = Integer.parseInt(dexString);
+        int conInt = Integer.parseInt(conString);
+        int intInt = Integer.parseInt(intString);
+        int wisInt = Integer.parseInt(wisString);
+        int chaInt = Integer.parseInt(chaString);
+        
+        p1.setStat(0, strInt);
+        p1.setStat(1, dexInt);
+        p1.setStat(2, conInt);
+        p1.setStat(3, intInt);
+        p1.setStat(4, wisInt);
+        p1.setStat(5, chaInt);
+        
     }//GEN-LAST:event_confirmButtonMouseClicked
 
-    private void lessWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessWisActionPerformed
+    private void moreStrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreStrMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessWisActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = strengthStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            strengthStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreStrMouseClicked
 
-    private void lessIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessIntActionPerformed
+    private void moreDexMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreDexMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessIntActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = dexterityStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            dexterityStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreDexMouseClicked
 
-    private void lessConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessConstActionPerformed
+    private void moreConstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreConstMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessConstActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = constitutionStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            constitutionStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreConstMouseClicked
 
-    private void lessDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessDexActionPerformed
+    private void moreIntMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreIntMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessDexActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = intelligenceStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            intelligenceStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreIntMouseClicked
 
-    private void lessStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessStrActionPerformed
+    private void moreWisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreWisMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessStrActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = wisdomStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            wisdomStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreWisMouseClicked
 
-    private void moreCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreCharActionPerformed
+    private void moreCharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreCharMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreCharActionPerformed
+        if(totalStats > 0)
+        {
+            String myString = charismaStat.getText();
+            int toInt = Integer.parseInt(myString);
+            toInt += 1;       
+            charismaStat.setText(""+toInt+"");
+            totalStats -= 1;
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_moreCharMouseClicked
 
-    private void moreWisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreWisActionPerformed
+    private void lessStrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessStrMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreWisActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = strengthStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                strengthStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessStrMouseClicked
 
-    private void moreIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreIntActionPerformed
+    private void lessDexMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessDexMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreIntActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = dexterityStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                dexterityStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessDexMouseClicked
 
-    private void moreConstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreConstActionPerformed
+    private void lessConstMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessConstMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreConstActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = constitutionStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                constitutionStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessConstMouseClicked
 
-    private void moreDexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreDexActionPerformed
+    private void lessIntMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessIntMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreDexActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = intelligenceStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                intelligenceStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessIntMouseClicked
 
-    private void moreStrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreStrActionPerformed
+    private void lessWisMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessWisMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_moreStrActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = wisdomStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                wisdomStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessWisMouseClicked
 
-    private void lessCharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lessCharActionPerformed
+    private void lessCharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lessCharMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_lessCharActionPerformed
-
-    private void strengthStatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strengthStatActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_strengthStatActionPerformed
+        if(totalStats >= 0 && totalStats < 32)
+        {
+            String myString = charismaStat.getText();
+            int toInt = Integer.parseInt(myString);
+            if(toInt > 10)
+            {
+                toInt -= 1;       
+                charismaStat.setText(""+toInt+"");
+                totalStats += 1;
+            }
+        }       
+        
+        totalBaseStat.setText(""+totalStats+"");
+    }//GEN-LAST:event_lessCharMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1991,12 +2069,13 @@ public class PlayerGUI extends javax.swing.JFrame{
     public javax.swing.JTextField CharFirstName;
     public javax.swing.JTextField CharLastName;
     private javax.swing.JLabel CharacterCreation;
-    private javax.swing.JTextField DexterityStat;
     private javax.swing.JLabel Dragons;
     private javax.swing.JLabel Fungeons;
+    private javax.swing.JLabel LastName10;
     private javax.swing.JLabel LastName3;
     private javax.swing.JLabel LastName7;
     private javax.swing.JLabel LastName8;
+    private javax.swing.JLabel LastName9;
     private javax.swing.JLabel barbHitDie;
     private javax.swing.JLabel barbPrimAbility;
     private javax.swing.JLabel barbSaves;
@@ -2017,6 +2096,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel constitution;
     private javax.swing.JTextField constitutionStat;
     private javax.swing.JLabel dexterity;
+    private javax.swing.JTextField dexterityStat;
     private javax.swing.JButton dragonBornButton;
     private javax.swing.JLabel dragonBornChar;
     private javax.swing.JLabel dragonBornStr;
@@ -2094,7 +2174,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JButton tieflingButton;
     private javax.swing.JLabel tieflingChar;
     private javax.swing.JLabel tieflingInt;
-    private javax.swing.JLabel totalBaseStats;
+    private javax.swing.JTextField totalBaseStat;
     private javax.swing.JButton warlockButton;
     private javax.swing.JLabel warlockHitDie;
     private javax.swing.JLabel warlockPrimAbility;
