@@ -14,7 +14,7 @@ import java.util.InputMismatchException;
 public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
     
     //Declaring Variables
-    private int classChoice;
+    //private int classChoice;
     private int weaponChoice;
     private boolean test = false;
     private int atkDamage = 0;
@@ -25,8 +25,8 @@ public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
         super(firstName, lastName);
     }
     
-    public void selectClassType(){
-        while(!test){
+    public void selectClassType(int classChoice){
+/*        while(!test){
             try{
                 System.out.println("What class would you like to play?");
                 System.out.printf("%n1. Barbarian%n    Hit Die: d12%n    Primary Ability: Strength%n    Saves: Strength & Constitution%n%n2. Bard%n    Hit Die: d8%n    Primary Ability: Charisma%n    Saves: Dexterity & Charisma%n%n3. Cleric%n    Hit Die: d8%n    Primary Ability: Wisdom%n    Saves: Wisdom & Charisma%n%n4. Druid%n    Hit Die: d8%n    Primary Ability: Wisdom%n    Saves: Intelligence & Wisdom%n%n5. Fighter%n    Hit Die: d10%n    Primary Ability: Strength or Dexterity%n    Saves: Strength & Constitution%n%n6. Monk%n    Hit Die: d8%n    Primary Ability: Dexterity & Wisdom%n    Saves: Strength & Dexterity%n%n7. Paladin%n    Hit Die: d10%n    Primary Ability: Strength & Charisma%n    Saves: Wisdom & Charisma%n%n8. Ranger%n    Hit Die: d10%n    Primary Ability: Dexterity & Wisdom%n    Saves: Strength & Dexterity%n%n9. Rogue%n    Hit Die: d8%n    Primary Ability: Dexterity%n    Saves: Dexterity & Intelligence%n%n10. Sorcerer%n    Hit Die: d6%n    Primary Ability: Charisma%n    Saves: Constitution & Charisma%n%n11. Warlock%n    Hit Die: d8%n    Primary Ability: Charisma%n    Saves: Wisdom & Charisma%n%n12. Wizard%n    Hit Die: d6%n    Primary Ability: Intelligence%n    Saves: Intelligence & Wisdom%n");
@@ -51,7 +51,7 @@ public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
                 System.out.printf("You must enter an integer. Please try again.%n%n");            
             }
         }
-        
+*/    
         switch(classChoice){
             case 1 : this.setClassType("Barbarian");
                     this.setMaxHitPoints(12+getConMod());
