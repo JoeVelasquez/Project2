@@ -6,9 +6,6 @@
 package project2;
 
 import java.util.Scanner;
-import javafx.scene.paint.Color;
-import com.sun.glass.events.KeyEvent;
-import static java.lang.Boolean.TRUE;
 /**
  *
  * @author rbhal
@@ -177,6 +174,31 @@ public class PlayerGUI extends javax.swing.JFrame{
         strengthStat = new javax.swing.JTextField();
         LastName9 = new javax.swing.JLabel();
         LastName10 = new javax.swing.JLabel();
+        CharacterCreation1 = new javax.swing.JLabel();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        weapon = new javax.swing.JLabel();
+        raceTitle1 = new javax.swing.JLabel();
+        classTitle2 = new javax.swing.JLabel();
+        classTitle3 = new javax.swing.JLabel();
+        strength2 = new javax.swing.JLabel();
+        dexterity2 = new javax.swing.JLabel();
+        constitution2 = new javax.swing.JLabel();
+        intelligence2 = new javax.swing.JLabel();
+        wisdom2 = new javax.swing.JLabel();
+        charisma2 = new javax.swing.JLabel();
+        charSheetCharisma = new javax.swing.JTextField();
+        charSheetName = new javax.swing.JTextField();
+        charSheetRace = new javax.swing.JTextField();
+        charSheetWeapon = new javax.swing.JTextField();
+        charSheetStrength = new javax.swing.JTextField();
+        charSheetDexterity = new javax.swing.JTextField();
+        charSheetConstitution = new javax.swing.JTextField();
+        charSheetIntelligence = new javax.swing.JTextField();
+        charSheetWisdom = new javax.swing.JTextField();
+        enterCharFName2 = new javax.swing.JLabel();
+        charSheetClass = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -211,7 +233,7 @@ public class PlayerGUI extends javax.swing.JFrame{
         CharacterCreation.setForeground(new java.awt.Color(255, 204, 0));
         CharacterCreation.setText("Character Creation");
         CharacterCreation.setToolTipText("");
-        jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 200, 30));
+        jPanel1.add(CharacterCreation, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 200, 30));
 
         enterCharLName.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
         enterCharLName.setForeground(new java.awt.Color(255, 204, 0));
@@ -1015,14 +1037,14 @@ public class PlayerGUI extends javax.swing.JFrame{
         jPanel1.add(LastName8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 120, 30));
 
         jSeparator1.setBackground(new java.awt.Color(255, 204, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 270, 20));
 
         jSeparator2.setBackground(new java.awt.Color(255, 204, 0));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 260, 230, 20));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 260, 20));
 
         jSeparator4.setBackground(new java.awt.Color(255, 204, 0));
-        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 540, 20));
+        jPanel1.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 910, 280, 20));
 
         jSeparator5.setBackground(new java.awt.Color(255, 204, 0));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -1085,17 +1107,158 @@ public class PlayerGUI extends javax.swing.JFrame{
         LastName10.setToolTipText("");
         jPanel1.add(LastName10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 270, 30));
 
+        CharacterCreation1.setFont(new java.awt.Font("Old English Text MT", 1, 36)); // NOI18N
+        CharacterCreation1.setForeground(new java.awt.Color(255, 204, 0));
+        CharacterCreation1.setText("Character Sheet");
+        CharacterCreation1.setToolTipText("");
+        jPanel1.add(CharacterCreation1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 920, 280, 30));
+
+        jSeparator7.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 540, 20));
+
+        jSeparator8.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 910, 280, 20));
+
+        jSeparator9.setBackground(new java.awt.Color(255, 204, 0));
+        jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 910, 530, 20));
+
+        weapon.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        weapon.setForeground(new java.awt.Color(255, 255, 255));
+        weapon.setText("Weapon:");
+        weapon.setToolTipText("");
+        jPanel1.add(weapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1070, 90, 20));
+
+        raceTitle1.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        raceTitle1.setForeground(new java.awt.Color(255, 255, 255));
+        raceTitle1.setText("Race:");
+        raceTitle1.setToolTipText("");
+        jPanel1.add(raceTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 990, 70, 30));
+
+        classTitle2.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        classTitle2.setForeground(new java.awt.Color(255, 255, 255));
+        classTitle2.setText("Class:");
+        classTitle2.setToolTipText("");
+        jPanel1.add(classTitle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 1030, -1, 30));
+
+        classTitle3.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        classTitle3.setForeground(new java.awt.Color(255, 204, 0));
+        classTitle3.setText("Starting Stats:");
+        classTitle3.setToolTipText("");
+        jPanel1.add(classTitle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 950, -1, 30));
+
+        strength2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        strength2.setForeground(new java.awt.Color(255, 255, 255));
+        strength2.setText("Strength:");
+        strength2.setToolTipText("");
+        jPanel1.add(strength2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 980, -1, 30));
+
+        dexterity2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        dexterity2.setForeground(new java.awt.Color(255, 255, 255));
+        dexterity2.setText("Dexterity:");
+        dexterity2.setToolTipText("");
+        jPanel1.add(dexterity2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 1010, -1, 30));
+
+        constitution2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        constitution2.setForeground(new java.awt.Color(255, 255, 255));
+        constitution2.setText("Constitution:");
+        constitution2.setToolTipText("");
+        jPanel1.add(constitution2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 1040, -1, 30));
+
+        intelligence2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        intelligence2.setForeground(new java.awt.Color(255, 255, 255));
+        intelligence2.setText("Intelligence:");
+        intelligence2.setToolTipText("");
+        jPanel1.add(intelligence2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 1070, -1, 30));
+
+        wisdom2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        wisdom2.setForeground(new java.awt.Color(255, 255, 255));
+        wisdom2.setText("Wisdom:");
+        wisdom2.setToolTipText("");
+        jPanel1.add(wisdom2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 1100, -1, 30));
+
+        charisma2.setFont(new java.awt.Font("Old English Text MT", 1, 18)); // NOI18N
+        charisma2.setForeground(new java.awt.Color(255, 255, 255));
+        charisma2.setText("Charisma:");
+        charisma2.setToolTipText("");
+        jPanel1.add(charisma2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 1130, -1, 30));
+
+        charSheetCharisma.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetCharisma.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetCharisma.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetCharisma.setBorder(null);
+        jPanel1.add(charSheetCharisma, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1130, 150, 30));
+
+        charSheetName.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetName.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetName.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetName.setBorder(null);
+        jPanel1.add(charSheetName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 950, 310, 40));
+
+        charSheetRace.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetRace.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetRace.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetRace.setBorder(null);
+        jPanel1.add(charSheetRace, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 990, 440, 30));
+
+        charSheetWeapon.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetWeapon.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetWeapon.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetWeapon.setBorder(null);
+        jPanel1.add(charSheetWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 1070, 420, 30));
+
+        charSheetStrength.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetStrength.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetStrength.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetStrength.setBorder(null);
+        jPanel1.add(charSheetStrength, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 980, 150, 30));
+
+        charSheetDexterity.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetDexterity.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetDexterity.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetDexterity.setBorder(null);
+        jPanel1.add(charSheetDexterity, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1010, 150, 30));
+
+        charSheetConstitution.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetConstitution.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetConstitution.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetConstitution.setBorder(null);
+        jPanel1.add(charSheetConstitution, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1040, 150, 30));
+
+        charSheetIntelligence.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetIntelligence.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetIntelligence.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetIntelligence.setBorder(null);
+        jPanel1.add(charSheetIntelligence, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1070, 150, 30));
+
+        charSheetWisdom.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetWisdom.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetWisdom.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetWisdom.setBorder(null);
+        jPanel1.add(charSheetWisdom, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 1100, 150, 30));
+
+        enterCharFName2.setFont(new java.awt.Font("Old English Text MT", 1, 24)); // NOI18N
+        enterCharFName2.setForeground(new java.awt.Color(255, 255, 255));
+        enterCharFName2.setText("Character's Name:");
+        enterCharFName2.setToolTipText("");
+        jPanel1.add(enterCharFName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 960, 200, 20));
+
+        charSheetClass.setBackground(new java.awt.Color(54, 6, 43));
+        charSheetClass.setFont(new java.awt.Font("Old English Text MT", 0, 18)); // NOI18N
+        charSheetClass.setForeground(new java.awt.Color(255, 255, 255));
+        charSheetClass.setBorder(null);
+        jPanel1.add(charSheetClass, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 1030, 440, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1683, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 951, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1317, Short.MAX_VALUE)
         );
 
         bindingGroup.bind();
@@ -1839,6 +2002,20 @@ public class PlayerGUI extends javax.swing.JFrame{
         p1.setStat(4, wisInt);
         p1.setStat(5, chaInt);
         
+        charSheetName.setText(p1.getFirstName() + " " + p1.getLastName());
+        charSheetRace.setText(p1.getRaceType());
+        charSheetClass.setText(p1.getClassType());
+        charSheetWeapon.setText(p1.getWeapon());
+        
+        
+        charSheetStrength.setText(""+p1.getStat(0)+"");
+        charSheetDexterity.setText(""+p1.getStat(1)+"");
+        charSheetConstitution.setText(""+p1.getStat(2)+"");
+        charSheetIntelligence.setText(""+p1.getStat(3)+"");
+        charSheetWisdom.setText(""+p1.getStat(4)+"");
+        charSheetCharisma.setText(""+p1.getStat(5)+"");
+    
+        
     }//GEN-LAST:event_confirmButtonMouseClicked
 
     private void moreStrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_moreStrMouseClicked
@@ -2070,6 +2247,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     public javax.swing.JTextField CharFirstName;
     public javax.swing.JTextField CharLastName;
     private javax.swing.JLabel CharacterCreation;
+    private javax.swing.JLabel CharacterCreation1;
     private javax.swing.JLabel Dragons;
     private javax.swing.JLabel Fungeons;
     private javax.swing.JLabel LastName10;
@@ -2086,17 +2264,32 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel bardPrimAbility;
     private javax.swing.JLabel bardSaves;
     private javax.swing.JLabel baseStatsTitle;
+    public javax.swing.JTextField charSheetCharisma;
+    public javax.swing.JTextField charSheetClass;
+    public javax.swing.JTextField charSheetConstitution;
+    public javax.swing.JTextField charSheetDexterity;
+    public javax.swing.JTextField charSheetIntelligence;
+    public javax.swing.JTextField charSheetName;
+    public javax.swing.JTextField charSheetRace;
+    public javax.swing.JTextField charSheetStrength;
+    public javax.swing.JTextField charSheetWeapon;
+    public javax.swing.JTextField charSheetWisdom;
     private javax.swing.JLabel charisma;
+    private javax.swing.JLabel charisma2;
     private javax.swing.JTextField charismaStat;
     private javax.swing.JLabel classTitle;
+    private javax.swing.JLabel classTitle2;
+    private javax.swing.JLabel classTitle3;
     private javax.swing.JButton clericButton;
     private javax.swing.JLabel clericHitDie;
     private javax.swing.JLabel clericPrimAbility;
     private javax.swing.JLabel clericSaves;
     private javax.swing.JButton confirmButton;
     private javax.swing.JLabel constitution;
+    private javax.swing.JLabel constitution2;
     private javax.swing.JTextField constitutionStat;
     private javax.swing.JLabel dexterity;
+    private javax.swing.JLabel dexterity2;
     private javax.swing.JTextField dexterityStat;
     private javax.swing.JButton dragonBornButton;
     private javax.swing.JLabel dragonBornChar;
@@ -2111,6 +2304,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel elfDex;
     private javax.swing.JLabel elfWis;
     private javax.swing.JLabel enterCharFName;
+    private javax.swing.JLabel enterCharFName2;
     private javax.swing.JLabel enterCharLName;
     private javax.swing.JButton fighterButton;
     private javax.swing.JLabel fighterHitDie;
@@ -2128,6 +2322,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel humanAllAttr;
     private javax.swing.JButton humanButton;
     private javax.swing.JLabel intelligence;
+    private javax.swing.JLabel intelligence2;
     private javax.swing.JTextField intelligenceStat;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
@@ -2137,6 +2332,9 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JButton lessChar;
     private javax.swing.JButton lessConst;
     private javax.swing.JButton lessDex;
@@ -2158,6 +2356,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel paladinPrimAbility;
     private javax.swing.JLabel paladinSaves;
     private javax.swing.JLabel raceTitle;
+    private javax.swing.JLabel raceTitle1;
     private javax.swing.JButton rangerButton;
     private javax.swing.JLabel rangerHitDie;
     private javax.swing.JLabel rangerPrimAbility;
@@ -2171,6 +2370,7 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel sorcerorPrimAbility;
     private javax.swing.JLabel sorcerorSaves;
     private javax.swing.JLabel strength;
+    private javax.swing.JLabel strength2;
     private javax.swing.JTextField strengthStat;
     private javax.swing.JButton tieflingButton;
     private javax.swing.JLabel tieflingChar;
@@ -2180,7 +2380,9 @@ public class PlayerGUI extends javax.swing.JFrame{
     private javax.swing.JLabel warlockHitDie;
     private javax.swing.JLabel warlockPrimAbility;
     private javax.swing.JLabel warlockSaves;
+    private javax.swing.JLabel weapon;
     private javax.swing.JLabel wisdom;
+    private javax.swing.JLabel wisdom2;
     private javax.swing.JTextField wisdomStat;
     private javax.swing.JButton wizardButton;
     private javax.swing.JLabel wizardHitDie;

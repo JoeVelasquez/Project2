@@ -17,16 +17,10 @@ public class Project2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        //Scanner for user input
-        Scanner input = new Scanner(System.in);
-        
+               
         PlayerGUI gui = new PlayerGUI();
                 
         gui.setVisible(true);
         gui.setDefaultCloseOperation(gui.EXIT_ON_CLOSE);
-                
-        //Display HUD
-        p1.hud();
     }   
 }
