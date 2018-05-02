@@ -26,32 +26,7 @@ public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
     }
     
     public void selectClassType(int classChoice){
-/*        while(!test){
-            try{
-                System.out.println("What class would you like to play?");
-                System.out.printf("%n1. Barbarian%n    Hit Die: d12%n    Primary Ability: Strength%n    Saves: Strength & Constitution%n%n2. Bard%n    Hit Die: d8%n    Primary Ability: Charisma%n    Saves: Dexterity & Charisma%n%n3. Cleric%n    Hit Die: d8%n    Primary Ability: Wisdom%n    Saves: Wisdom & Charisma%n%n4. Druid%n    Hit Die: d8%n    Primary Ability: Wisdom%n    Saves: Intelligence & Wisdom%n%n5. Fighter%n    Hit Die: d10%n    Primary Ability: Strength or Dexterity%n    Saves: Strength & Constitution%n%n6. Monk%n    Hit Die: d8%n    Primary Ability: Dexterity & Wisdom%n    Saves: Strength & Dexterity%n%n7. Paladin%n    Hit Die: d10%n    Primary Ability: Strength & Charisma%n    Saves: Wisdom & Charisma%n%n8. Ranger%n    Hit Die: d10%n    Primary Ability: Dexterity & Wisdom%n    Saves: Strength & Dexterity%n%n9. Rogue%n    Hit Die: d8%n    Primary Ability: Dexterity%n    Saves: Dexterity & Intelligence%n%n10. Sorcerer%n    Hit Die: d6%n    Primary Ability: Charisma%n    Saves: Constitution & Charisma%n%n11. Warlock%n    Hit Die: d8%n    Primary Ability: Charisma%n    Saves: Wisdom & Charisma%n%n12. Wizard%n    Hit Die: d6%n    Primary Ability: Intelligence%n    Saves: Intelligence & Wisdom%n");
-                System.out.println("Select a from 1-12: ");
-                classChoice = input.nextInt();
-                if(classChoice < 0){
-                    throw new IllegalArgumentException("Enter Positive Number!");
-                }
-                else if(classChoice > 12){
-                    throw new IllegalArgumentException("Enter a number from 1-12!!!");
-                }
-                
-                //exit the loop when selection is completed
-                test = true;
-            }
-            catch(IllegalArgumentException e){
-                System.out.println(e.getMessage());
-            }
-            catch(InputMismatchException e){
-                System.err.printf("%nException: %s%n", e);
-                input.nextLine();
-                System.out.printf("You must enter an integer. Please try again.%n%n");            
-            }
-        }
-*/    
+    
         switch(classChoice){
             case 1 : this.setClassType("Barbarian");
                     this.setMaxHitPoints(12+getConMod());
@@ -206,111 +181,7 @@ public class PlayerClass extends PlayerRace implements Melee, Magic, Range{
             }
         }
     }
-
-    @Override
-    public void weaponAtk() {
-        if(classChoice == 2 || classChoice == 4 || classChoice == 9 || classChoice == 10 || classChoice == 11 || classChoice == 12){
-            switch(weaponChoice){
-                case 1: atkDamage = rollD4()+getDexMod();
-                        break;
-                        
-                case 2: atkDamage = rollD4()+getDexMod();
-                        break;
-                        
-                case 3: atkDamage = rollD8()+getDexMod();
-                        break;
-                        
-                case 4: atkDamage = rollD6()+getDexMod();
-                        break;
-                        
-                case 5: atkDamage = rollD6()+getDexMod();
-                        break;
-                        
-                case 6: atkDamage = rollD4()+getDexMod();
-                        break;
-                        
-                case 7: atkDamage = rollD6()+getDexMod();
-                        break;
-                        
-                case 8: atkDamage = rollD6()+getDexMod();
-                        break;
-                        
-                case 9: atkDamage = rollD4()+getDexMod();
-                        break;
-                        
-                case 10: atkDamage = rollD6()+getDexMod();
-                        break;
-            }
-        }
-        else if(classChoice == 1 || classChoice == 3 || classChoice == 5 || classChoice == 6 || classChoice == 7){
-             switch(weaponChoice){
-                case 1: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 2: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 3: atkDamage = rollD10()+getStrMod();
-                        break;
-                        
-                case 4: atkDamage = rollD12()+getStrMod();
-                        break;
-                        
-                case 5: atkDamage = rollD6()+rollD6()+getStrMod();
-                        break;
-                        
-                case 6: atkDamage = rollD10()+getStrMod();
-                        break;
-                        
-                case 7: atkDamage = rollD12()+getStrMod();
-                        break;
-                        
-                case 8: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 9: atkDamage = rollD6()+rollD6()+getStrMod();
-                        break;
-                        
-                case 10: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 11: atkDamage = rollD10()+getStrMod();
-                        break;
-                        
-                case 12: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 13: atkDamage = rollD6()+getStrMod();
-                        break;
-                        
-                case 14: atkDamage = rollD6()+getStrMod();
-                        break;
-                        
-                case 15: atkDamage = rollD6()+getStrMod();
-                        break;
-                        
-                case 16: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 17: atkDamage = rollD8()+getStrMod();
-                        break;
-                        
-                case 18: atkDamage = rollD4()+getStrMod();
-                        break;
-            }       
-        }
-    }
-
-    @Override
-    public void selectSpell() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void magicAtk() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+    
     @Override
     public void selectRangeWeapon() {
         while(!test){

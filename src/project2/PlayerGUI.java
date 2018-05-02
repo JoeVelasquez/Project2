@@ -182,6 +182,7 @@ public class PlayerGUI extends javax.swing.JFrame{
 
         jPanel1.setBackground(new java.awt.Color(54, 6, 43));
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(10, 10, 10, 10, new java.awt.Color(0, 0, 0)));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         And.setFont(new java.awt.Font("Old English Text MT", 2, 70)); // NOI18N
