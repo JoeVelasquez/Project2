@@ -1115,50 +1115,62 @@ public class PlayerStats extends Player{
                 case "Barbarian":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD12()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 10 + getDexMod() + getConMod();
                     break;
                 case "Bard":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 case "Cleric":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 15 + getDexMod() + 2;
                     break;
                 case "Druid":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 14 + getDexMod();
                     break;
                 case "Fighter":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 16;
                     break;
                 case "Monk":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 10 + getDexMod() + getWisMod();
                     break;
                 case "Paladin":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 18;
                     break;
                 case "Ranger":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD10()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 case "Rogue":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 case "Sorcerer":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 case "Warlock":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD8()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 case "Wizard":
                     this.setMaxHitPoints(getMaxHitPoints()+rollD6()+getConMod());
                     this.setBaseAtkBonus(2);
+                    this.armorClass = 12 + getDexMod();
                     break;
                 default:
                     System.out.printf("%nClass was lost!!!");
